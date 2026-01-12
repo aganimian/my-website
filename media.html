@@ -845,20 +845,29 @@
 
             if (state.currentIndex >= state.totalSlides - 1) return;
 
-            // Slide out current to left
-            slides[state.currentIndex].classList.add('slide-out');
-            slides[state.currentIndex].classList.remove('active');
+            const currentSlide = slides[state.currentIndex];
+            const nextSlideEl = slides[state.currentIndex + 1];
 
-            // Move to next
-            state.currentIndex++;
+            // Position next slide to the right before animating
+            nextSlideEl.style.transform = 'translateX(100%)';
+            nextSlideEl.classList.add('active');
 
-            // Slide in next from right
-            slides[state.currentIndex].classList.add('active');
+            // Force reflow
+            nextSlideEl.offsetHeight;
+
+            // Animate current slide out to the left, next slide in from right
+            currentSlide.style.transform = 'translateX(-100%)';
+            currentSlide.style.opacity = '0';
+            nextSlideEl.style.transform = 'translateX(0)';
 
             setTimeout(() => {
-                slides[state.currentIndex - 1].classList.remove('slide-out');
+                currentSlide.classList.remove('active');
+                currentSlide.style.transform = '';
+                currentSlide.style.opacity = '';
+                nextSlideEl.style.transform = '';
             }, 400);
 
+            state.currentIndex++;
             updateButtons(carouselId);
         }
 
@@ -869,25 +878,29 @@
 
             if (state.currentIndex <= 0) return;
 
-            // Slide out current to right
-            slides[state.currentIndex].classList.add('slide-out-right');
-            slides[state.currentIndex].classList.remove('active');
+            const currentSlide = slides[state.currentIndex];
+            const prevSlideEl = slides[state.currentIndex - 1];
 
-            // Move to previous
-            state.currentIndex--;
+            // Position prev slide to the left before animating
+            prevSlideEl.style.transform = 'translateX(-100%)';
+            prevSlideEl.classList.add('active');
 
-            // Slide in previous from left
-            slides[state.currentIndex].classList.add('slide-in-left');
+            // Force reflow
+            prevSlideEl.offsetHeight;
+
+            // Animate current slide out to the right, prev slide in from left
+            currentSlide.style.transform = 'translateX(100%)';
+            currentSlide.style.opacity = '0';
+            prevSlideEl.style.transform = 'translateX(0)';
 
             setTimeout(() => {
-                slides[state.currentIndex].classList.remove('slide-in-left');
-                slides[state.currentIndex].classList.add('active');
-            }, 10);
-
-            setTimeout(() => {
-                slides[state.currentIndex + 1].classList.remove('slide-out-right');
+                currentSlide.classList.remove('active');
+                currentSlide.style.transform = '';
+                currentSlide.style.opacity = '';
+                prevSlideEl.style.transform = '';
             }, 400);
 
+            state.currentIndex--;
             updateButtons(carouselId);
         }
 
