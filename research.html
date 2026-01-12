@@ -115,6 +115,79 @@
             cursor: pointer;
         }
 
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            line-height: 1;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--accent);
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu-search {
+            display: flex;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-search input {
+            flex: 1;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+        }
+
+        .mobile-menu-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .mobile-menu-search button {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
         /* Page Header */
         .page-header {
             padding: 3rem 0;
@@ -349,9 +422,21 @@
         }
 
         @media (max-width: 700px) {
+            .nav-container {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
             .nav-links,
             .nav-search {
                 display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
             }
 
             .page-header-inner,
@@ -399,9 +484,25 @@
                     <a href="teaching.html">Teaching</a>
                     <a href="media.html">Media</a>
                 </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">&#9776;</button>
             </div>
         </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="research.html">Research</a>
+            <a href="policy.html">Policy</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="media.html">Media</a>
+            <form class="mobile-menu-search" action="search.html" method="get">
+                <input type="text" name="q" placeholder="Search...">
+                <button type="submit">Go</button>
+            </form>
+        </div>
     </nav>
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+    </script>
 
     <header class="page-header">
         <div class="page-header-inner">
