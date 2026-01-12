@@ -168,6 +168,7 @@
             gap: 2rem;
             padding-bottom: 2.5rem;
             border-bottom: 1px solid var(--gray-dark);
+            scroll-margin-top: 100px;
         }
 
         .paper-item:last-child {
@@ -260,6 +261,13 @@
             font-weight: 500;
             padding: 0.25rem 0.6rem;
             border-radius: 2px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .tag:hover {
+            opacity: 0.8;
         }
 
         .tag-teacher-development {
@@ -405,7 +413,7 @@
         <div class="section-inner">
             <h2 class="section-title">Working Papers</h2>
             <div class="paper-list">
-                <div class="paper-item">
+                <div class="paper-item" id="paper-classroom-observations">
                     <img src="images/research-1.jpg" alt="Classroom observations" class="paper-image">
                     <div class="paper-content">
                         <h3 class="paper-title">The reliability of classroom observations and student surveys in non-research settings: Evidence from Argentina</h3>
@@ -416,14 +424,14 @@
                             <a href="https://edworkingpapers.com/ai25-1322" target="_blank" class="paper-link">Annenberg EdWorkingPaper</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-teacher-development">Teacher development</span>
-                            <span class="tag tag-assessments">Assessments</span>
-                            <span class="tag tag-argentina">Argentina</span>
+                            <a href="search.html?q=Teacher+development" class="tag tag-teacher-development">Teacher development</a>
+                            <a href="search.html?q=Assessments" class="tag tag-assessments">Assessments</a>
+                            <a href="search.html?q=Argentina" class="tag tag-argentina">Argentina</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="paper-item">
+                <div class="paper-item" id="paper-teacher-knowledge">
                     <img src="images/research-2.jpg" alt="Teacher training" class="paper-image">
                     <div class="paper-content">
                         <h3 class="paper-title">Leveraging complementarities between teachers' content knowledge and pedagogical supports: Experimental evidence from India</h3>
@@ -433,14 +441,14 @@
                             <a href="https://alejandroganimian.com/s/Ganimianetal_20250929.pdf" target="_blank" class="paper-link">Latest manuscript</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-teacher-development">Teacher development</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
-                            <span class="tag tag-india">India</span>
+                            <a href="search.html?q=Teacher+development" class="tag tag-teacher-development">Teacher development</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
+                            <a href="search.html?q=India" class="tag tag-india">India</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="paper-item">
+                <div class="paper-item" id="paper-civic-education">
                     <img src="images/news-4.png" alt="Civic education" class="paper-image">
                     <div class="paper-content">
                         <h3 class="paper-title">Does civic education impact primary-school students' civic outcomes? Experimental evidence from Liberia</h3>
@@ -452,8 +460,8 @@
                             <a href="https://steinhardt.nyu.edu/education-policy/working-paper-series/recent-papers" target="_blank" class="paper-link">NYU Steinhardt Working Paper</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-social-emotional">Social-emotional skills</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <a href="search.html?q=Social-emotional+skills" class="tag tag-social-emotional">Social-emotional skills</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
                         </div>
                     </div>
                 </div>
@@ -468,8 +476,8 @@
                             <a href="https://alejandroganimian.com/s/Ganimian-Djaker-2022-07-29-ajg.pdf" target="_blank" class="paper-link">Latest manuscript</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-assessments">Assessments</span>
-                            <span class="tag tag-foundational-skills">Foundational skills</span>
+                            <a href="search.html?q=Assessments" class="tag tag-assessments">Assessments</a>
+                            <a href="search.html?q=Foundational+skills" class="tag tag-foundational-skills">Foundational skills</a>
                         </div>
                     </div>
                 </div>
@@ -494,15 +502,15 @@
                             <a href="https://edworkingpapers.com/sites/default/files/ai24-964.pdf" target="_blank" class="paper-link">Annenberg EdWorkingPaper</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-education-technology">Education technology</span>
-                            <span class="tag tag-early-childhood">Early childhood education</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
-                            <span class="tag tag-india">India</span>
+                            <a href="search.html?q=Education+technology" class="tag tag-education-technology">Education technology</a>
+                            <a href="search.html?q=Early+childhood+education" class="tag tag-early-childhood">Early childhood education</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
+                            <a href="search.html?q=India" class="tag tag-india">India</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="paper-item">
+                <div class="paper-item" id="paper-math-transfer">
                     <img src="images/research-3.jpg" alt="Math transfer" class="paper-image">
                     <div class="paper-content">
                         <h3 class="paper-title">Children's arithmetic skills do not transfer between applied and academic mathematics</h3>
@@ -513,15 +521,15 @@
                             <a href="https://www.nature.com/articles/s41586-024-08502-w" target="_blank" class="paper-link">Published version</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-math-education">Math education</span>
-                            <span class="tag tag-foundational-skills">Foundational skills</span>
-                            <span class="tag tag-assessments">Assessments</span>
-                            <span class="tag tag-india">India</span>
+                            <a href="search.html?q=Math+education" class="tag tag-math-education">Math education</a>
+                            <a href="search.html?q=Foundational+skills" class="tag tag-foundational-skills">Foundational skills</a>
+                            <a href="search.html?q=Assessments" class="tag tag-assessments">Assessments</a>
+                            <a href="search.html?q=India" class="tag tag-india">India</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="paper-item">
+                <div class="paper-item" id="paper-teacher-estimations">
                     <img src="images/news-1.png" alt="Teacher estimations" class="paper-image">
                     <div class="paper-content">
                         <h3 class="paper-title">Out of sight, out of mind? The gap between students' test performance and teachers' estimations in India and Bangladesh</h3>
@@ -534,9 +542,9 @@
                             <a href="https://edworkingpapers.com/ai23-750" target="_blank" class="paper-link">Annenberg EdWorkingPaper</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-teacher-development">Teacher development</span>
-                            <span class="tag tag-assessments">Assessments</span>
-                            <span class="tag tag-india">India</span>
+                            <a href="search.html?q=Teacher+development" class="tag tag-teacher-development">Teacher development</a>
+                            <a href="search.html?q=Assessments" class="tag tag-assessments">Assessments</a>
+                            <a href="search.html?q=India" class="tag tag-india">India</a>
                         </div>
                     </div>
                 </div>
@@ -554,16 +562,16 @@
                             <a href="https://www.socialscienceregistry.org/trials/2453" target="_blank" class="paper-link">AEA RCT registration</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-teacher-development">Teacher development</span>
-                            <span class="tag tag-school-management">School management</span>
-                            <span class="tag tag-assessments">Assessments</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
-                            <span class="tag tag-argentina">Argentina</span>
+                            <a href="search.html?q=Teacher+development" class="tag tag-teacher-development">Teacher development</a>
+                            <a href="search.html?q=School+management" class="tag tag-school-management">School management</a>
+                            <a href="search.html?q=Assessments" class="tag tag-assessments">Assessments</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
+                            <a href="search.html?q=Argentina" class="tag tag-argentina">Argentina</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="paper-item">
+                <div class="paper-item" id="paper-state-capacity">
                     <img src="images/research-8.png" alt="State capacity" class="paper-image">
                     <div class="paper-content">
                         <h3 class="paper-title">Augmenting state capacity for child development: Experimental evidence from India</h3>
@@ -578,9 +586,9 @@
                             <a href="https://www.socialscienceregistry.org/trials/1772" target="_blank" class="paper-link">AEA RCT registration</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-early-childhood">Early childhood education</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
-                            <span class="tag tag-india">India</span>
+                            <a href="search.html?q=Early+childhood+education" class="tag tag-early-childhood">Early childhood education</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
+                            <a href="search.html?q=India" class="tag tag-india">India</a>
                         </div>
                     </div>
                 </div>
@@ -596,9 +604,9 @@
                             <a href="https://www.sciencedirect.com/science/article/pii/S0885200623000522" target="_blank" class="paper-link">Published version</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-teacher-development">Teacher development</span>
-                            <span class="tag tag-social-emotional">Social-emotional skills</span>
-                            <span class="tag tag-early-childhood">Early childhood education</span>
+                            <a href="search.html?q=Teacher+development" class="tag tag-teacher-development">Teacher development</a>
+                            <a href="search.html?q=Social-emotional+skills" class="tag tag-social-emotional">Social-emotional skills</a>
+                            <a href="search.html?q=Early+childhood+education" class="tag tag-early-childhood">Early childhood education</a>
                         </div>
                     </div>
                 </div>
@@ -614,7 +622,7 @@
                             <a href="https://www.sciencedirect.com/science/article/pii/S0885200623000558" target="_blank" class="paper-link">Published version</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-early-childhood">Early childhood education</span>
+                            <a href="search.html?q=Early+childhood+education" class="tag tag-early-childhood">Early childhood education</a>
                         </div>
                     </div>
                 </div>
@@ -632,10 +640,10 @@
                             <a href="https://www.socialscienceregistry.org/trials/2459" target="_blank" class="paper-link">AEA RCT registration</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-math-education">Math education</span>
-                            <span class="tag tag-education-technology">Education technology</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
-                            <span class="tag tag-india">India</span>
+                            <a href="search.html?q=Math+education" class="tag tag-math-education">Math education</a>
+                            <a href="search.html?q=Education+technology" class="tag tag-education-technology">Education technology</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
+                            <a href="search.html?q=India" class="tag tag-india">India</a>
                         </div>
                     </div>
                 </div>
@@ -652,10 +660,10 @@
                             <a href="https://alejandroganimian.com/s/de-Barros-Ganimian-2020-04-02.docx" target="_blank" class="paper-link">Latest manuscript</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-math-education">Math education</span>
-                            <span class="tag tag-foundational-skills">Foundational skills</span>
-                            <span class="tag tag-assessments">Assessments</span>
-                            <span class="tag tag-india">India</span>
+                            <a href="search.html?q=Math+education" class="tag tag-math-education">Math education</a>
+                            <a href="search.html?q=Foundational+skills" class="tag tag-foundational-skills">Foundational skills</a>
+                            <a href="search.html?q=Assessments" class="tag tag-assessments">Assessments</a>
+                            <a href="search.html?q=India" class="tag tag-india">India</a>
                         </div>
                     </div>
                 </div>
@@ -673,10 +681,10 @@
                             <a href="https://www.socialscienceregistry.org/trials/2455" target="_blank" class="paper-link">AEA RCT registration</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-math-education">Math education</span>
-                            <span class="tag tag-education-technology">Education technology</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
-                            <span class="tag tag-india">India</span>
+                            <a href="search.html?q=Math+education" class="tag tag-math-education">Math education</a>
+                            <a href="search.html?q=Education+technology" class="tag tag-education-technology">Education technology</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
+                            <a href="search.html?q=India" class="tag tag-india">India</a>
                         </div>
                     </div>
                 </div>
@@ -692,8 +700,8 @@
                             <a href="https://authors.elsevier.com/c/1dnQy56ZNI6Pk" target="_blank" class="paper-link">Published version</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-teacher-development">Teacher development</span>
-                            <span class="tag tag-social-emotional">Social-emotional skills</span>
+                            <a href="search.html?q=Teacher+development" class="tag tag-teacher-development">Teacher development</a>
+                            <a href="search.html?q=Social-emotional+skills" class="tag tag-social-emotional">Social-emotional skills</a>
                         </div>
                     </div>
                 </div>
@@ -712,10 +720,10 @@
                             <a href="https://www.socialscienceregistry.org/trials/2434" target="_blank" class="paper-link">AEA RCT registration</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-school-management">School management</span>
-                            <span class="tag tag-assessments">Assessments</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
-                            <span class="tag tag-argentina">Argentina</span>
+                            <a href="search.html?q=School+management" class="tag tag-school-management">School management</a>
+                            <a href="search.html?q=Assessments" class="tag tag-assessments">Assessments</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
+                            <a href="search.html?q=Argentina" class="tag tag-argentina">Argentina</a>
                         </div>
                     </div>
                 </div>
@@ -733,9 +741,9 @@
                             <a href="https://www.socialscienceregistry.org/trials/5361" target="_blank" class="paper-link">AEA RCT registration</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-school-management">School management</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
-                            <span class="tag tag-argentina">Argentina</span>
+                            <a href="search.html?q=School+management" class="tag tag-school-management">School management</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
+                            <a href="search.html?q=Argentina" class="tag tag-argentina">Argentina</a>
                         </div>
                     </div>
                 </div>
@@ -753,9 +761,9 @@
                             <a href="https://www.socialscienceregistry.org/trials/2970" target="_blank" class="paper-link">AEA RCT registration</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-social-emotional">Social-emotional skills</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
-                            <span class="tag tag-argentina">Argentina</span>
+                            <a href="search.html?q=Social-emotional+skills" class="tag tag-social-emotional">Social-emotional skills</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
+                            <a href="search.html?q=Argentina" class="tag tag-argentina">Argentina</a>
                         </div>
                     </div>
                 </div>
@@ -774,9 +782,9 @@
                             <a href="https://www.socialscienceregistry.org/trials/3258" target="_blank" class="paper-link">AEA RCT registration</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-social-emotional">Social-emotional skills</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
-                            <span class="tag tag-argentina">Argentina</span>
+                            <a href="search.html?q=Social-emotional+skills" class="tag tag-social-emotional">Social-emotional skills</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
+                            <a href="search.html?q=Argentina" class="tag tag-argentina">Argentina</a>
                         </div>
                     </div>
                 </div>
@@ -797,10 +805,10 @@
                             <a href="https://www.povertyactionlab.org/evaluation/disrupting-education-experimental-evidence-technology-aided-instruction-india" target="_blank" class="paper-link">Evaluation summary</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-math-education">Math education</span>
-                            <span class="tag tag-education-technology">Education technology</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
-                            <span class="tag tag-india">India</span>
+                            <a href="search.html?q=Math+education" class="tag tag-math-education">Math education</a>
+                            <a href="search.html?q=Education+technology" class="tag tag-education-technology">Education technology</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
+                            <a href="search.html?q=India" class="tag tag-india">India</a>
                         </div>
                     </div>
                 </div>
@@ -818,8 +826,8 @@
                             <a href="https://alejandroganimian.com/s/Online-Appendix-2016-08-04.pdf" target="_blank" class="paper-link">Online appendix</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-teacher-development">Teacher development</span>
-                            <span class="tag tag-argentina">Argentina</span>
+                            <a href="search.html?q=Teacher+development" class="tag tag-teacher-development">Teacher development</a>
+                            <a href="search.html?q=Argentina" class="tag tag-argentina">Argentina</a>
                         </div>
                     </div>
                 </div>
@@ -835,8 +843,8 @@
                             <a href="http://www.sciencedirect.com/science/article/pii/S0738059316300049" target="_blank" class="paper-link">Published version</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-assessments">Assessments</span>
-                            <span class="tag tag-pakistan">Pakistan</span>
+                            <a href="search.html?q=Assessments" class="tag tag-assessments">Assessments</a>
+                            <a href="search.html?q=Pakistan" class="tag tag-pakistan">Pakistan</a>
                         </div>
                     </div>
                 </div>
@@ -855,7 +863,7 @@
                             <a href="https://alejandroganimian.com/s/Murnane-Ganimian-2014-PREAL-EN-b6s9.pdf" target="_blank" class="paper-link">PREAL working paper (English)</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
                         </div>
                     </div>
                 </div>
@@ -871,8 +879,8 @@
                             <a href="http://www.sciencedirect.com/science/article/pii/S0738059315300213" target="_blank" class="paper-link">Published version</a>
                         </div>
                         <div class="paper-tags">
-                            <span class="tag tag-school-management">School management</span>
-                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <a href="search.html?q=School+management" class="tag tag-school-management">School management</a>
+                            <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
                         </div>
                     </div>
                 </div>
