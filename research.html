@@ -23,6 +23,10 @@
             --gray-dark: #ddd;
         }
 
+        html, body {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Libre Franklin', -apple-system, sans-serif;
             color: var(--black);
@@ -378,6 +382,42 @@
             color: #155724;
         }
 
+        .tag-united-states {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        .lang-flag {
+            display: inline-block;
+            width: 18px;
+            height: 12px;
+            margin-left: 0.35rem;
+            vertical-align: middle;
+            border-radius: 1px;
+        }
+
+        .lang-flag.spanish {
+            background: linear-gradient(to bottom, #c60b1e 0%, #c60b1e 25%, #ffc400 25%, #ffc400 75%, #c60b1e 75%, #c60b1e 100%);
+        }
+
+        .lang-flag.uk {
+            background:
+                /* Red cross */
+                linear-gradient(to bottom, transparent 42%, #c8102e 42%, #c8102e 58%, transparent 58%),
+                linear-gradient(to right, transparent 42%, #c8102e 42%, #c8102e 58%, transparent 58%),
+                /* White cross border */
+                linear-gradient(to bottom, transparent 35%, #fff 35%, #fff 65%, transparent 65%),
+                linear-gradient(to right, transparent 35%, #fff 35%, #fff 65%, transparent 65%),
+                /* Red diagonals */
+                linear-gradient(to bottom right, transparent 45%, #c8102e 45%, #c8102e 55%, transparent 55%),
+                linear-gradient(to bottom left, transparent 45%, #c8102e 45%, #c8102e 55%, transparent 55%),
+                /* White diagonals */
+                linear-gradient(to bottom right, transparent 38%, #fff 38%, #fff 62%, transparent 62%),
+                linear-gradient(to bottom left, transparent 38%, #fff 38%, #fff 62%, transparent 62%),
+                /* Blue background */
+                #012169;
+        }
+
         .tag-assessments {
             background-color: #d1ecf1;
             color: #0c5460;
@@ -714,6 +754,7 @@
                             <a href="search.html?q=Teacher+development" class="tag tag-teacher-development">Teacher development</a>
                             <a href="search.html?q=Social-emotional+skills" class="tag tag-social-emotional">Social-emotional skills</a>
                             <a href="search.html?q=Early+childhood+education" class="tag tag-early-childhood">Early childhood education</a>
+                            <a href="search.html?q=United+States" class="tag tag-united-states">United States</a>
                         </div>
                     </div>
                 </div>
@@ -730,6 +771,7 @@
                         </div>
                         <div class="paper-tags">
                             <a href="search.html?q=Early+childhood+education" class="tag tag-early-childhood">Early childhood education</a>
+                            <a href="search.html?q=United+States" class="tag tag-united-states">United States</a>
                         </div>
                     </div>
                 </div>
@@ -763,7 +805,7 @@
                         <p class="paper-venue">Economics of Education Review, 2023</p>
                         <p class="paper-abstract">Foundational skills assessment revealed that only 27% of students mastered typically unassessed skills despite 52% mastering frequently tested concepts.</p>
                         <div class="paper-links">
-                            <a href="https://alejandroganimian.com/s/de-Barros-Ganimian-2020-04-02.docx" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="files/de Barros & Ganimian - 2022-09-13.pdf" target="_blank" class="paper-link">Latest manuscript</a>
                             <a href="https://www.sciencedirect.com/science/article/pii/S0272775722001091" target="_blank" class="paper-link">Published version</a>
                         </div>
                         <div class="paper-tags">
@@ -809,6 +851,7 @@
                         <div class="paper-tags">
                             <a href="search.html?q=Teacher+development" class="tag tag-teacher-development">Teacher development</a>
                             <a href="search.html?q=Social-emotional+skills" class="tag tag-social-emotional">Social-emotional skills</a>
+                            <a href="search.html?q=United+States" class="tag tag-united-states">United States</a>
                         </div>
                     </div>
                 </div>
@@ -821,7 +864,7 @@
                         <p class="paper-venue">The World Bank Economic Review, 2021</p>
                         <p class="paper-abstract">Providing assessment results to schools improved achievement in both math and reading, with gains persisting a year after intervention conclusion.</p>
                         <div class="paper-links">
-                            <a href="https://alejandroganimian.com/s/dehoyosetal2019-ffyg.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="files/dehoyosetal2019.pdf" target="_blank" class="paper-link">Latest manuscript</a>
                             <a href="https://academic.oup.com/wber/advance-article/doi/10.1093/wber/lhz026/5611142" target="_blank" class="paper-link">Published version</a>
                             <a href="http://documents.worldbank.org/curated/en/488751511886071513/Teaching-with-the-test-experimental-evidence-on-diagnostic-feedback-and-capacity-building-for-public-schools-in-Argentina" target="_blank" class="paper-link">World Bank working paper</a>
                             <a href="https://www.socialscienceregistry.org/trials/2434" target="_blank" class="paper-link">AEA RCT registration</a>
@@ -843,8 +886,8 @@
                         <p class="paper-venue">Papeles de la Economia Espanola, 2021</p>
                         <p class="paper-abstract">Despite high participant satisfaction, the training program showed no short-term impacts on school facilities, climate, or student achievement outcomes.</p>
                         <div class="paper-links">
-                            <a href="https://www.dropbox.com/s/1p4xa4cfjd7cb9a/ganimian%26hansen2020.pdf?dl=0" target="_blank" class="paper-link">Latest manuscript</a>
-                            <a href="https://www.funcas.es/wp-content/uploads/2021/01/Alejandro-J.-Ganimian-Samuel-Hansen.pdf" target="_blank" class="paper-link">Published version (Spanish)</a>
+                            <a href="files/ganimian&hansen2020.pdf" target="_blank" class="paper-link">Latest manuscript <span class="lang-flag uk"></span></a>
+                            <a href="https://www.funcas.es/wp-content/uploads/2021/01/Alejandro-J.-Ganimian-Samuel-Hansen.pdf" target="_blank" class="paper-link">Published version <span class="lang-flag spanish"></span></a>
                             <a href="https://www.socialscienceregistry.org/trials/5361" target="_blank" class="paper-link">AEA RCT registration</a>
                         </div>
                         <div class="paper-tags">
@@ -966,8 +1009,8 @@
                         <div class="paper-links">
                             <a href="http://journals.sagepub.com/doi/abs/10.3102/0034654315627499" target="_blank" class="paper-link">Published version</a>
                             <a href="http://www.nber.org/papers/w20284" target="_blank" class="paper-link">NBER working paper</a>
-                            <a href="https://alejandroganimian.com/s/Murnane-Ganimian-2014-PREAL-SP.pdf" target="_blank" class="paper-link">PREAL working paper (Spanish)</a>
-                            <a href="https://alejandroganimian.com/s/Murnane-Ganimian-2014-PREAL-EN-b6s9.pdf" target="_blank" class="paper-link">PREAL working paper (English)</a>
+                            <a href="https://alejandroganimian.com/s/Murnane-Ganimian-2014-PREAL-SP.pdf" target="_blank" class="paper-link">PREAL working paper <span class="lang-flag spanish"></span></a>
+                            <a href="https://alejandroganimian.com/s/Murnane-Ganimian-2014-PREAL-EN-b6s9.pdf" target="_blank" class="paper-link">PREAL working paper <span class="lang-flag uk"></span></a>
                         </div>
                         <div class="paper-tags">
                             <a href="search.html?q=Impact+evaluation" class="tag tag-impact-evaluation">Impact evaluation</a>
