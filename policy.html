@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy - Alejandro J. Ganimian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #222;
+            --accent-hover: #000;
+            --black: #222;
+            --white: #fff;
+            --gray: #f5f5f5;
+            --gray-dark: #ddd;
+        }
+
+        body {
+            font-family: 'Libre Franklin', -apple-system, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Nav */
+        nav {
+            background: var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-search {
+            display: flex;
+        }
+
+        .nav-search input {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+            width: 200px;
+        }
+
+        .nav-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .nav-search input:focus {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-search button {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .page-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .page-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        /* Section */
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .section-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--black);
+        }
+
+        /* Topic Block */
+        .topic-block {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2.5rem;
+        }
+
+        .topic-image {
+            width: 280px;
+            height: 195px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .topic-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Material Items */
+        .material-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .material-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .material-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1.4;
+            color: var(--black);
+        }
+
+        .material-title:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .material-authors {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #555;
+        }
+
+        .material-venue {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+        }
+
+        .lang-flag {
+            display: inline-block;
+            width: 18px;
+            height: 12px;
+            margin-left: 0.35rem;
+            vertical-align: middle;
+            background: linear-gradient(to bottom, #c60b1e 0%, #c60b1e 25%, #ffc400 25%, #ffc400 75%, #c60b1e 75%, #c60b1e 100%);
+            border-radius: 1px;
+        }
+
+        /* Tags */
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .tag {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.6rem;
+            border-radius: 2px;
+        }
+
+        .tag-teacher-development {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .tag-education-technology {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .tag-early-childhood {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .tag-india {
+            background-color: #ffe5cc;
+            color: #854d0e;
+        }
+
+        .tag-argentina {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .tag-pakistan {
+            background-color: #e2d9f3;
+            color: #4a235a;
+        }
+
+        .tag-assessments {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .tag-impact-evaluation {
+            background-color: #fce4ec;
+            color: #880e4f;
+        }
+
+        .tag-social-emotional {
+            background-color: #e0f2f1;
+            color: #00695c;
+        }
+
+        .tag-foundational-skills {
+            background-color: #fff8e1;
+            color: #f57f17;
+        }
+
+        .tag-school-management {
+            background-color: #eceff1;
+            color: #37474f;
+        }
+
+        .tag-absenteeism {
+            background-color: #ffebee;
+            color: #b71c1c;
+        }
+
+        .tag-math-education {
+            background-color: #ede7f6;
+            color: #4527a0;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .topic-block {
+                grid-template-columns: 220px 1fr;
+                gap: 1.5rem;
+            }
+
+            .topic-image {
+                width: 220px;
+                height: 155px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-links,
+            .nav-search {
+                display: none;
+            }
+
+            .page-header-inner,
+            .section-inner {
+                padding: 0 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .topic-block {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .topic-image {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/10;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Alejandro J. Ganimian</a>
+            <div class="nav-right">
+                <form class="nav-search" action="search.html" method="get">
+                    <input type="text" name="q" placeholder="Search...">
+                    <button type="submit">Go</button>
+                </form>
+                <div class="nav-links">
+                    <a href="research.html">Research</a>
+                    <a href="policy.html">Policy</a>
+                    <a href="teaching.html">Teaching</a>
+                    <a href="media.html">Media</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-inner">
+            <h1 class="page-title">Policy</h1>
+        </div>
+    </header>
+
+    <section class="section" id="civic-education">
+        <div class="section-inner">
+            <h2 class="section-title">Civic Education</h2>
+            <div class="topic-block">
+                <img src="images/news-4.png" alt="Civic Education" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-list">
+                        <a href="https://static1.squarespace.com/static/5c75a360e6666926bb5b2e39/t/67b4ff2bacf1bb0daba60c54/1739915065991/Liberia+Final+Endline+Report" target="_blank" class="material-item">
+                            <span class="material-title">Liberia civic education: Endline report</span>
+                            <span class="material-authors">with E. King, S. Acris & K. Marple-Cantrell</span>
+                            <span class="material-venue">USAID, 2025</span>
+                        </a>
+                        <a href="https://static1.squarespace.com/static/5c75a360e6666926bb5b2e39/t/67bdd7f7e8f6bd3da703a225/1740494839455/Liberia+Civic+Ed+PAP+Revised+240417+-+CLEAN.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Liberia civic education: Pre-analysis plan</span>
+                            <span class="material-authors">with E. King, S. Acris & K. Marple-Cantrell</span>
+                            <span class="material-venue">USAID, 2024</span>
+                        </a>
+                        <a href="https://static1.squarespace.com/static/5c75a360e6666926bb5b2e39/t/67bdd81b51e7aa55e534ef9e/1740494875247/LER+II+CB+033+Liberia+CE+IE+Final+Design+Report+9.22.22+FINAL+APPROVED+for+posting.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Liberia civic education: Design report</span>
+                            <span class="material-authors">with E. King, S. Acris, K. Marple-Cantrell & D. Baysah</span>
+                            <span class="material-venue">USAID, 2022</span>
+                        </a>
+                        <a href="https://static1.squarespace.com/static/5c75a360e6666926bb5b2e39/t/67bdd82d5135ad55cc67a8be/1740494893604/LER+II+CB033+Liberia+Civic+Ed+IE+Evidence+Review+20211011+final+approved.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Liberia civic education: Evidence review</span>
+                            <span class="material-authors">with E. King & S. Acris</span>
+                            <span class="material-venue">USAID, 2021</span>
+                        </a>
+                        <a href="https://static1.squarespace.com/static/5c75a360e6666926bb5b2e39/t/67bf3317fb74234614d9f9be/1740583703550/USAID.ArmeniaCivicsEducationEvidenceReview.2022.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Armenia Civics for Engagement Activity: Evidence review</span>
+                            <span class="material-authors">with D. Burde, H. Lahmann-Rosen, A. de Barros, M. Counterman & S. Acris</span>
+                            <span class="material-venue">USAID, 2022</span>
+                        </a>
+                    </div>
+                    <div class="topic-tags">
+                        <span class="tag tag-social-emotional">Social-emotional skills</span>
+                        <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="education-technology" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Education Technology</h2>
+            <div class="topic-block">
+                <img src="images/news-8.png" alt="Education Technology" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-list">
+                        <a href="https://alejandroganimian.com/s/edtech_playbook_full_v2.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Realizing the promise: How can education technology improve learning for all?</span>
+                            <span class="material-authors">with E. Vegas & F. M. Hess</span>
+                            <span class="material-venue">Brookings Institution, 2020</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/Resumen-de-Evidencia-en-Tecnologias-de-Educacion.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Technology in education: How can it improve learning? <span class="lang-flag"></span></span>
+                            <span class="material-venue">J-PAL LAC & Proyecto Educar 2050, 2018</span>
+                        </a>
+                    </div>
+                    <div class="topic-tags">
+                        <span class="tag tag-education-technology">Education technology</span>
+                        <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teacher-policies">
+        <div class="section-inner">
+            <h2 class="section-title">Teacher Policies</h2>
+            <div class="topic-block">
+                <img src="images/research-2.jpg" alt="Teacher Policies" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-list">
+                        <a href="https://publications.iadb.org/handle/11319/4597" target="_blank" class="material-item">
+                            <span class="material-title">Theory and evidence on teacher policies in developed and developing countries</span>
+                            <span class="material-authors">with E. Vegas</span>
+                            <span class="material-venue">Inter-American Development Bank, 2013</span>
+                        </a>
+                        <a href="http://documents.worldbank.org/curated/en/503591468331856077/What-matters-most-for-teacher-policies-a-framework-paper" target="_blank" class="material-item">
+                            <span class="material-title">What matters most for teacher policies: A framework paper</span>
+                            <span class="material-authors">with E. Vegas, S. Loeb, P. Romaguera, A. Paglayan, N. Goldstein, A. Trembley & A. Jaimovich</span>
+                            <span class="material-venue">World Bank, 2013</span>
+                        </a>
+                        <a href="https://publications.iadb.org/handle/11319/4597" target="_blank" class="material-item">
+                            <span class="material-title">Theory and evidence on teacher policies <span class="lang-flag"></span></span>
+                            <span class="material-authors">with E. Vegas</span>
+                            <span class="material-venue">Inter-American Development Bank, 2013</span>
+                        </a>
+                    </div>
+                    <div class="topic-tags">
+                        <span class="tag tag-teacher-development">Teacher development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="assessments" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Assessments</h2>
+            <div class="topic-block">
+                <img src="images/news-1.png" alt="Assessments" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-list">
+                        <a href="https://alejandroganimian.com/s/Informe-Aprender-2016-2023-2024-11-28-ajg.pdf" target="_blank" class="material-item">
+                            <span class="material-title">What did we learn from Aprender? Argentina 2016-2023 <span class="lang-flag"></span></span>
+                            <span class="material-authors">with V. Mesalles</span>
+                            <span class="material-venue">Educar 2050 / Argentinos por la Educacion, 2024</span>
+                        </a>
+                        <a href="https://argentinosporlaeducacion.org/informe/uso-de-pruebas-estandarizadas-para-la-mejora-continua/" target="_blank" class="material-item">
+                            <span class="material-title">Using standardized tests for continuous improvement <span class="lang-flag"></span></span>
+                            <span class="material-authors">with L. Saenz Guillenz & M. Nistal</span>
+                            <span class="material-venue">Argentinos por la Educacion, 2024</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/Informe-PISA-Argentina-2018-jrkr.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Low, unequal, and stagnant learning: PISA 2018 Argentina <span class="lang-flag"></span></span>
+                            <span class="material-venue">Proyecto Educar 2050, 2019</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/Informe-ONE-2005-2013.pdf" target="_blank" class="material-item">
+                            <span class="material-title">The educational thermometer: Argentina ONE 2005-2013 <span class="lang-flag"></span></span>
+                            <span class="material-venue">Proyecto Educar 2050, 2015</span>
+                        </a>
+                        <a href="http://umc.minedu.gob.pe/wp-content/uploads/2015/06/Resumen-TERCE-PISA2012.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Low results, high improvements: International evaluation of Peru <span class="lang-flag"></span></span>
+                            <span class="material-venue">Ministerio de Educacion del Peru, 2015</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/Informe-TERCE-LatAm.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Lessons from Latin America: Analysis of TERCE <span class="lang-flag"></span></span>
+                            <span class="material-venue">Red Latinoamericana por la Educacion & Proyecto Educar 2050, 2015</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/Informe-TERCE-Argentina.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Progress and pending challenges: TERCE 2013 Argentina <span class="lang-flag"></span></span>
+                            <span class="material-venue">Proyecto Educar 2050, 2014</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/Informe-PISA-Argentina-2012-Vol-III.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Unequal learning: PISA 2012 Argentine regions <span class="lang-flag"></span></span>
+                            <span class="material-venue">Proyecto Educar 2050, 2014</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/Informe-PISA-Argentina-2012.pdf" target="_blank" class="material-item">
+                            <span class="material-title">We failed to improve: PISA 2012 Argentina <span class="lang-flag"></span></span>
+                            <span class="material-venue">Proyecto Educar 2050, 2013</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/preal_pisa_englowres.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Measuring up? Latin America and the Caribbean on PISA 2009</span>
+                            <span class="material-authors">with A. Solano Rocha</span>
+                            <span class="material-venue">Inter-American Dialogue, 2011</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/preal_pisa_sp_lowres_0.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Are they at the level? PISA 2009 Latin America <span class="lang-flag"></span></span>
+                            <span class="material-authors">with A. Solano Rocha</span>
+                            <span class="material-venue">Inter-American Dialogue, 2011</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/How-Much-Are-LA-Children-Learning_Jan2010_LowRes.pdf" target="_blank" class="material-item">
+                            <span class="material-title">How much are Latin American children learning? SERCE</span>
+                            <span class="material-venue">Inter-American Dialogue, 2009</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/2009-cuanto-estan-aprendiendo-los-nios-latinoamericanos-llece-serce.pdf" target="_blank" class="material-item">
+                            <span class="material-title">How much are Latin American children learning? SERCE <span class="lang-flag"></span></span>
+                            <span class="material-venue">Inter-American Dialogue, 2009</span>
+                        </a>
+                    </div>
+                    <div class="topic-tags">
+                        <span class="tag tag-assessments">Assessments</span>
+                        <span class="tag tag-foundational-skills">Foundational skills</span>
+                        <span class="tag tag-argentina">Argentina</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="evidence-briefs">
+        <div class="section-inner">
+            <h2 class="section-title">Evidence Briefs</h2>
+            <div class="topic-block">
+                <img src="images/news-9.png" alt="Evidence Briefs" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-list">
+                        <a href="https://alejandroganimian.com/s/Ausentismo-en-Mendoza-Informe-en-espaol-2024-01-31-ajg-5j6s.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Report on student absences in Mendoza, Argentina <span class="lang-flag"></span></span>
+                            <span class="material-venue">Direccion General de Escuelas, Provincia de Mendoza, 2022</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/Lectura-inicial-en-crisis.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Early reading in crisis: A call to action <span class="lang-flag"></span></span>
+                            <span class="material-venue">American Institutes for Research, 2021</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/Brief-2018-12-03-ajg.pdf" target="_blank" class="material-item">
+                            <span class="material-title">How can we support secondary school students? <span class="lang-flag"></span></span>
+                            <span class="material-venue">Inter-American Dialogue & Proyecto Educar 2050, 2019</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/Brief-2019-06-11-ajg.pdf" target="_blank" class="material-item">
+                            <span class="material-title">Can we change students' mindsets? <span class="lang-flag"></span></span>
+                            <span class="material-venue">Inter-American Dialogue & Proyecto Educar 2050, 2019</span>
+                        </a>
+                        <a href="https://alejandroganimian.com/s/Brief-2019-03-19-ajg-wza6.pdf" target="_blank" class="material-item">
+                            <span class="material-title">How can we improve school management and teaching? <span class="lang-flag"></span></span>
+                            <span class="material-venue">Inter-American Dialogue & Proyecto Educar 2050, 2019</span>
+                        </a>
+                    </div>
+                    <div class="topic-tags">
+                        <span class="tag tag-social-emotional">Social-emotional skills</span>
+                        <span class="tag tag-school-management">School management</span>
+                        <span class="tag tag-foundational-skills">Foundational skills</span>
+                        <span class="tag tag-absenteeism">Absenteeism</span>
+                        <span class="tag tag-argentina">Argentina</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

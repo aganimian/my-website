@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Alejandro J. Ganimian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #222;
+            --accent-hover: #000;
+            --black: #222;
+            --white: #fff;
+            --gray: #f5f5f5;
+            --gray-dark: #ddd;
+        }
+
+        body {
+            font-family: 'Libre Franklin', -apple-system, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Nav */
+        nav {
+            background: var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-search {
+            display: flex;
+        }
+
+        .nav-search input {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+            width: 200px;
+        }
+
+        .nav-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .nav-search input:focus {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-search button {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .page-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .page-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        .search-query {
+            font-weight: 300;
+            color: #555;
+        }
+
+        /* Section */
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 2px solid var(--gray-dark);
+            border-right: none;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: var(--black);
+        }
+
+        .search-box button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--black);
+            color: var(--white);
+            border: 2px solid var(--black);
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Results */
+        .results-count {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .result-item {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-category {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #777;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1.4;
+            color: var(--black);
+            margin-bottom: 0.35rem;
+        }
+
+        .result-title:hover {
+            text-decoration: underline;
+        }
+
+        .result-meta {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-excerpt {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .result-excerpt mark {
+            background: #fff3cd;
+            padding: 0 2px;
+        }
+
+        .no-results {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #555;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .nav-links,
+            .nav-search {
+                display: none;
+            }
+
+            .page-header-inner,
+            .section-inner {
+                padding: 0 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Alejandro J. Ganimian</a>
+            <div class="nav-right">
+                <form class="nav-search" action="search.html" method="get">
+                    <input type="text" name="q" placeholder="Search...">
+                    <button type="submit">Go</button>
+                </form>
+                <div class="nav-links">
+                    <a href="research.html">Research</a>
+                    <a href="policy.html">Policy</a>
+                    <a href="teaching.html">Teaching</a>
+                    <a href="media.html">Media</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-inner">
+            <h1 class="page-title">Search <span class="search-query" id="search-query-display"></span></h1>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="section-inner">
+            <form class="search-box" action="search.html" method="get">
+                <input type="text" name="q" id="search-input" placeholder="Search papers, courses, policy reports...">
+                <button type="submit">Search</button>
+            </form>
+            <p class="results-count" id="results-count"></p>
+            <div class="results-list" id="results-list"></div>
+        </div>
+    </section>
+
+    <script>
+        // Search index - contains all searchable content
+        const searchIndex = [
+            // Working Papers
+            {
+                category: "Working Paper",
+                title: "The reliability of classroom observations and student surveys in non-research settings: Evidence from Argentina",
+                authors: "with A. Ho & A. Campos Quintero",
+                abstract: "Both instruments can achieve relatively high reliability when averaged across raters and occasions, though observation reliability varies significantly based on how raters are assigned to teachers.",
+                tags: ["Teacher development", "Assessments", "Argentina"],
+                url: "research.html#working-papers"
+            },
+            {
+                category: "Working Paper",
+                title: "Leveraging complementarities between teachers' content knowledge and pedagogical supports: Experimental evidence from India",
+                authors: "with I. Mbiti & A. Mishra",
+                abstract: "Fellows with strong content knowledge but minimal experience, when paired with training and coaching, substantially outperformed regular teachers in student math and science outcomes.",
+                tags: ["Teacher development", "Impact evaluation", "India"],
+                url: "research.html#working-papers"
+            },
+            {
+                category: "Working Paper",
+                title: "Does civic education impact primary-school students' civic outcomes? Experimental evidence from Liberia",
+                authors: "with S. Acris, E. King & K. Marple-Cantrell",
+                abstract: "The program improved factual civic knowledge substantially, particularly for lower-performing and rural students, but did not translate into increased civic engagement.",
+                tags: ["Social-emotional skills", "Impact evaluation"],
+                url: "research.html#working-papers"
+            },
+            {
+                category: "Working Paper",
+                title: "How can developing countries address heterogeneity in students' preparation for school? A review of the challenge and potential solutions",
+                authors: "with S. Djaker",
+                abstract: "This review explores why schools struggle to accommodate diverse student preparation levels and proposes a conceptual framework for understanding systemic barriers to addressing this challenge.",
+                tags: ["Assessments", "Foundational skills"],
+                url: "research.html#working-papers"
+            },
+            // Journal Articles
+            {
+                category: "Journal Article",
+                title: "The challenges of scaling up effective child-rearing practices using technology in developing settings: Experimental evidence from India",
+                authors: "with I. Arteaga & A. de Barros",
+                venue: "Journal of Research on Educational Effectiveness, 2025",
+                abstract: "An automated parenting intervention showed disappointing results, reducing caregiver self-efficacy and increasing anxiety without improving child development outcomes.",
+                tags: ["Education technology", "Early childhood education", "Impact evaluation", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Journal Article",
+                title: "Children's arithmetic skills do not transfer between applied and academic mathematics",
+                authors: "with A. V. Banerjee, S. Bhattacharjee, R. Chattopadhyay, E. Duflo, K. Rajah & E. S. Spelke",
+                venue: "Nature, 2025",
+                abstract: "Working children in India demonstrated sophisticated market calculations but struggled with equivalent abstract school-format problems, revealing a significant transfer gap.",
+                tags: ["Foundational skills", "Assessments", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Journal Article",
+                title: "Out of sight, out of mind? The gap between students' test performance and teachers' estimations in India and Bangladesh",
+                authors: "with S. Djaker & S. Sabarwal",
+                venue: "Economics of Education Review, 2024",
+                abstract: "Teachers systematically misestimate student performance, particularly tending to overestimate lower-achieving students while underestimating class variability.",
+                tags: ["Teacher development", "Assessments", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Journal Article",
+                title: "The impact of combining performance-management tools and training with diagnostic feedback in public schools: Experimental evidence from Argentina",
+                authors: "with R. de Hoyos, S. Djaker & P. A. Holland",
+                venue: "Economics of Education Review, 2024",
+                abstract: "Pairing performance management tools with training reduced grade repetition, while feedback alone showed minimal effects on student achievement outcomes.",
+                tags: ["Teacher development", "School management", "Assessments", "Impact evaluation", "Argentina"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Journal Article",
+                title: "Augmenting state capacity for child development: Experimental evidence from India",
+                authors: "with K. Muralidharan & C. R. Walters",
+                venue: "Journal of Political Economy, 2024",
+                abstract: "Adding staffing to India's early childhood program nearly doubled instructional time and produced meaningful gains in math and language test scores.",
+                tags: ["Early childhood education", "Impact evaluation", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Journal Article",
+                title: "Which students benefit from computer-based individualized instruction? Experimental evidence from public schools in India",
+                authors: "with A. de Barros",
+                venue: "Journal of Research on Educational Effectiveness, 2023",
+                abstract: "Computer-adaptive learning software proved most beneficial for low-performing students while showing negligible average effects on overall achievement.",
+                tags: ["Education technology", "Impact evaluation", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Journal Article",
+                title: "The foundational math skills of Indian children",
+                authors: "with A. de Barros",
+                venue: "Economics of Education Review, 2023",
+                abstract: "Foundational skills assessment revealed that only 27% of students mastered typically unassessed skills despite 52% mastering frequently tested concepts.",
+                tags: ["Foundational skills", "Assessments", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Journal Article",
+                title: "Growth mindset interventions at scale: Experimental evidence from Argentina",
+                authors: "A. Ganimian",
+                venue: "Educational Evaluation and Policy Analysis, 2020",
+                abstract: "A scaled growth-mindset intervention produced no detectable effects on students' task approach, school climate, achievement, or future plans.",
+                tags: ["Social-emotional skills", "Impact evaluation", "Argentina"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Journal Article",
+                title: "Disrupting education? Experimental evidence on technology-aided instruction in India",
+                authors: "with K. Muralidharan & A. Singh",
+                venue: "American Economic Review, 2019",
+                abstract: "Technology-enabled personalized instruction generated substantial math and Hindi gains, particularly benefiting academically weaker students at low cost.",
+                tags: ["Education technology", "Impact evaluation", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Journal Article",
+                title: "Improving educational outcomes in developing countries: Lessons from rigorous evaluations",
+                authors: "with R. J. Murnane",
+                venue: "Review of Educational Research, 2016",
+                abstract: "Synthesis of 223 evaluations identified that cost reduction expands access, information shapes parental choices, resource quality matters more than quantity, and targeted incentives boost performance.",
+                tags: ["Impact evaluation"],
+                url: "research.html#journal-articles"
+            },
+            // Policy Reports
+            {
+                category: "Policy Report",
+                title: "Liberia civic education: Endline report",
+                authors: "with E. King, S. Acris & K. Marple-Cantrell",
+                venue: "USAID, 2025",
+                tags: ["Social-emotional skills", "Impact evaluation"],
+                url: "policy.html#civic-education"
+            },
+            {
+                category: "Policy Report",
+                title: "Realizing the promise: How can education technology improve learning for all?",
+                authors: "with E. Vegas & F. M. Hess",
+                venue: "Brookings Institution, 2020",
+                tags: ["Education technology", "Impact evaluation"],
+                url: "policy.html#education-technology"
+            },
+            {
+                category: "Policy Report",
+                title: "Theory and evidence on teacher policies in developed and developing countries",
+                authors: "with E. Vegas",
+                venue: "Inter-American Development Bank, 2013",
+                tags: ["Teacher development"],
+                url: "policy.html#teacher-policies"
+            },
+            {
+                category: "Policy Report",
+                title: "What did we learn from Aprender? Argentina 2016-2023",
+                authors: "with V. Mesalles",
+                venue: "Educar 2050 / Argentinos por la Educacion, 2024",
+                tags: ["Assessments", "Foundational skills", "Argentina"],
+                url: "policy.html#assessments"
+            },
+            {
+                category: "Policy Report",
+                title: "Report on student absences in Mendoza, Argentina",
+                venue: "Direccion General de Escuelas, Provincia de Mendoza, 2022",
+                tags: ["Absenteeism", "Argentina"],
+                url: "policy.html#evidence-briefs"
+            },
+            // Teaching
+            {
+                category: "Course",
+                title: "The economics of education in low- and middle-income countries",
+                venue: "Harvard Graduate School of Education, Spring 2025",
+                abstract: "This course examines the economic analysis of education systems in developing countries. Topics include the returns to education, determinants of educational quality, teacher labor markets, school choice and competition, and the design and evaluation of education policies and interventions.",
+                tags: ["Graduate"],
+                url: "teaching.html#visiting-professor"
+            },
+            {
+                category: "Course",
+                title: "Evidence",
+                venue: "Harvard Graduate School of Education, Summer 2024",
+                tags: ["Graduate"],
+                url: "teaching.html#visiting-professor"
+            },
+            {
+                category: "Course",
+                title: "Research methods I",
+                venue: "New York University Steinhardt, Spring 2018-2021",
+                abstract: "This course introduces students to the fundamentals of research methods in the social sciences. Students learn to formulate research questions, design studies, collect and analyze data, and interpret findings.",
+                tags: ["Undergraduate"],
+                url: "teaching.html#assistant-professor"
+            },
+            {
+                category: "Course",
+                title: "Psychological measurement",
+                venue: "New York University Steinhardt, Fall 2017-Spring 2021",
+                abstract: "This course provides a comprehensive introduction to the theory and practice of psychological measurement. Topics include classical test theory, reliability and validity, item analysis, test construction, and an introduction to item response theory.",
+                tags: ["Graduate"],
+                url: "teaching.html#assistant-professor"
+            },
+            {
+                category: "Course",
+                title: "Randomized evaluations of education interventions",
+                authors: "with M. Cortelezzi",
+                venue: "National Ministry of Education Argentina & Universidad Torcuato Di Tella",
+                tags: ["Executive Education"],
+                url: "teaching.html#executive-education"
+            },
+            {
+                category: "Teaching Fellow",
+                title: "Quantitative methods for improving causal inference in educational research",
+                authors: "with D. J. Deming",
+                venue: "Harvard Graduate School of Education, Spring 2014",
+                url: "teaching.html#teaching-fellow"
+            },
+            {
+                category: "Teaching Fellow",
+                title: "Social inequality and educational disadvantage",
+                authors: "with R. J. Murnane",
+                venue: "Harvard Graduate School of Education, Spring 2013",
+                url: "teaching.html#teaching-fellow"
+            },
+            {
+                category: "Teaching Fellow",
+                title: "Methods of educational measurement",
+                authors: "with D. M. Koretz & A. D. Ho",
+                venue: "Harvard Graduate School of Education, Fall 2012",
+                url: "teaching.html#teaching-fellow"
+            },
+            // Media
+            {
+                category: "Media",
+                title: "These teens can do incredible math in their heads but fail in a classroom",
+                venue: "The Hechinger Report",
+                tags: ["Foundational skills", "India"],
+                url: "index.html#media"
+            },
+            {
+                category: "Media",
+                title: "Indian kids ace market math but struggle in class, finds study by Nobel laureates",
+                venue: "India Today",
+                tags: ["Foundational skills", "India"],
+                url: "index.html#media"
+            },
+            {
+                category: "Media",
+                title: "Kids' real-world arithmetic skills don't transfer to the classroom",
+                venue: "Nature Podcast",
+                tags: ["Foundational skills", "India"],
+                url: "index.html#media"
+            },
+            {
+                category: "Media",
+                title: "Debate arises over teaching growth mindsets to motivate students",
+                venue: "Scientific American",
+                tags: ["Social-emotional skills", "Argentina"],
+                url: "index.html#media"
+            },
+            {
+                category: "Media",
+                title: "In poor countries technology can make big improvements to education",
+                venue: "The Economist",
+                tags: ["Education technology"],
+                url: "index.html#media"
+            }
+        ];
+
+        // Get query from URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Highlight search terms in text
+        function highlightText(text, query) {
+            if (!text || !query) return text || '';
+            const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 2);
+            let result = text;
+            terms.forEach(term => {
+                const regex = new RegExp(`(${term})`, 'gi');
+                result = result.replace(regex, '<mark>$1</mark>');
+            });
+            return result;
+        }
+
+        // Search function
+        function search(query) {
+            if (!query || query.trim().length < 2) return [];
+
+            const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 1);
+
+            return searchIndex.filter(item => {
+                const searchText = [
+                    item.title,
+                    item.authors,
+                    item.venue,
+                    item.abstract,
+                    ...(item.tags || [])
+                ].filter(Boolean).join(' ').toLowerCase();
+
+                return terms.some(term => searchText.includes(term));
+            }).map(item => {
+                // Calculate relevance score
+                const searchText = [item.title, item.authors, item.venue, item.abstract, ...(item.tags || [])].filter(Boolean).join(' ').toLowerCase();
+                let score = 0;
+                terms.forEach(term => {
+                    if (item.title && item.title.toLowerCase().includes(term)) score += 10;
+                    if (item.tags && item.tags.some(tag => tag.toLowerCase().includes(term))) score += 5;
+                    if (item.authors && item.authors.toLowerCase().includes(term)) score += 3;
+                    if (item.abstract && item.abstract.toLowerCase().includes(term)) score += 1;
+                });
+                return { ...item, score };
+            }).sort((a, b) => b.score - a.score);
+        }
+
+        // Render results
+        function renderResults(results, query) {
+            const resultsCount = document.getElementById('results-count');
+            const resultsList = document.getElementById('results-list');
+
+            if (results.length === 0) {
+                resultsCount.textContent = '';
+                resultsList.innerHTML = '<p class="no-results">No results found. Try different keywords.</p>';
+                return;
+            }
+
+            resultsCount.textContent = `${results.length} result${results.length !== 1 ? 's' : ''} found`;
+
+            resultsList.innerHTML = results.map(item => `
+                <div class="result-item">
+                    <div class="result-category">${item.category}</div>
+                    <a href="${item.url}" class="result-title">${highlightText(item.title, query)}</a>
+                    ${item.authors ? `<div class="result-meta">${highlightText(item.authors, query)}</div>` : ''}
+                    ${item.venue ? `<div class="result-meta">${highlightText(item.venue, query)}</div>` : ''}
+                    ${item.abstract ? `<div class="result-excerpt">${highlightText(item.abstract, query)}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            const query = getQueryParam('q');
+            const searchInput = document.getElementById('search-input');
+            const queryDisplay = document.getElementById('search-query-display');
+
+            if (query) {
+                searchInput.value = query;
+                queryDisplay.textContent = `for "${query}"`;
+                const results = search(query);
+                renderResults(results, query);
+            }
+        });
+    </script>
+</body>
+</html>

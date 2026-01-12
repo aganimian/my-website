@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Alejandro J. Ganimian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #222;
+            --accent-hover: #000;
+            --black: #222;
+            --white: #fff;
+            --gray: #f5f5f5;
+            --gray-dark: #ddd;
+        }
+
+        body {
+            font-family: 'Libre Franklin', -apple-system, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Nav */
+        nav {
+            background: var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-search {
+            display: flex;
+        }
+
+        .nav-search input {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+            width: 200px;
+        }
+
+        .nav-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .nav-search input:focus {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-search button {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .page-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .page-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        /* Section */
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .section-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--black);
+        }
+
+        /* Paper List */
+        .paper-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .paper-item {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .paper-item:last-child {
+            border-bottom: none;
+        }
+
+        .paper-image {
+            width: 280px;
+            height: 195px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .paper-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .paper-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            line-height: 1.4;
+            color: var(--black);
+            margin-bottom: 0.5rem;
+        }
+
+        .paper-title:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .paper-authors {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 0.35rem;
+        }
+
+        .paper-venue {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #000;
+            margin-bottom: 0.75rem;
+        }
+
+        .paper-abstract {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 1rem;
+        }
+
+        .paper-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .paper-link {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+            transition: opacity 0.2s;
+        }
+
+        .paper-link:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        /* Tags */
+        .paper-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .tag {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.6rem;
+            border-radius: 2px;
+        }
+
+        .tag-teacher-development {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .tag-education-technology {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .tag-early-childhood {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .tag-india {
+            background-color: #ffe5cc;
+            color: #854d0e;
+        }
+
+        .tag-argentina {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .tag-pakistan {
+            background-color: #e2d9f3;
+            color: #4a235a;
+        }
+
+        .tag-assessments {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .tag-impact-evaluation {
+            background-color: #fce4ec;
+            color: #880e4f;
+        }
+
+        .tag-social-emotional {
+            background-color: #e0f2f1;
+            color: #00695c;
+        }
+
+        .tag-foundational-skills {
+            background-color: #fff8e1;
+            color: #f57f17;
+        }
+
+        .tag-school-management {
+            background-color: #eceff1;
+            color: #37474f;
+        }
+
+        .tag-absenteeism {
+            background-color: #ffebee;
+            color: #b71c1c;
+        }
+
+        .tag-math-education {
+            background-color: #ede7f6;
+            color: #4527a0;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .paper-item {
+                grid-template-columns: 220px 1fr;
+                gap: 1.5rem;
+            }
+
+            .paper-image {
+                width: 220px;
+                height: 155px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-links,
+            .nav-search {
+                display: none;
+            }
+
+            .page-header-inner,
+            .section-inner {
+                padding: 0 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .paper-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .paper-image {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/10;
+            }
+
+            .paper-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Alejandro J. Ganimian</a>
+            <div class="nav-right">
+                <form class="nav-search" action="search.html" method="get">
+                    <input type="text" name="q" placeholder="Search...">
+                    <button type="submit">Go</button>
+                </form>
+                <div class="nav-links">
+                    <a href="research.html">Research</a>
+                    <a href="policy.html">Policy</a>
+                    <a href="teaching.html">Teaching</a>
+                    <a href="media.html">Media</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-inner">
+            <h1 class="page-title">Research</h1>
+        </div>
+    </header>
+
+    <section class="section" id="working-papers">
+        <div class="section-inner">
+            <h2 class="section-title">Working Papers</h2>
+            <div class="paper-list">
+                <div class="paper-item">
+                    <img src="images/research-1.jpg" alt="Classroom observations" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">The reliability of classroom observations and student surveys in non-research settings: Evidence from Argentina</h3>
+                        <p class="paper-authors">with A. Ho & A. Campos Quintero</p>
+                        <p class="paper-abstract">Both instruments can achieve relatively high reliability when averaged across raters and occasions, though observation reliability varies significantly based on how raters are assigned to teachers.</p>
+                        <div class="paper-links">
+                            <a href="https://alejandroganimian.com/s/ganimianetal2025.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://edworkingpapers.com/ai25-1322" target="_blank" class="paper-link">Annenberg EdWorkingPaper</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-teacher-development">Teacher development</span>
+                            <span class="tag tag-assessments">Assessments</span>
+                            <span class="tag tag-argentina">Argentina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-2.jpg" alt="Teacher training" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Leveraging complementarities between teachers' content knowledge and pedagogical supports: Experimental evidence from India</h3>
+                        <p class="paper-authors">with I. Mbiti & A. Mishra</p>
+                        <p class="paper-abstract">Fellows with strong content knowledge but minimal experience, when paired with training and coaching, substantially outperformed regular teachers in student math and science outcomes.</p>
+                        <div class="paper-links">
+                            <a href="https://alejandroganimian.com/s/Ganimianetal_20250929.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-teacher-development">Teacher development</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <span class="tag tag-india">India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/news-4.png" alt="Civic education" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Does civic education impact primary-school students' civic outcomes? Experimental evidence from Liberia</h3>
+                        <p class="paper-authors">with S. Acris, E. King & K. Marple-Cantrell</p>
+                        <p class="paper-abstract">The program improved factual civic knowledge substantially, particularly for lower-performing and rural students, but did not translate into increased civic engagement.</p>
+                        <div class="paper-links">
+                            <a href="https://alejandroganimian.com/s/Acris-et-al-2025-2025-07-29.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://edworkingpapers.com/ai25-1258" target="_blank" class="paper-link">Annenberg EdWorkingPaper</a>
+                            <a href="https://steinhardt.nyu.edu/education-policy/working-paper-series/recent-papers" target="_blank" class="paper-link">NYU Steinhardt Working Paper</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-social-emotional">Social-emotional skills</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/news-5.png" alt="Student heterogeneity" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">How can developing countries address heterogeneity in students' preparation for school? A review of the challenge and potential solutions</h3>
+                        <p class="paper-authors">with S. Djaker</p>
+                        <p class="paper-abstract">This review explores why schools struggle to accommodate diverse student preparation levels and proposes a conceptual framework for understanding systemic barriers to addressing this challenge.</p>
+                        <div class="paper-links">
+                            <a href="https://alejandroganimian.com/s/Ganimian-Djaker-2022-07-29-ajg.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-assessments">Assessments</span>
+                            <span class="tag tag-foundational-skills">Foundational skills</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="journal-articles" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Journal Articles</h2>
+            <div class="paper-list">
+                <div class="paper-item">
+                    <img src="images/research-6.png" alt="Child-rearing technology" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">The challenges of scaling up effective child-rearing practices using technology in developing settings: Experimental evidence from India</h3>
+                        <p class="paper-authors">with I. Arteaga & A. de Barros</p>
+                        <p class="paper-venue">Journal of Research on Educational Effectiveness, 2025</p>
+                        <p class="paper-abstract">An automated parenting intervention showed disappointing results, reducing caregiver self-efficacy and increasing anxiety without improving child development outcomes.</p>
+                        <div class="paper-links">
+                            <a href="https://www.tandfonline.com/doi/full/10.1080/19345747.2025.2450318" target="_blank" class="paper-link">Published version</a>
+                            <a href="https://alejandroganimian.com/s/Manuscript-2024-05-01-adb.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://edworkingpapers.com/sites/default/files/ai24-964.pdf" target="_blank" class="paper-link">Annenberg EdWorkingPaper</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-education-technology">Education technology</span>
+                            <span class="tag tag-early-childhood">Early childhood education</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <span class="tag tag-india">India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-3.jpg" alt="Math transfer" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Children's arithmetic skills do not transfer between applied and academic mathematics</h3>
+                        <p class="paper-authors">with A. V. Banerjee, S. Bhattacharjee, R. Chattopadhyay, E. Duflo, K. Rajah & E. S. Spelke</p>
+                        <p class="paper-venue">Nature, 2025</p>
+                        <p class="paper-abstract">Working children in India demonstrated sophisticated market calculations but struggled with equivalent abstract school-format problems, revealing a significant transfer gap.</p>
+                        <div class="paper-links">
+                            <a href="https://www.nature.com/articles/s41586-024-08502-w" target="_blank" class="paper-link">Published version</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-math-education">Math education</span>
+                            <span class="tag tag-foundational-skills">Foundational skills</span>
+                            <span class="tag tag-assessments">Assessments</span>
+                            <span class="tag tag-india">India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/news-1.png" alt="Teacher estimations" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Out of sight, out of mind? The gap between students' test performance and teachers' estimations in India and Bangladesh</h3>
+                        <p class="paper-authors">with S. Djaker & S. Sabarwal</p>
+                        <p class="paper-venue">Economics of Education Review, 2024</p>
+                        <p class="paper-abstract">Teachers systematically misestimate student performance, particularly tending to overestimate lower-achieving students while underestimating class variability.</p>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0272775724000694" target="_blank" class="paper-link">Published version</a>
+                            <a href="https://alejandroganimian.com/s/Djaker-et-al-2024-mx5h.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://edworkingpapers.com/ai23-750" target="_blank" class="paper-link">Annenberg EdWorkingPaper</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-teacher-development">Teacher development</span>
+                            <span class="tag tag-assessments">Assessments</span>
+                            <span class="tag tag-india">India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-5.png" alt="Performance management" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">The impact of combining performance-management tools and training with diagnostic feedback in public schools: Experimental evidence from Argentina</h3>
+                        <p class="paper-authors">with R. de Hoyos, S. Djaker & P. A. Holland</p>
+                        <p class="paper-venue">Economics of Education Review, 2024</p>
+                        <p class="paper-abstract">Pairing performance management tools with training reduced grade repetition, while feedback alone showed minimal effects on student achievement outcomes.</p>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0272775724000128" target="_blank" class="paper-link">Published version</a>
+                            <a href="https://alejandroganimian.com/s/de-Hoyos-et-al-2024.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://www.socialscienceregistry.org/trials/2453" target="_blank" class="paper-link">AEA RCT registration</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-teacher-development">Teacher development</span>
+                            <span class="tag tag-school-management">School management</span>
+                            <span class="tag tag-assessments">Assessments</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <span class="tag tag-argentina">Argentina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-8.png" alt="State capacity" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Augmenting state capacity for child development: Experimental evidence from India</h3>
+                        <p class="paper-authors">with K. Muralidharan & C. R. Walters</p>
+                        <p class="paper-venue">Journal of Political Economy, 2024</p>
+                        <p class="paper-abstract">Adding staffing to India's early childhood program nearly doubled instructional time and produced meaningful gains in math and language test scores.</p>
+                        <div class="paper-links">
+                            <a href="https://www.journals.uchicago.edu/doi/10.1086/728109" target="_blank" class="paper-link">Published version</a>
+                            <a href="https://alejandroganimian.com/s/TamilNadu_Education.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://www.nber.org/papers/w28780" target="_blank" class="paper-link">NBER working paper</a>
+                            <a href="https://riseprogramme.org/publications/augmenting-state-capacity-child-development-experimental-evidence-india" target="_blank" class="paper-link">RISE working paper</a>
+                            <a href="https://www.socialscienceregistry.org/trials/1772" target="_blank" class="paper-link">AEA RCT registration</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-early-childhood">Early childhood education</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <span class="tag tag-india">India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-12.png" alt="Teacher commitment" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Measuring and predicting teachers' commitment to implementing evidence-based programs</h3>
+                        <p class="paper-authors">with T. Cramer, E. Cappella & P. Morris</p>
+                        <p class="paper-venue">Early Childhood Research Quarterly, 2023</p>
+                        <p class="paper-abstract">Teachers' belief that programs benefit children emerged as the strongest predictor of implementation fidelity across social-emotional learning interventions.</p>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0885200623000522" target="_blank" class="paper-link">Published version</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-teacher-development">Teacher development</span>
+                            <span class="tag tag-social-emotional">Social-emotional skills</span>
+                            <span class="tag tag-early-childhood">Early childhood education</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-10.png" alt="School climate" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Can positive school climate ameliorate racial-ethnic disparities in pre-kindergarten quality? Evidence from a large urban school district</h3>
+                        <p class="paper-authors">with J. Siegel & E. Cappella</p>
+                        <p class="paper-venue">Early Childhood Research Quarterly, 2023</p>
+                        <p class="paper-abstract">School climate moderated disparities in classroom organization and emotional support but not in instructional quality across racial-ethnic student groups.</p>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0885200623000558" target="_blank" class="paper-link">Published version</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-early-childhood">Early childhood education</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/news-8.png" alt="Computer instruction" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Which students benefit from computer-based individualized instruction? Experimental evidence from public schools in India</h3>
+                        <p class="paper-authors">with A. de Barros</p>
+                        <p class="paper-venue">Journal of Research on Educational Effectiveness, 2023</p>
+                        <p class="paper-abstract">Computer-adaptive learning software proved most beneficial for low-performing students while showing negligible average effects on overall achievement.</p>
+                        <div class="paper-links">
+                            <a href="https://www.tandfonline.com/doi/full/10.1080/19345747.2023.2191604" target="_blank" class="paper-link">Published version</a>
+                            <a href="https://alejandroganimian.com/s/de-Barros-Ganimian-2023.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://www.socialscienceregistry.org/trials/2459" target="_blank" class="paper-link">AEA RCT registration</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-math-education">Math education</span>
+                            <span class="tag tag-education-technology">Education technology</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <span class="tag tag-india">India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/news-2.png" alt="Math skills" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">The foundational math skills of Indian children</h3>
+                        <p class="paper-authors">with A. de Barros</p>
+                        <p class="paper-venue">Economics of Education Review, 2023</p>
+                        <p class="paper-abstract">Foundational skills assessment revealed that only 27% of students mastered typically unassessed skills despite 52% mastering frequently tested concepts.</p>
+                        <div class="paper-links">
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0272775722001091" target="_blank" class="paper-link">Published version</a>
+                            <a href="https://alejandroganimian.com/s/de-Barros-Ganimian-2020-04-02.docx" target="_blank" class="paper-link">Latest manuscript</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-math-education">Math education</span>
+                            <span class="tag tag-foundational-skills">Foundational skills</span>
+                            <span class="tag tag-assessments">Assessments</span>
+                            <span class="tag tag-india">India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-9.png" alt="Math software" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Which students benefit from independent practice? Experimental evidence from a math software in private schools in India</h3>
+                        <p class="paper-authors">with A. de Barros & A. Venkatachalam</p>
+                        <p class="paper-venue">Journal of Research on Educational Effectiveness, 2021</p>
+                        <p class="paper-abstract">Additional practice exercises benefited only low-performing students, suggesting targeted rather than universal implementation strategies.</p>
+                        <div class="paper-links">
+                            <a href="https://www.tandfonline.com/doi/10.1080/19345747.2021.2005203" target="_blank" class="paper-link">Published version</a>
+                            <a href="https://alejandroganimian.com/s/de-Barros-et-al-2021-03-03-adb.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://www.socialscienceregistry.org/trials/2455" target="_blank" class="paper-link">AEA RCT registration</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-math-education">Math education</span>
+                            <span class="tag tag-education-technology">Education technology</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <span class="tag tag-india">India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-12.png" alt="SEL programs" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">The role of teachers' commitment to implement in delivering evidence-based social-emotional learning programs</h3>
+                        <p class="paper-authors">with T. Cramer, P. Morris & E. Cappella</p>
+                        <p class="paper-venue">Journal of School Psychology, 2021</p>
+                        <p class="paper-abstract">Teacher commitment to implementation consistently predicted fidelity across time and independently explained variation beyond other individual or contextual factors.</p>
+                        <div class="paper-links">
+                            <a href="https://authors.elsevier.com/c/1dnQy56ZNI6Pk" target="_blank" class="paper-link">Published version</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-teacher-development">Teacher development</span>
+                            <span class="tag tag-social-emotional">Social-emotional skills</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-7.png" alt="Diagnostic feedback" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Teaching <em>with</em> the test: Experimental evidence on diagnostic feedback and capacity-building for public schools in Argentina</h3>
+                        <p class="paper-authors">with R. de Hoyos & P. A. Holland</p>
+                        <p class="paper-venue">The World Bank Economic Review, 2021</p>
+                        <p class="paper-abstract">Providing assessment results to schools improved achievement in both math and reading, with gains persisting a year after intervention conclusion.</p>
+                        <div class="paper-links">
+                            <a href="https://academic.oup.com/wber/advance-article/doi/10.1093/wber/lhz026/5611142" target="_blank" class="paper-link">Published version</a>
+                            <a href="https://alejandroganimian.com/s/dehoyosetal2019-ffyg.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="http://documents.worldbank.org/curated/en/488751511886071513/Teaching-with-the-test-experimental-evidence-on-diagnostic-feedback-and-capacity-building-for-public-schools-in-Argentina" target="_blank" class="paper-link">World Bank working paper</a>
+                            <a href="https://www.socialscienceregistry.org/trials/2434" target="_blank" class="paper-link">AEA RCT registration</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-school-management">School management</span>
+                            <span class="tag tag-assessments">Assessments</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <span class="tag tag-argentina">Argentina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/news-4.png" alt="Principal training" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Can principal training improve school management? Short-term experimental evidence from Argentina</h3>
+                        <p class="paper-authors">with S. H. Freel</p>
+                        <p class="paper-venue">Papeles de la Economia Espanola, 2021</p>
+                        <p class="paper-abstract">Despite high participant satisfaction, the training program showed no short-term impacts on school facilities, climate, or student achievement outcomes.</p>
+                        <div class="paper-links">
+                            <a href="https://www.funcas.es/wp-content/uploads/2021/01/Alejandro-J.-Ganimian-Samuel-Hansen.pdf" target="_blank" class="paper-link">Published version (Spanish)</a>
+                            <a href="https://www.dropbox.com/s/1p4xa4cfjd7cb9a/ganimian%26hansen2020.pdf?dl=0" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://www.socialscienceregistry.org/trials/5361" target="_blank" class="paper-link">AEA RCT registration</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-school-management">School management</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <span class="tag tag-argentina">Argentina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-4.png" alt="Growth mindset" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Growth mindset interventions at scale: Experimental evidence from Argentina</h3>
+                        <p class="paper-authors">A. Ganimian</p>
+                        <p class="paper-venue">Educational Evaluation and Policy Analysis, 2020</p>
+                        <p class="paper-abstract">A scaled growth-mindset intervention produced no detectable effects on students' task approach, school climate, achievement, or future plans.</p>
+                        <div class="paper-links">
+                            <a href="https://journals.sagepub.com/doi/10.3102/0162373720938041" target="_blank" class="paper-link">Published version</a>
+                            <a href="https://alejandroganimian.com/s/Ganimian-2020.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://www.socialscienceregistry.org/trials/2970" target="_blank" class="paper-link">AEA RCT registration</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-social-emotional">Social-emotional skills</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <span class="tag tag-argentina">Argentina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/news-10.png" alt="Scholarships" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Hard cash and soft skills: Experimental evidence on combining scholarships and mentoring in Argentina</h3>
+                        <p class="paper-authors">with F. Barrera-Osorio, M. L. Biehl & M. A. Cortelezzi</p>
+                        <p class="paper-venue">Journal of Research on Educational Effectiveness, 2020</p>
+                        <p class="paper-abstract">Scholarships paired with mentoring improved academic behaviors initially but did not produce sustained gains in achievement, mindsets, or learning strategies.</p>
+                        <div class="paper-links">
+                            <a href="https://www.tandfonline.com/eprint/REGNZYI2B4G4GJTJCJ85/full?target=10.1080%2F19345747.2019.1711271" target="_blank" class="paper-link">Published version</a>
+                            <a href="https://alejandroganimian.com/s/ganimianetal2019-dns9.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://publications.iadb.org/handle/11319/9150" target="_blank" class="paper-link">IDB technical note</a>
+                            <a href="https://www.socialscienceregistry.org/trials/3258" target="_blank" class="paper-link">AEA RCT registration</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-social-emotional">Social-emotional skills</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <span class="tag tag-argentina">Argentina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-11.png" alt="EdTech India" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Disrupting education? Experimental evidence on technology-aided instruction in India</h3>
+                        <p class="paper-authors">with K. Muralidharan & A. Singh</p>
+                        <p class="paper-venue">American Economic Review, 2019</p>
+                        <p class="paper-abstract">Technology-enabled personalized instruction generated substantial math and Hindi gains, particularly benefiting academically weaker students at low cost.</p>
+                        <div class="paper-links">
+                            <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/aer.20171112" target="_blank" class="paper-link">Published version</a>
+                            <a href="http://www.nber.org/papers/w22923" target="_blank" class="paper-link">NBER working paper</a>
+                            <a href="https://alejandroganimian.com/s/20170720_Disrupting_education-Main.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://alejandroganimian.com/s/20170720_Disrupting_education-Appendices.pdf" target="_blank" class="paper-link">Online appendix</a>
+                            <a href="https://www.socialscienceregistry.org/trials/980" target="_blank" class="paper-link">AEA RCT registration</a>
+                            <a href="https://www.povertyactionlab.org/evaluation/disrupting-education-experimental-evidence-technology-aided-instruction-india" target="_blank" class="paper-link">Evaluation summary</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-math-education">Math education</span>
+                            <span class="tag tag-education-technology">Education technology</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                            <span class="tag tag-india">India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/research-4.png" alt="Teacher preferences" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">More than words: Expressed and revealed preferences of top college graduates entering teaching in Argentina</h3>
+                        <p class="paper-authors">with M. Alfonso & A. Santiago</p>
+                        <p class="paper-venue">Comparative Education Review, 2017</p>
+                        <p class="paper-abstract">Information about working conditions reduced stated teaching intentions but not actual program dropout, suggesting possible prominence effects in preference expression.</p>
+                        <div class="paper-links">
+                            <a href="http://www.journals.uchicago.edu/doi/abs/10.1086/692545" target="_blank" class="paper-link">Published version</a>
+                            <a href="https://alejandroganimian.com/s/Ganimian-et-al-2016-2016-08-04.pdf" target="_blank" class="paper-link">Latest manuscript</a>
+                            <a href="https://alejandroganimian.com/s/Online-Appendix-2016-08-04.pdf" target="_blank" class="paper-link">Online appendix</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-teacher-development">Teacher development</span>
+                            <span class="tag tag-argentina">Argentina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/news-4.png" alt="Test volatility" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">The barking dog that bites: Test score volatility and school rankings in Punjab, Pakistan</h3>
+                        <p class="paper-authors">with F. Barrera-Osorio</p>
+                        <p class="paper-venue">International Journal of Educational Development, 2016</p>
+                        <p class="paper-abstract">School rankings based on test averages fluctuate substantially from measurement error, cohort variation, and one-time shocks beyond institutional control.</p>
+                        <div class="paper-links">
+                            <a href="http://www.sciencedirect.com/science/article/pii/S0738059316300049" target="_blank" class="paper-link">Published version</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-assessments">Assessments</span>
+                            <span class="tag tag-pakistan">Pakistan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/news-5.png" alt="Educational outcomes" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Improving educational outcomes in developing countries: Lessons from rigorous evaluations</h3>
+                        <p class="paper-authors">with R. J. Murnane</p>
+                        <p class="paper-venue">Review of Educational Research, 2016</p>
+                        <p class="paper-abstract">Synthesis of 223 evaluations identified that cost reduction expands access, information shapes parental choices, resource quality matters more than quantity, and targeted incentives boost performance.</p>
+                        <div class="paper-links">
+                            <a href="http://journals.sagepub.com/doi/abs/10.3102/0034654315627499" target="_blank" class="paper-link">Published version</a>
+                            <a href="http://www.nber.org/papers/w20284" target="_blank" class="paper-link">NBER working paper</a>
+                            <a href="https://alejandroganimian.com/s/Murnane-Ganimian-2014-PREAL-SP.pdf" target="_blank" class="paper-link">PREAL working paper (Spanish)</a>
+                            <a href="https://alejandroganimian.com/s/Murnane-Ganimian-2014-PREAL-EN-b6s9.pdf" target="_blank" class="paper-link">PREAL working paper (English)</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="images/news-9.png" alt="School management" class="paper-image">
+                    <div class="paper-content">
+                        <h3 class="paper-title">Why do some school-based management reforms survive while others are reversed? The cases of Honduras and Guatemala</h3>
+                        <p class="paper-authors">A. Ganimian</p>
+                        <p class="paper-venue">International Journal of Educational Development, 2016</p>
+                        <p class="paper-abstract">Reform scope and national investment levels determine reform vulnerability to reversal through political changes, union opposition, or parental pressure.</p>
+                        <div class="paper-links">
+                            <a href="http://www.sciencedirect.com/science/article/pii/S0738059315300213" target="_blank" class="paper-link">Published version</a>
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag tag-school-management">School management</span>
+                            <span class="tag tag-impact-evaluation">Impact evaluation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

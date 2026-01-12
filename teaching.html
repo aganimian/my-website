@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching - Alejandro J. Ganimian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #222;
+            --accent-hover: #000;
+            --black: #222;
+            --white: #fff;
+            --gray: #f5f5f5;
+            --gray-dark: #ddd;
+        }
+
+        body {
+            font-family: 'Libre Franklin', -apple-system, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Nav */
+        nav {
+            background: var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-search {
+            display: flex;
+        }
+
+        .nav-search input {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+            width: 200px;
+        }
+
+        .nav-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .nav-search input:focus {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-search button {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .page-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .page-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        /* Section */
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .section-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--black);
+        }
+
+        .section-subtitle {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Course Grid */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .course-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .course-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1.4;
+            color: var(--black);
+            margin-bottom: 0.35rem;
+        }
+
+        .course-meta {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 0.25rem;
+        }
+
+        .course-level {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #777;
+            margin-bottom: 0.75rem;
+        }
+
+        .course-description {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 0.75rem;
+        }
+
+        .course-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .course-link {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .course-link:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        /* Teaching Fellow List */
+        .tf-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem 2.5rem;
+        }
+
+        .tf-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tf-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1.4;
+            color: var(--black);
+            margin-bottom: 0.25rem;
+        }
+
+        .tf-faculty {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #555;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .nav-links,
+            .nav-search {
+                display: none;
+            }
+
+            .page-header-inner,
+            .section-inner {
+                padding: 0 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .course-grid,
+            .tf-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Alejandro J. Ganimian</a>
+            <div class="nav-right">
+                <form class="nav-search" action="search.html" method="get">
+                    <input type="text" name="q" placeholder="Search...">
+                    <button type="submit">Go</button>
+                </form>
+                <div class="nav-links">
+                    <a href="research.html">Research</a>
+                    <a href="policy.html">Policy</a>
+                    <a href="teaching.html">Teaching</a>
+                    <a href="media.html">Media</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-inner">
+            <h1 class="page-title">Teaching</h1>
+        </div>
+    </header>
+
+    <section class="section" id="visiting-professor">
+        <div class="section-inner">
+            <h2 class="section-title">Associate Professor</h2>
+            <p class="section-subtitle">Harvard Graduate School of Education</p>
+            <div class="course-grid">
+                <div class="course-card">
+                    <img src="images/news-2.png" alt="Economics of education" class="course-image">
+                    <h3 class="course-title">The economics of education in low- and middle-income countries</h3>
+                    <p class="course-meta">Spring 2025</p>
+                    <p class="course-level">Graduate</p>
+                    <p class="course-description">This course examines the economic analysis of education systems in developing countries. Topics include the returns to education, determinants of educational quality, teacher labor markets, school choice and competition, and the design and evaluation of education policies and interventions.</p>
+                    <div class="course-links">
+                        <a href="https://alejandroganimian.com/s/A-845-Economics-of-Education-in-Low-and-Middle-income-Countries-2025-04-29-ajg.pdf" target="_blank" class="course-link">Syllabus</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="images/news-4.png" alt="Evidence" class="course-image">
+                    <h3 class="course-title">Evidence</h3>
+                    <p class="course-meta">J-Term 2026, Summer 2024</p>
+                    <p class="course-level">Graduate</p>
+                    <p class="course-description">This course equips students with the foundational skills and knowledge they need to interpret the most common forms of evidence in education settings and apply them to their practice. Topics include descriptive statistics, research design, causal inference, and critical evaluation of quantitative and qualitative studies.</p>
+                    <div class="course-links">
+                        <a href="files/EVI101-syllabus-2026.pdf" target="_blank" class="course-link">Syllabus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="assistant-professor" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Assistant Professor</h2>
+            <p class="section-subtitle">New York University, Steinhardt School of Culture, Education, and Human Development</p>
+            <div class="course-grid">
+                <div class="course-card">
+                    <img src="images/news-1.png" alt="Research methods" class="course-image">
+                    <h3 class="course-title">Research methods I</h3>
+                    <p class="course-meta">Spring 2018, Fall 2018, Spring 2019, Fall 2019, Spring 2020, Spring 2021</p>
+                    <p class="course-level">Undergraduate</p>
+                    <p class="course-description">This course introduces students to the fundamentals of research methods in the social sciences. Students learn to formulate research questions, design studies, collect and analyze data, and interpret findings. The course covers both quantitative and qualitative approaches, with an emphasis on developing critical thinking skills for evaluating research.</p>
+                    <div class="course-links">
+                        <a href="https://alejandroganimian.com/s/APSY-UE-25-Fall-2021-2021-11-17-ajg.pdf" target="_blank" class="course-link">Syllabus</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="images/research-1.jpg" alt="Psychological measurement" class="course-image">
+                    <h3 class="course-title">Psychological measurement</h3>
+                    <p class="course-meta">Fall 2017, Spring 2020, Spring 2021</p>
+                    <p class="course-level">Graduate</p>
+                    <p class="course-description">This course provides a comprehensive introduction to the theory and practice of psychological measurement. Topics include classical test theory, reliability and validity, item analysis, test construction, and an introduction to item response theory. Students gain hands-on experience developing and evaluating measurement instruments.</p>
+                    <div class="course-links">
+                        <a href="https://alejandroganimian.com/s/APSY-GE-2524-Spring-2021-2021-05-06-ajg.pdf" target="_blank" class="course-link">Syllabus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="executive-education">
+        <div class="section-inner">
+            <h2 class="section-title">Executive Education</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <img src="images/news-9.png" alt="Randomized evaluations" class="course-image">
+                    <h3 class="course-title">Randomized evaluations of education interventions</h3>
+                    <p class="course-meta">with M. Cortelezzi</p>
+                    <p class="course-level">National Ministry of Education and Sports, Argentina (2017) · Universidad Torcuato Di Tella (2016)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teaching-fellow" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Teaching Fellow</h2>
+            <p class="section-subtitle">Harvard Graduate School of Education</p>
+            <div class="tf-grid">
+                <div class="tf-card">
+                    <h3 class="tf-title">Quantitative methods for improving causal inference in educational research</h3>
+                    <p class="tf-faculty">with D. J. Deming (Spring 2014)</p>
+                </div>
+                <div class="tf-card">
+                    <h3 class="tf-title">Social inequality and educational disadvantage</h3>
+                    <p class="tf-faculty">with R. J. Murnane (Spring 2013)</p>
+                </div>
+                <div class="tf-card">
+                    <h3 class="tf-title">Quantitative methods for improving causal inference in educational research</h3>
+                    <p class="tf-faculty">with R. J. Murnane & J. B. Willett (Fall 2012)</p>
+                </div>
+                <div class="tf-card">
+                    <h3 class="tf-title">Methods of educational measurement</h3>
+                    <p class="tf-faculty">with D. M. Koretz & A. D. Ho (Fall 2012)</p>
+                </div>
+                <div class="tf-card">
+                    <h3 class="tf-title">Market-based reforms in American education</h3>
+                    <p class="tf-faculty">with M. R. West (Spring 2011)</p>
+                </div>
+                <div class="tf-card">
+                    <h3 class="tf-title">Microeconomics: A policy tool for educators</h3>
+                    <p class="tf-faculty">with F. Barrera-Osorio (Fall 2011)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
