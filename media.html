@@ -253,90 +253,29 @@
             overflow: hidden;
         }
 
-        /* Material Carousel */
-        .material-carousel-container {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .material-carousel {
-            overflow: hidden;
-        }
-
-        .material-slide {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            position: absolute;
-            width: 100%;
-            transform: translateX(100%);
-            opacity: 0;
-            transition: transform 0.4s ease, opacity 0.4s ease;
-            pointer-events: none;
-        }
-
-        .material-slide.active {
-            position: relative;
-            transform: translateX(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .material-slide.slide-out {
-            transform: translateX(-100%);
-            opacity: 0;
-        }
-
-        .material-slide.slide-out-right {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-
-        .material-slide.slide-in-left {
-            transform: translateX(-100%);
-        }
-
-        .carousel-controls {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .carousel-btn {
-            background: transparent;
-            border: 2px solid var(--black);
-            color: var(--black);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-btn:hover {
-            background: var(--black);
-            color: var(--white);
-        }
-
-        .carousel-btn:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .carousel-btn:disabled:hover {
-            background: transparent;
-            color: var(--black);
-        }
-
         /* Material List (fallback) */
         .material-list {
             display: flex;
             flex-direction: column;
             gap: 1rem;
+        }
+
+        /* Material Grid - rows of articles */
+        .material-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem 1.5rem;
+        }
+
+        .material-grid .material-item {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        /* Remove border from last row (last 4 items in 4-col grid) */
+        .material-grid .material-item:nth-last-child(-n+4) {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         /* Material Item - Carousel version */
@@ -439,8 +378,17 @@
 
         /* Responsive */
         @media (max-width: 1000px) {
-            .material-slide {
+            .material-grid {
                 grid-template-columns: repeat(3, 1fr);
+            }
+            /* Reset 4-col rule and apply 3-col rule */
+            .material-grid .material-item:nth-last-child(-n+4) {
+                border-bottom: 1px dotted #ccc;
+                padding-bottom: 1.5rem;
+            }
+            .material-grid .material-item:nth-last-child(-n+3) {
+                border-bottom: none;
+                padding-bottom: 0;
             }
         }
 
@@ -455,8 +403,17 @@
                 height: 140px;
             }
 
-            .material-slide {
+            .material-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            /* Reset 3-col rule and apply 2-col rule */
+            .material-grid .material-item:nth-last-child(-n+3) {
+                border-bottom: 1px dotted #ccc;
+                padding-bottom: 1.5rem;
+            }
+            .material-grid .material-item:nth-last-child(-n+2) {
+                border-bottom: none;
+                padding-bottom: 0;
             }
         }
 
@@ -501,9 +458,15 @@
                 aspect-ratio: 16/10;
             }
 
-            .material-slide {
+            .material-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
+            }
+            .material-grid .material-item {
+                padding-bottom: 1rem;
+            }
+            .material-grid .material-item:nth-last-child(-n+2) {
+                padding-bottom: 0;
             }
         }
     </style>
@@ -549,324 +512,90 @@
         </div>
     </header>
 
-    <section class="section" id="math-education">
-        <div class="section-inner">
-            <h2 class="section-title">Math Education</h2>
-            <div class="topic-block">
-                <img src="images/news-2.png" alt="Math Education" class="topic-image">
-                <div class="topic-content">
-                    <div class="material-carousel-container" data-carousel="math">
-                        <div class="material-carousel">
-                            <div class="material-slide active">
-                                <a href="https://hechingerreport.org/proof-points-child-street-sellers-india-math/" target="_blank" class="material-item">
-                                    <span class="material-title">These teens can do incredible math in their heads but fail in a classroom</span>
-                                    <span class="material-venue">The Hechinger Report, February 24, 2025</span>
-                                </a>
-                                <a href="https://economictimes.indiatimes.com/news/new-updates/in-india-home-to-iitians-iimians-school-kids-struggle-with-day-to-day-calculations/" target="_blank" class="material-item">
-                                    <span class="material-title">In India, home to IITians, IIMians, 'school kids struggle with day to day calculations'</span>
-                                    <span class="material-venue">Economic Times, February 17, 2025</span>
-                                </a>
-                                <a href="https://indianexpress.com/article/education/schools-india-math-skills-home-formal-learning-different-nobel-laureate-esther-duflo-9822786/" target="_blank" class="material-item">
-                                    <span class="material-title">Indian schools treat math skills picked up at home and in classrooms as different</span>
-                                    <span class="material-venue">The Indian Express, February 9, 2025</span>
-                                </a>
-                                <a href="https://www.indiatoday.in/education-today/latest-studies/story/big-gap-in-market-math-and-school-math-in-india-study-by-nobel-laureates-2676315-2025-02-07" target="_blank" class="material-item">
-                                    <span class="material-title">Indian kids ace market math but struggle in class, finds study by Nobel laureates</span>
-                                    <span class="material-venue">India Today, February 7, 2025</span>
-                                </a>
-                            </div>
-                            <div class="material-slide">
-                                <a href="https://www.nature.com/articles/d41586-025-00381-z" target="_blank" class="material-item">
-                                    <span class="material-title">Kids' real-world arithmetic skills don't transfer to the classroom</span>
-                                    <span class="material-venue">Nature Podcast, February 5, 2025</span>
-                                </a>
-                                <a href="https://news.mit.edu/2025/study-shows-kids-use-different-math-skills-work-vs-school-0205" target="_blank" class="material-item">
-                                    <span class="material-title">Study in India shows kids use different math skills at work vs. school</span>
-                                    <span class="material-venue">MIT News, February 5, 2025</span>
-                                </a>
-                                <a href="https://www.thehindu.com/education/schools/school-students-in-india-fail-to-apply-abstract-math-in-real-life-scenarios-points-out-study-by-nobel-laureates/" target="_blank" class="material-item">
-                                    <span class="material-title">School students in India fail to apply abstract math in real life scenarios</span>
-                                    <span class="material-venue">The Hindu, February 5, 2025</span>
-                                </a>
-                                <a href="https://scroll.in/article/850763/why-children-do-well-in-street-maths-but-not-in-the-classroom-researchers-fault-teaching-methods" target="_blank" class="material-item">
-                                    <span class="material-title">Why children do well in 'street maths' but not in the classroom</span>
-                                    <span class="material-venue">Scroll.in, October 15, 2017</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-btn" onclick="prevSlide('math')" disabled>&#8592;</button>
-                            <button class="carousel-btn" onclick="nextSlide('math')">&#8594;</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="education-technology" style="background: var(--gray);">
-        <div class="section-inner">
-            <h2 class="section-title">Education Technology</h2>
-            <div class="topic-block">
-                <img src="images/news-8.png" alt="Education Technology" class="topic-image">
-                <div class="topic-content">
-                    <div class="material-carousel-container" data-carousel="edtech">
-                        <div class="material-carousel">
-                            <div class="material-slide active">
-                                <a href="https://voxdev.org/topic/education/challenges-improving-parenting-practices-scale" target="_blank" class="material-item">
-                                    <span class="material-title">The challenges of improving parenting practices at scale</span>
-                                    <span class="material-venue">VoxDev, March 25, 2025</span>
-                                </a>
-                                <a href="https://www.economist.com/asia/2021/10/16/indias-high-tech-governance-risks-leaving-behind-its-poorest-citizens" target="_blank" class="material-item">
-                                    <span class="material-title">India's high-tech governance risks leaving behind its poorest citizens</span>
-                                    <span class="material-venue">The Economist, October 16, 2021</span>
-                                </a>
-                                <a href="https://blogs.edweek.org/edweek/rick_hess_straight_up/2020/09/when_does_ed_tech_actually_help.html" target="_blank" class="material-item">
-                                    <span class="material-title">When does ed tech actually help?</span>
-                                    <span class="material-venue">Education Week, September 14, 2020</span>
-                                </a>
-                                <a href="https://www.brookings.edu/blog/education-plus-development/2020/09/10/to-make-ed-tech-work-set-clear-goals-review-the-evidence-and-pilot-before-you-scale/" target="_blank" class="material-item">
-                                    <span class="material-title">To make ed tech work, set clear goals, review the evidence, and pilot before you scale</span>
-                                    <span class="material-venue">Brookings Institution, September 10, 2020</span>
-                                </a>
-                            </div>
-                            <div class="material-slide">
-                                <a href="https://www.clarin.com/sociedad/oportunidad-potenciar-tecnologia_0_tLq942K4H.html" target="_blank" class="material-item">
-                                    <span class="material-title">An opportunity to enhance technology <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Clarin, September 3, 2020</span>
-                                </a>
-                                <a href="https://voxdev.org/topic/health-education/how-technology-can-drive-student-performance" target="_blank" class="material-item">
-                                    <span class="material-title">How does the use of education technology actually impact students in poorer regions?</span>
-                                    <span class="material-venue">VoxDev, August 24, 2020</span>
-                                </a>
-                                <a href="https://www.educationnext.org/ednext-podcast-giving-ed-tech-chance-shine/" target="_blank" class="material-item">
-                                    <span class="material-title">Giving EdTech a chance to shine</span>
-                                    <span class="material-venue">Education Next Podcast, May 29, 2019</span>
-                                </a>
-                                <a href="https://www.educationnext.org/delhi-experiment-software-sparks-success/" target="_blank" class="material-item">
-                                    <span class="material-title">In Delhi experiment, software sparks success</span>
-                                    <span class="material-venue">Education Next, April 22, 2019</span>
-                                </a>
-                            </div>
-                            <div class="material-slide">
-                                <a href="https://www.economist.com/international/2018/11/17/in-poor-countries-technology-can-make-big-improvements-to-education" target="_blank" class="material-item">
-                                    <span class="material-title">In poor countries technology can make big improvements to education</span>
-                                    <span class="material-venue">The Economist, November 15, 2018</span>
-                                </a>
-                                <a href="https://www.lanacion.com.ar/2188869-tecnologia-en-educacion" target="_blank" class="material-item">
-                                    <span class="material-title">Technology in education <span class="lang-flag"></span></span>
-                                    <span class="material-venue">La Nacion, November 6, 2018</span>
-                                </a>
-                                <a href="https://www.clarin.com/opinion/alejandro-ganimian-entregar-netbooks-escuelas-efectos-positivos-casos-negativo_0_rJpA72ENX.html" target="_blank" class="material-item">
-                                    <span class="material-title">'Handing out netbooks to schools has had no positive effects and, in some cases, was negative' <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Clarin, July 29, 2018</span>
-                                </a>
-                                <a href="https://www.clarin.com/opinion/educacion-conviene-usar-computadoras-aula_0_BJrV7BzXQ.html" target="_blank" class="material-item">
-                                    <span class="material-title">Education: How much and how should we use computers in the classroom <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Clarin, July 12, 2018</span>
-                                </a>
-                            </div>
-                            <div class="material-slide">
-                                <a href="https://www.economist.com/news/briefing/21725285-reformers-are-using-new-software-personalise-learning-technology-transforming-what-happens" target="_blank" class="material-item">
-                                    <span class="material-title">Technology is transforming what happens when a child goes to school</span>
-                                    <span class="material-venue">The Economist, July 22, 2017</span>
-                                </a>
-                                <a href="https://blogs.worldbank.org/impactevaluations/technoskeptics-pay-heed-computer-assisted-learning-program-delivers-learning-results" target="_blank" class="material-item">
-                                    <span class="material-title">Technoskeptics pay heed: A computer-assisted learning program that delivers learning results</span>
-                                    <span class="material-venue">World Bank Development Impact, February 15, 2017</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-btn" onclick="prevSlide('edtech')" disabled>&#8592;</button>
-                            <button class="carousel-btn" onclick="nextSlide('edtech')">&#8594;</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="assessments">
-        <div class="section-inner">
-            <h2 class="section-title">Assessments</h2>
-            <div class="topic-block">
-                <img src="images/research-1.jpg" alt="Assessments" class="topic-image">
-                <div class="topic-content">
-                    <div class="material-carousel-container" data-carousel="assessments">
-                        <div class="material-carousel">
-                            <div class="material-slide active">
-                                <a href="https://www.clarin.com/opinion/pendulo-evaluacion-educativa_0_UYia7a8fT1.html" target="_blank" class="material-item">
-                                    <span class="material-title">The pendulum of educational evaluation <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Clarin, January 13, 2025</span>
-                                </a>
-                                <a href="https://www.lanacion.com.ar/sociedad/estancamiento-educativo-la-mirada-de-un-especialista-de-harvard-sobre-los-resultados-de-las-pruebas-nid28112024/" target="_blank" class="material-item">
-                                    <span class="material-title">Educational stagnation: A Harvard specialist's view on Aprender test results <span class="lang-flag"></span></span>
-                                    <span class="material-venue">La Nacion, November 28, 2024</span>
-                                </a>
-                                <a href="https://www.infobae.com/educacion/2024/11/28/evaluacion-educativa-expertos-destacan-la-continuidad-de-aprender-pero-senalan-deudas-de-calidad-y-equidad/" target="_blank" class="material-item">
-                                    <span class="material-title">Educational evaluation: Experts highlight Aprender continuity but point to quality and equity debts <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Infobae, November 28, 2024</span>
-                                </a>
-                                <a href="https://www.mdzol.com/sociedad/2024/11/27/pruebas-aprender-persisten-los-bajos-resultados-las-desigualdades-1169552.html" target="_blank" class="material-item">
-                                    <span class="material-title">Aprender tests: Low results and inequalities persist <span class="lang-flag"></span></span>
-                                    <span class="material-venue">MDZ, November 27, 2024</span>
-                                </a>
-                            </div>
-                            <div class="material-slide">
-                                <a href="https://www.lanacion.com.ar/sociedad/es-una-politica-con-rendimientos-positivos-alertan-sobre-el-bajo-acceso-a-una-herramienta-clave-para-nid06032024/" target="_blank" class="material-item">
-                                    <span class="material-title">'It's a policy with positive returns': Warning about low access to a key tool for improving learning <span class="lang-flag"></span></span>
-                                    <span class="material-venue">La Nacion, March 6, 2024</span>
-                                </a>
-                                <a href="https://www.clarin.com/sociedad/medida-simple-usan-pocas-escuelas-puede-mejorar-bajos-resultados-alumnos_0_UQNliOf7Td.html" target="_blank" class="material-item">
-                                    <span class="material-title">The simple measure few schools use that can improve students' low results <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Clarin, March 6, 2024</span>
-                                </a>
-                                <a href="https://www.clarin.com/sociedad/mejorar-proteger-evaluaciones-uso-politico_0_wkpO5PMdD8.html" target="_blank" class="material-item">
-                                    <span class="material-title">To improve, we must protect evaluations from political use <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Clarin, September 8, 2022</span>
-                                </a>
-                                <a href="http://blogs.worldbank.org/developmenttalk/how-teaching-test-not-test-improves-learning" target="_blank" class="material-item">
-                                    <span class="material-title">How teaching with the test (not to the test) improves learning</span>
-                                    <span class="material-venue">World Bank Development Impact, November 16, 2017</span>
-                                </a>
-                            </div>
-                            <div class="material-slide">
-                                <a href="http://educationnext.org/should-your-next-door-neighbor-assess-your-daughters-reading-skills/" target="_blank" class="material-item">
-                                    <span class="material-title">Should your next-door neighbor assess your daughter's reading skills?</span>
-                                    <span class="material-venue">Education Next, December 8, 2015</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-btn" onclick="prevSlide('assessments')" disabled>&#8592;</button>
-                            <button class="carousel-btn" onclick="nextSlide('assessments')">&#8594;</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="absenteeism" style="background: var(--gray);">
+    <section class="section" id="absenteeism">
         <div class="section-inner">
             <h2 class="section-title">Absenteeism</h2>
             <div class="topic-block">
                 <img src="images/news-1.png" alt="Absenteeism" class="topic-image">
                 <div class="topic-content">
-                    <div class="material-carousel-container" data-carousel="absenteeism">
-                        <div class="material-carousel">
-                            <div class="material-slide active">
-                                <a href="https://www.infobae.com/educacion/2025/10/29/alejandro-ganimian-y-el-problema-del-ausentismo-escolar-como-impacta-en-la-comprension-lectora-y-la-matematica/" target="_blank" class="material-item">
-                                    <span class="material-title">Alejandro Ganimian and the problem of absenteeism: How it impacts reading comprehension and math <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Infobae, October 29, 2025</span>
-                                </a>
-                                <a href="https://www.lanacion.com.ar/opinion/en-educacion-necesitamos-mas-informacion-y-menos-politica-nid29062022/" target="_blank" class="material-item">
-                                    <span class="material-title">In education, we need more information and less politics <span class="lang-flag"></span></span>
-                                    <span class="material-venue">La Nacion, June 29, 2022</span>
-                                </a>
-                                <a href="https://www.infobae.com/educacion/2022/06/15/los-alumnos-faltan-24-dias-por-ano-y-eso-se-refleja-en-las-notas-que-se-sacan/" target="_blank" class="material-item">
-                                    <span class="material-title">Students miss 24 days per year and that is reflected in their grades <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Infobae, June 15, 2022</span>
-                                </a>
-                                <a href="https://www.losandes.com.ar/sociedad/por-ausentismo-se-pierde-un-18-del-calendario-escolar-y-la-dge-quiere-alertar-mediante-mensajes-de-texto-a-padres-de-alumnos-que-faltan-a-clases/" target="_blank" class="material-item">
-                                    <span class="material-title">Education authority wants to alert parents by text message when their children miss class <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Los Andes, June 14, 2022</span>
-                                </a>
-                            </div>
-                            <div class="material-slide">
-                                <a href="https://www.diariouno.com.ar/opinion/ausencias-injustificadas-clases-cuando-los-padres-embargan-el-futuro-los-hijos-n1023160" target="_blank" class="material-item">
-                                    <span class="material-title">Unjustified absences from class: When parents mortgage their children's future <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Diario Uno, June 12, 2022</span>
-                                </a>
-                                <a href="https://www.elsol.com.ar/mendoza/los-hallazgos-sobre-el-ausentismo-escolar-en-mendoza" target="_blank" class="material-item">
-                                    <span class="material-title">Findings on school absenteeism in Mendoza <span class="lang-flag"></span></span>
-                                    <span class="material-venue">El Sol, June 9, 2022</span>
-                                </a>
-                                <a href="https://www.mendozapost.com/sociedad/dge-ausentismo-escolar-chicos-pierden-hasta-24-dias-al-ano/" target="_blank" class="material-item">
-                                    <span class="material-title">On absenteeism: Children lose up to 24 days per year <span class="lang-flag"></span></span>
-                                    <span class="material-venue">Mendoza Post, June 9, 2022</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-btn" onclick="prevSlide('absenteeism')" disabled>&#8592;</button>
-                            <button class="carousel-btn" onclick="nextSlide('absenteeism')">&#8594;</button>
-                        </div>
+                    <div class="material-grid">
+                        <a href="https://www.infobae.com/educacion/2025/10/29/alejandro-ganimian-y-el-problema-del-ausentismo-escolar-como-impacta-en-la-comprension-lectora-y-la-matematica/" target="_blank" class="material-item">
+                            <span class="material-title">Alejandro Ganimian and the problem of absenteeism: How it impacts reading comprehension and math <span class="lang-flag"></span></span>
+                            <span class="material-venue">Infobae, October 29, 2025</span>
+                        </a>
+                        <a href="https://www.lanacion.com.ar/opinion/en-educacion-necesitamos-mas-informacion-y-menos-politica-nid29062022/" target="_blank" class="material-item">
+                            <span class="material-title">In education, we need more information and less politics <span class="lang-flag"></span></span>
+                            <span class="material-venue">La Nacion, June 29, 2022</span>
+                        </a>
+                        <a href="https://www.infobae.com/educacion/2022/06/15/los-alumnos-faltan-24-dias-por-ano-y-eso-se-refleja-en-las-notas-que-se-sacan/" target="_blank" class="material-item">
+                            <span class="material-title">Students miss 24 days per year and that is reflected in their grades <span class="lang-flag"></span></span>
+                            <span class="material-venue">Infobae, June 15, 2022</span>
+                        </a>
+                        <a href="https://www.losandes.com.ar/sociedad/por-ausentismo-se-pierde-un-18-del-calendario-escolar-y-la-dge-quiere-alertar-mediante-mensajes-de-texto-a-padres-de-alumnos-que-faltan-a-clases/" target="_blank" class="material-item">
+                            <span class="material-title">Education authority wants to alert parents by text message when their children miss class <span class="lang-flag"></span></span>
+                            <span class="material-venue">Los Andes, June 14, 2022</span>
+                        </a>
+                        <a href="https://www.diariouno.com.ar/opinion/ausencias-injustificadas-clases-cuando-los-padres-embargan-el-futuro-los-hijos-n1023160" target="_blank" class="material-item">
+                            <span class="material-title">Unjustified absences from class: When parents mortgage their children's future <span class="lang-flag"></span></span>
+                            <span class="material-venue">Diario Uno, June 12, 2022</span>
+                        </a>
+                        <a href="https://www.elsol.com.ar/mendoza/los-hallazgos-sobre-el-ausentismo-escolar-en-mendoza" target="_blank" class="material-item">
+                            <span class="material-title">Findings on school absenteeism in Mendoza <span class="lang-flag"></span></span>
+                            <span class="material-venue">El Sol, June 9, 2022</span>
+                        </a>
+                        <a href="https://www.mendozapost.com/sociedad/dge-ausentismo-escolar-chicos-pierden-hasta-24-dias-al-ano/" target="_blank" class="material-item">
+                            <span class="material-title">On absenteeism: Children lose up to 24 days per year <span class="lang-flag"></span></span>
+                            <span class="material-venue">Mendoza Post, June 9, 2022</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="social-emotional">
+    <section class="section" id="assessments" style="background: var(--gray);">
         <div class="section-inner">
-            <h2 class="section-title">Social-Emotional Skills</h2>
+            <h2 class="section-title">Assessments</h2>
             <div class="topic-block">
-                <img src="images/research-12.png" alt="Social-Emotional Skills" class="topic-image">
+                <img src="images/research-1.jpg" alt="Assessments" class="topic-image">
                 <div class="topic-content">
-                    <div class="material-carousel-container" data-carousel="social">
-                        <div class="material-carousel">
-                            <div class="material-slide active">
-                                <a href="https://voxdev.org/topic/important-null-results-development-economics" target="_blank" class="material-item">
-                                    <span class="material-title">Important null results in development economics</span>
-                                    <span class="material-venue">VoxDev, April 11, 2025</span>
-                                </a>
-                                <a href="https://www.lanacion.com.ar/sociedad/juegos-del-cerebro-la-prueba-piloto-en-las-aulas-mendocinas-que-apuesta-por-una-adultez-feliz-nid12082022/" target="_blank" class="material-item">
-                                    <span class="material-title">Brain games: The pilot test in Mendoza classrooms betting on a 'happy adulthood' <span class="lang-flag"></span></span>
-                                    <span class="material-venue">La Nacion, August 12, 2022</span>
-                                </a>
-                                <a href="https://www.scientificamerican.com/article/debate-arises-over-teaching-growth-mindsets-to-motivate-students/" target="_blank" class="material-item">
-                                    <span class="material-title">Debate arises over teaching 'growth mindsets' to motivate students</span>
-                                    <span class="material-venue">Scientific American, August 12, 2019</span>
-                                </a>
-                                <a href="http://educationnext.org/teaching-soft-skills-priority/" target="_blank" class="material-item">
-                                    <span class="material-title">Should teaching 'soft' skills be a priority?</span>
-                                    <span class="material-venue">Education Next, December 3, 2014</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-btn" onclick="prevSlide('social')" disabled>&#8592;</button>
-                            <button class="carousel-btn" onclick="nextSlide('social')" disabled>&#8594;</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="foundational-skills" style="background: var(--gray);">
-        <div class="section-inner">
-            <h2 class="section-title">Foundational Skills</h2>
-            <div class="topic-block">
-                <img src="images/news-5.png" alt="Foundational Skills" class="topic-image">
-                <div class="topic-content">
-                    <div class="material-carousel-container" data-carousel="foundational">
-                        <div class="material-carousel">
-                            <div class="material-slide active">
-                                <a href="https://www.brookings.edu/articles/does-instructing-students-at-the-right-level-truly-drive-the-impacts-of-targeted-remediation-programs/" target="_blank" class="material-item">
-                                    <span class="material-title">Does instructing students 'at the right level' truly drive the impacts of targeted remediation programs?</span>
-                                    <span class="material-venue">Brookings Institution, August 1, 2023</span>
-                                </a>
-                                <a href="https://bold.expert/lets-help-teachers-address-students-learning-needs/" target="_blank" class="material-item">
-                                    <span class="material-title">Let's help teachers address students' learning needs</span>
-                                    <span class="material-venue">BOLD, January 23, 2023</span>
-                                </a>
-                                <a href="http://www.financialexpress.com/opinion/indias-learning-deficit-solution-on-the-horizon-check-it-out/609143/" target="_blank" class="material-item">
-                                    <span class="material-title">India's learning deficit: Solution on the horizon? Check it out</span>
-                                    <span class="material-venue">Financial Express, March 31, 2017</span>
-                                </a>
-                                <a href="http://www.hindustantimes.com/india-news/technology-could-transform-learning-in-india-s-govt-schools-if-used-correctly/" target="_blank" class="material-item">
-                                    <span class="material-title">Technology could transform learning in India's govt schools if used correctly</span>
-                                    <span class="material-venue">Hindustan Times, March 27, 2017</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-btn" onclick="prevSlide('foundational')" disabled>&#8592;</button>
-                            <button class="carousel-btn" onclick="nextSlide('foundational')" disabled>&#8594;</button>
-                        </div>
+                    <div class="material-grid">
+                        <a href="https://www.clarin.com/opinion/pendulo-evaluacion-educativa_0_UYia7a8fT1.html" target="_blank" class="material-item">
+                            <span class="material-title">The pendulum of educational evaluation <span class="lang-flag"></span></span>
+                            <span class="material-venue">Clarin, January 13, 2025</span>
+                        </a>
+                        <a href="https://www.lanacion.com.ar/sociedad/estancamiento-educativo-la-mirada-de-un-especialista-de-harvard-sobre-los-resultados-de-las-pruebas-nid28112024/" target="_blank" class="material-item">
+                            <span class="material-title">Educational stagnation: A Harvard specialist's view on Aprender test results <span class="lang-flag"></span></span>
+                            <span class="material-venue">La Nacion, November 28, 2024</span>
+                        </a>
+                        <a href="https://www.infobae.com/educacion/2024/11/28/evaluacion-educativa-expertos-destacan-la-continuidad-de-aprender-pero-senalan-deudas-de-calidad-y-equidad/" target="_blank" class="material-item">
+                            <span class="material-title">Educational evaluation: Experts highlight Aprender continuity but point to quality and equity debts <span class="lang-flag"></span></span>
+                            <span class="material-venue">Infobae, November 28, 2024</span>
+                        </a>
+                        <a href="https://www.mdzol.com/sociedad/2024/11/27/pruebas-aprender-persisten-los-bajos-resultados-las-desigualdades-1169552.html" target="_blank" class="material-item">
+                            <span class="material-title">Aprender tests: Low results and inequalities persist <span class="lang-flag"></span></span>
+                            <span class="material-venue">MDZ, November 27, 2024</span>
+                        </a>
+                        <a href="https://www.lanacion.com.ar/sociedad/es-una-politica-con-rendimientos-positivos-alertan-sobre-el-bajo-acceso-a-una-herramienta-clave-para-nid06032024/" target="_blank" class="material-item">
+                            <span class="material-title">'It's a policy with positive returns': Warning about low access to a key tool for improving learning <span class="lang-flag"></span></span>
+                            <span class="material-venue">La Nacion, March 6, 2024</span>
+                        </a>
+                        <a href="https://www.clarin.com/sociedad/medida-simple-usan-pocas-escuelas-puede-mejorar-bajos-resultados-alumnos_0_UQNliOf7Td.html" target="_blank" class="material-item">
+                            <span class="material-title">The simple measure few schools use that can improve students' low results <span class="lang-flag"></span></span>
+                            <span class="material-venue">Clarin, March 6, 2024</span>
+                        </a>
+                        <a href="https://www.clarin.com/sociedad/mejorar-proteger-evaluaciones-uso-politico_0_wkpO5PMdD8.html" target="_blank" class="material-item">
+                            <span class="material-title">To improve, we must protect evaluations from political use <span class="lang-flag"></span></span>
+                            <span class="material-venue">Clarin, September 8, 2022</span>
+                        </a>
+                        <a href="http://blogs.worldbank.org/developmenttalk/how-teaching-test-not-test-improves-learning" target="_blank" class="material-item">
+                            <span class="material-title">How teaching with the test (not to the test) improves learning</span>
+                            <span class="material-venue">World Bank Development Impact, November 16, 2017</span>
+                        </a>
+                        <a href="http://educationnext.org/should-your-next-door-neighbor-assess-your-daughters-reading-skills/" target="_blank" class="material-item">
+                            <span class="material-title">Should your next-door neighbor assess your daughter's reading skills?</span>
+                            <span class="material-venue">Education Next, December 8, 2015</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -879,138 +608,204 @@
             <div class="topic-block">
                 <img src="images/news-4.png" alt="Education Policy" class="topic-image">
                 <div class="topic-content">
-                    <div class="material-carousel-container" data-carousel="policy">
-                        <div class="material-carousel">
-                            <div class="material-slide active">
-                                <a href="https://blogs.worldbank.org/edutech/20-innovative-edtech-projects-around-world" target="_blank" class="material-item">
-                                    <span class="material-title">20 innovative edtech projects from around the world</span>
-                                    <span class="material-venue">World Bank EduTech, November 6, 2017</span>
-                                </a>
-                                <a href="http://www.riseprogramme.org/content/not-drawn-scale-rcts-and-education-reform-developing-countries" target="_blank" class="material-item">
-                                    <span class="material-title">Not drawn to scale? RCTs and education reform in developing countries</span>
-                                    <span class="material-venue">RISE Programme, September 12, 2017</span>
-                                </a>
-                                <a href="http://blogs.worldbank.org/impactevaluations/how-can-education-systems-be-better-round-2017-rise-conference" target="_blank" class="material-item">
-                                    <span class="material-title">How can education systems be better? A round-up of the 2017 RISE conference</span>
-                                    <span class="material-venue">World Bank Development Impact, June 21, 2017</span>
-                                </a>
-                                <a href="http://blogs.worldbank.org/impactevaluations/framework-taking-evidence-one-location-another" target="_blank" class="material-item">
-                                    <span class="material-title">A framework for taking evidence from one location to another</span>
-                                    <span class="material-venue">World Bank Development Impact, May 24, 2017</span>
-                                </a>
-                            </div>
-                            <div class="material-slide">
-                                <a href="http://www.hindustantimes.com/class-of-2018/is-indias-education-system-beyond-repair.html" target="_blank" class="material-item">
-                                    <span class="material-title">Juggling dreams and livelihood: View from the back-bench</span>
-                                    <span class="material-venue">Hindustan Times, May 1, 2017</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="carousel-controls">
-                            <button class="carousel-btn" onclick="prevSlide('policy')" disabled>&#8592;</button>
-                            <button class="carousel-btn" onclick="nextSlide('policy')">&#8594;</button>
-                        </div>
+                    <div class="material-grid">
+                        <a href="https://blogs.worldbank.org/edutech/20-innovative-edtech-projects-around-world" target="_blank" class="material-item">
+                            <span class="material-title">20 innovative edtech projects from around the world</span>
+                            <span class="material-venue">World Bank EduTech, November 6, 2017</span>
+                        </a>
+                        <a href="http://www.riseprogramme.org/content/not-drawn-scale-rcts-and-education-reform-developing-countries" target="_blank" class="material-item">
+                            <span class="material-title">Not drawn to scale? RCTs and education reform in developing countries</span>
+                            <span class="material-venue">RISE Programme, September 12, 2017</span>
+                        </a>
+                        <a href="http://blogs.worldbank.org/impactevaluations/how-can-education-systems-be-better-round-2017-rise-conference" target="_blank" class="material-item">
+                            <span class="material-title">How can education systems be better? A round-up of the 2017 RISE conference</span>
+                            <span class="material-venue">World Bank Development Impact, June 21, 2017</span>
+                        </a>
+                        <a href="http://blogs.worldbank.org/impactevaluations/framework-taking-evidence-one-location-another" target="_blank" class="material-item">
+                            <span class="material-title">A framework for taking evidence from one location to another</span>
+                            <span class="material-venue">World Bank Development Impact, May 24, 2017</span>
+                        </a>
+                        <a href="http://www.hindustantimes.com/class-of-2018/is-indias-education-system-beyond-repair.html" target="_blank" class="material-item">
+                            <span class="material-title">Juggling dreams and livelihood: View from the back-bench</span>
+                            <span class="material-venue">Hindustan Times, May 1, 2017</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <script>
-        // Track current slide index for each carousel
-        const carouselState = {};
+    <section class="section" id="education-technology" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Education Technology</h2>
+            <div class="topic-block">
+                <img src="images/news-8.png" alt="Education Technology" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-grid">
+                        <a href="https://voxdev.org/topic/education/challenges-improving-parenting-practices-scale" target="_blank" class="material-item">
+                            <span class="material-title">The challenges of improving parenting practices at scale</span>
+                            <span class="material-venue">VoxDev, March 25, 2025</span>
+                        </a>
+                        <a href="https://www.economist.com/asia/2021/10/16/indias-high-tech-governance-risks-leaving-behind-its-poorest-citizens" target="_blank" class="material-item">
+                            <span class="material-title">India's high-tech governance risks leaving behind its poorest citizens</span>
+                            <span class="material-venue">The Economist, October 16, 2021</span>
+                        </a>
+                        <a href="https://blogs.edweek.org/edweek/rick_hess_straight_up/2020/09/when_does_ed_tech_actually_help.html" target="_blank" class="material-item">
+                            <span class="material-title">When does ed tech actually help?</span>
+                            <span class="material-venue">Education Week, September 14, 2020</span>
+                        </a>
+                        <a href="https://www.brookings.edu/blog/education-plus-development/2020/09/10/to-make-ed-tech-work-set-clear-goals-review-the-evidence-and-pilot-before-you-scale/" target="_blank" class="material-item">
+                            <span class="material-title">To make ed tech work, set clear goals, review the evidence, and pilot before you scale</span>
+                            <span class="material-venue">Brookings Institution, September 10, 2020</span>
+                        </a>
+                        <a href="https://www.clarin.com/sociedad/oportunidad-potenciar-tecnologia_0_tLq942K4H.html" target="_blank" class="material-item">
+                            <span class="material-title">An opportunity to enhance technology <span class="lang-flag"></span></span>
+                            <span class="material-venue">Clarin, September 3, 2020</span>
+                        </a>
+                        <a href="https://voxdev.org/topic/health-education/how-technology-can-drive-student-performance" target="_blank" class="material-item">
+                            <span class="material-title">How does the use of education technology actually impact students in poorer regions?</span>
+                            <span class="material-venue">VoxDev, August 24, 2020</span>
+                        </a>
+                        <a href="https://www.educationnext.org/ednext-podcast-giving-ed-tech-chance-shine/" target="_blank" class="material-item">
+                            <span class="material-title">Giving EdTech a chance to shine</span>
+                            <span class="material-venue">Education Next Podcast, May 29, 2019</span>
+                        </a>
+                        <a href="https://www.educationnext.org/delhi-experiment-software-sparks-success/" target="_blank" class="material-item">
+                            <span class="material-title">In Delhi experiment, software sparks success</span>
+                            <span class="material-venue">Education Next, April 22, 2019</span>
+                        </a>
+                        <a href="https://www.economist.com/international/2018/11/17/in-poor-countries-technology-can-make-big-improvements-to-education" target="_blank" class="material-item">
+                            <span class="material-title">In poor countries technology can make big improvements to education</span>
+                            <span class="material-venue">The Economist, November 15, 2018</span>
+                        </a>
+                        <a href="https://www.lanacion.com.ar/2188869-tecnologia-en-educacion" target="_blank" class="material-item">
+                            <span class="material-title">Technology in education <span class="lang-flag"></span></span>
+                            <span class="material-venue">La Nacion, November 6, 2018</span>
+                        </a>
+                        <a href="https://www.clarin.com/opinion/alejandro-ganimian-entregar-netbooks-escuelas-efectos-positivos-casos-negativo_0_rJpA72ENX.html" target="_blank" class="material-item">
+                            <span class="material-title">'Handing out netbooks to schools has had no positive effects and, in some cases, was negative' <span class="lang-flag"></span></span>
+                            <span class="material-venue">Clarin, July 29, 2018</span>
+                        </a>
+                        <a href="https://www.clarin.com/opinion/educacion-conviene-usar-computadoras-aula_0_BJrV7BzXQ.html" target="_blank" class="material-item">
+                            <span class="material-title">Education: How much and how should we use computers in the classroom <span class="lang-flag"></span></span>
+                            <span class="material-venue">Clarin, July 12, 2018</span>
+                        </a>
+                        <a href="https://www.economist.com/news/briefing/21725285-reformers-are-using-new-software-personalise-learning-technology-transforming-what-happens" target="_blank" class="material-item">
+                            <span class="material-title">Technology is transforming what happens when a child goes to school</span>
+                            <span class="material-venue">The Economist, July 22, 2017</span>
+                        </a>
+                        <a href="https://blogs.worldbank.org/impactevaluations/technoskeptics-pay-heed-computer-assisted-learning-program-delivers-learning-results" target="_blank" class="material-item">
+                            <span class="material-title">Technoskeptics pay heed: A computer-assisted learning program that delivers learning results</span>
+                            <span class="material-venue">World Bank Development Impact, February 15, 2017</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function initCarousels() {
-            document.querySelectorAll('.material-carousel-container').forEach(container => {
-                const carouselId = container.dataset.carousel;
-                const slides = container.querySelectorAll('.material-slide');
-                carouselState[carouselId] = {
-                    currentIndex: 0,
-                    totalSlides: slides.length
-                };
-                updateButtons(carouselId);
-            });
-        }
+    <section class="section" id="foundational-skills">
+        <div class="section-inner">
+            <h2 class="section-title">Foundational Skills</h2>
+            <div class="topic-block">
+                <img src="images/news-5.png" alt="Foundational Skills" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-grid">
+                        <a href="https://www.brookings.edu/articles/does-instructing-students-at-the-right-level-truly-drive-the-impacts-of-targeted-remediation-programs/" target="_blank" class="material-item">
+                            <span class="material-title">Does instructing students 'at the right level' truly drive the impacts of targeted remediation programs?</span>
+                            <span class="material-venue">Brookings Institution, August 1, 2023</span>
+                        </a>
+                        <a href="https://bold.expert/lets-help-teachers-address-students-learning-needs/" target="_blank" class="material-item">
+                            <span class="material-title">Let's help teachers address students' learning needs</span>
+                            <span class="material-venue">BOLD, January 23, 2023</span>
+                        </a>
+                        <a href="http://www.financialexpress.com/opinion/indias-learning-deficit-solution-on-the-horizon-check-it-out/609143/" target="_blank" class="material-item">
+                            <span class="material-title">India's learning deficit: Solution on the horizon? Check it out</span>
+                            <span class="material-venue">Financial Express, March 31, 2017</span>
+                        </a>
+                        <a href="http://www.hindustantimes.com/india-news/technology-could-transform-learning-in-india-s-govt-schools-if-used-correctly/" target="_blank" class="material-item">
+                            <span class="material-title">Technology could transform learning in India's govt schools if used correctly</span>
+                            <span class="material-venue">Hindustan Times, March 27, 2017</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function updateButtons(carouselId) {
-            const container = document.querySelector(`[data-carousel="${carouselId}"]`);
-            const buttons = container.querySelectorAll('.carousel-btn');
-            const state = carouselState[carouselId];
+    <section class="section" id="math-education" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Math Education</h2>
+            <div class="topic-block">
+                <img src="images/news-2.png" alt="Math Education" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-grid">
+                        <a href="https://hechingerreport.org/proof-points-child-street-sellers-india-math/" target="_blank" class="material-item">
+                            <span class="material-title">These teens can do incredible math in their heads but fail in a classroom</span>
+                            <span class="material-venue">The Hechinger Report, February 24, 2025</span>
+                        </a>
+                        <a href="https://economictimes.indiatimes.com/news/new-updates/in-india-home-to-iitians-iimians-school-kids-struggle-with-day-to-day-calculations/" target="_blank" class="material-item">
+                            <span class="material-title">In India, home to IITians, IIMians, 'school kids struggle with day to day calculations'</span>
+                            <span class="material-venue">Economic Times, February 17, 2025</span>
+                        </a>
+                        <a href="https://indianexpress.com/article/education/schools-india-math-skills-home-formal-learning-different-nobel-laureate-esther-duflo-9822786/" target="_blank" class="material-item">
+                            <span class="material-title">Indian schools treat math skills picked up at home and in classrooms as different</span>
+                            <span class="material-venue">The Indian Express, February 9, 2025</span>
+                        </a>
+                        <a href="https://www.indiatoday.in/education-today/latest-studies/story/big-gap-in-market-math-and-school-math-in-india-study-by-nobel-laureates-2676315-2025-02-07" target="_blank" class="material-item">
+                            <span class="material-title">Indian kids ace market math but struggle in class, finds study by Nobel laureates</span>
+                            <span class="material-venue">India Today, February 7, 2025</span>
+                        </a>
+                        <a href="https://www.nature.com/articles/d41586-025-00381-z" target="_blank" class="material-item">
+                            <span class="material-title">Kids' real-world arithmetic skills don't transfer to the classroom</span>
+                            <span class="material-venue">Nature Podcast, February 5, 2025</span>
+                        </a>
+                        <a href="https://news.mit.edu/2025/study-shows-kids-use-different-math-skills-work-vs-school-0205" target="_blank" class="material-item">
+                            <span class="material-title">Study in India shows kids use different math skills at work vs. school</span>
+                            <span class="material-venue">MIT News, February 5, 2025</span>
+                        </a>
+                        <a href="https://www.thehindu.com/education/schools/school-students-in-india-fail-to-apply-abstract-math-in-real-life-scenarios-points-out-study-by-nobel-laureates/" target="_blank" class="material-item">
+                            <span class="material-title">School students in India fail to apply abstract math in real life scenarios</span>
+                            <span class="material-venue">The Hindu, February 5, 2025</span>
+                        </a>
+                        <a href="https://scroll.in/article/850763/why-children-do-well-in-street-maths-but-not-in-the-classroom-researchers-fault-teaching-methods" target="_blank" class="material-item">
+                            <span class="material-title">Why children do well in 'street maths' but not in the classroom</span>
+                            <span class="material-venue">Scroll.in, October 15, 2017</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            // Prev button (first button)
-            buttons[0].disabled = state.currentIndex === 0;
-            // Next button (second button)
-            buttons[1].disabled = state.currentIndex === state.totalSlides - 1;
-        }
+    <section class="section" id="social-emotional">
+        <div class="section-inner">
+            <h2 class="section-title">Social-Emotional Skills</h2>
+            <div class="topic-block">
+                <img src="images/research-12.png" alt="Social-Emotional Skills" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-grid">
+                        <a href="https://voxdev.org/topic/important-null-results-development-economics" target="_blank" class="material-item">
+                            <span class="material-title">Important null results in development economics</span>
+                            <span class="material-venue">VoxDev, April 11, 2025</span>
+                        </a>
+                        <a href="https://www.lanacion.com.ar/sociedad/juegos-del-cerebro-la-prueba-piloto-en-las-aulas-mendocinas-que-apuesta-por-una-adultez-feliz-nid12082022/" target="_blank" class="material-item">
+                            <span class="material-title">Brain games: The pilot test in Mendoza classrooms betting on a 'happy adulthood' <span class="lang-flag"></span></span>
+                            <span class="material-venue">La Nacion, August 12, 2022</span>
+                        </a>
+                        <a href="https://www.scientificamerican.com/article/debate-arises-over-teaching-growth-mindsets-to-motivate-students/" target="_blank" class="material-item">
+                            <span class="material-title">Debate arises over teaching 'growth mindsets' to motivate students</span>
+                            <span class="material-venue">Scientific American, August 12, 2019</span>
+                        </a>
+                        <a href="http://educationnext.org/teaching-soft-skills-priority/" target="_blank" class="material-item">
+                            <span class="material-title">Should teaching 'soft' skills be a priority?</span>
+                            <span class="material-venue">Education Next, December 3, 2014</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function nextSlide(carouselId) {
-            const container = document.querySelector(`[data-carousel="${carouselId}"]`);
-            const slides = container.querySelectorAll('.material-slide');
-            const state = carouselState[carouselId];
-
-            if (state.currentIndex >= state.totalSlides - 1) return;
-
-            const currentSlide = slides[state.currentIndex];
-            const nextSlideEl = slides[state.currentIndex + 1];
-
-            // Position next slide to the right before animating
-            nextSlideEl.style.transform = 'translateX(100%)';
-            nextSlideEl.classList.add('active');
-
-            // Force reflow
-            nextSlideEl.offsetHeight;
-
-            // Animate current slide out to the left, next slide in from right
-            currentSlide.style.transform = 'translateX(-100%)';
-            currentSlide.style.opacity = '0';
-            nextSlideEl.style.transform = 'translateX(0)';
-
-            setTimeout(() => {
-                currentSlide.classList.remove('active');
-                currentSlide.style.transform = '';
-                currentSlide.style.opacity = '';
-                nextSlideEl.style.transform = '';
-            }, 400);
-
-            state.currentIndex++;
-            updateButtons(carouselId);
-        }
-
-        function prevSlide(carouselId) {
-            const container = document.querySelector(`[data-carousel="${carouselId}"]`);
-            const slides = container.querySelectorAll('.material-slide');
-            const state = carouselState[carouselId];
-
-            if (state.currentIndex <= 0) return;
-
-            const currentSlide = slides[state.currentIndex];
-            const prevSlideEl = slides[state.currentIndex - 1];
-
-            // Position prev slide to the left before animating
-            prevSlideEl.style.transform = 'translateX(-100%)';
-            prevSlideEl.classList.add('active');
-
-            // Force reflow
-            prevSlideEl.offsetHeight;
-
-            // Animate current slide out to the right, prev slide in from left
-            currentSlide.style.transform = 'translateX(100%)';
-            currentSlide.style.opacity = '0';
-            prevSlideEl.style.transform = 'translateX(0)';
-
-            setTimeout(() => {
-                currentSlide.classList.remove('active');
-                currentSlide.style.transform = '';
-                currentSlide.style.opacity = '';
-                prevSlideEl.style.transform = '';
-            }, 400);
-
-            state.currentIndex--;
-            updateButtons(carouselId);
-        }
-
-        // Initialize carousels when page loads
-        document.addEventListener('DOMContentLoaded', initCarousels);
-    </script>
 </body>
 </html>
