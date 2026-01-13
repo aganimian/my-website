@@ -1514,8 +1514,17 @@
             // Show the prev button
             document.getElementById('news-prev').classList.add('visible');
 
+            // Current slide exits to the left
+            slides[currentIndex].classList.add('slide-out');
             slides[currentIndex].classList.remove('active');
+
+            // Next slide enters from the right (default position)
             slides[nextIndex].classList.add('active');
+
+            // Clean up after animation
+            setTimeout(() => {
+                slides[currentIndex].classList.remove('slide-out');
+            }, 500);
         }
 
         function prevNewsSlide() {
@@ -1530,8 +1539,27 @@
 
             const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
 
+            // Hide prev button if going back to first slide
+            if (prevIndex === 0) {
+                document.getElementById('news-prev').classList.remove('visible');
+            }
+
+            // Current slide exits to the right
+            slides[currentIndex].classList.add('slide-out-right');
             slides[currentIndex].classList.remove('active');
+
+            // Prev slide needs to enter from the left
+            slides[prevIndex].style.transition = 'none';
+            slides[prevIndex].style.transform = 'translateX(-100%)';
+            slides[prevIndex].offsetHeight; // Force reflow
+            slides[prevIndex].style.transition = '';
+            slides[prevIndex].style.transform = '';
             slides[prevIndex].classList.add('active');
+
+            // Clean up after animation
+            setTimeout(() => {
+                slides[currentIndex].classList.remove('slide-out-right');
+            }, 500);
         }
 
     </script>
