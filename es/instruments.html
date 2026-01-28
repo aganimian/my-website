@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XY0MQ9E3D"></script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8XY0MQ9E3D');
+    </script>
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrumentos - Alejandro J. Ganimian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #222;
+            --accent-hover: #000;
+            --black: #222;
+            --white: #fff;
+            --gray: #f5f5f5;
+            --gray-dark: #ddd;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Libre Franklin', -apple-system, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Nav */
+        nav {
+            background: var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-search {
+            display: flex;
+        }
+
+        .nav-search input {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+            width: 150px;
+        }
+
+        .nav-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .nav-search input:focus {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-search button {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            line-height: 1;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--accent);
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu-search {
+            display: flex;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-search input {
+            flex: 1;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+        }
+
+        .mobile-menu-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .mobile-menu-search button {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .page-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .page-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        /* Section */
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .section-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--black);
+        }
+
+        /* Topic Block */
+        .topic-block {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2.5rem;
+        }
+
+        .topic-image {
+            width: 280px;
+            height: 195px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .topic-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Material Items */
+        .material-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .material-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .material-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1.4;
+            color: var(--black);
+        }
+
+        .material-title:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .material-authors {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #555;
+        }
+
+        .material-authors a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .material-venue {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+        }
+
+        .lang-flag {
+            display: inline-block;
+            width: 18px;
+            height: 12px;
+            margin-right: 0.35rem;
+            vertical-align: middle;
+            background: linear-gradient(to bottom, #c60b1e 0%, #c60b1e 25%, #ffc400 25%, #ffc400 75%, #c60b1e 75%, #c60b1e 100%);
+            border-radius: 1px;
+        }
+
+        .lang-flag.en {
+            background: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v30h60V0z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23b)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 100% 100%;
+        }
+
+        /* Tags */
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .tag {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.6rem;
+            border-radius: 2px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .tag:hover {
+            opacity: 0.8;
+        }
+
+        .tag-teacher-development {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .tag-education-technology {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .tag-early-childhood {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .tag-india {
+            background-color: #ffe5cc;
+            color: #854d0e;
+        }
+
+        .tag-argentina {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .tag-pakistan {
+            background-color: #e2d9f3;
+            color: #4a235a;
+        }
+
+        .tag-bangladesh {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .tag-united-states {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+
+        .tag-assessments {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .tag-impact-evaluation {
+            background-color: #fce4ec;
+            color: #880e4f;
+        }
+
+        .tag-social-emotional {
+            background-color: #e0f2f1;
+            color: #00695c;
+        }
+
+        .tag-foundational-skills {
+            background-color: #fff8e1;
+            color: #f57f17;
+        }
+
+        .tag-school-management {
+            background-color: #eceff1;
+            color: #37474f;
+        }
+
+        .tag-absenteeism {
+            background-color: #ffebee;
+            color: #b71c1c;
+        }
+
+        .tag-math-education {
+            background-color: #ede7f6;
+            color: #4527a0;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+        }
+        .lang-switcher a {
+            display: flex;
+            align-items: center;
+            padding: 0.25rem;
+            transition: opacity 0.2s;
+        }
+        .lang-switcher a:hover {
+            opacity: 0.8;
+        }
+        .lang-flag-nav {
+            display: inline-block;
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .lang-flag-nav.es {
+            background: linear-gradient(to bottom, #c60b1e 0%, #c60b1e 25%, #ffc400 25%, #ffc400 75%, #c60b1e 75%, #c60b1e 100%);
+        }
+        .lang-flag-nav.en {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v30h60V0z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23b)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            background-position: center;
+        }
+        .mobile-lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            font-weight: 600;
+        }
+        @media (max-width: 700px) {
+            .lang-switcher {
+                display: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .topic-block {
+                grid-template-columns: 220px 1fr;
+                gap: 1.5rem;
+            }
+
+            .topic-image {
+                width: 220px;
+                height: 155px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-links,
+            .nav-search {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header-inner,
+            .section-inner {
+                padding: 0 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .topic-block {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .topic-image {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/10;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Alejandro J. Ganimian</a>
+            <div class="nav-right">
+                <form class="nav-search" action="search.html" method="get">
+                    <input type="text" name="q" placeholder="Buscar...">
+                    <button type="submit">Ir</button>
+                </form>
+                <div class="nav-links">
+                    <a href="research.html">Investigación</a>
+                    <a href="instruments.html">Instrumentos</a>
+                    <a href="policy.html">Política</a>
+                    <a href="teaching.html">Docencia</a>
+                    <a href="media.html">Medios</a>
+                </div>
+                <div class="lang-switcher">
+                    <a href="../instruments.html" title="English"><span class="lang-flag-nav en"></span></a>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">&#9776;</button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="../instruments.html" class="mobile-lang-switcher"><span class="lang-flag-nav en"></span> English</a>
+            <a href="research.html">Investigación</a>
+            <a href="instruments.html">Instrumentos</a>
+            <a href="policy.html">Política</a>
+            <a href="teaching.html">Docencia</a>
+            <a href="media.html">Medios</a>
+            <form class="mobile-menu-search" action="search.html" method="get">
+                <input type="text" name="q" placeholder="Buscar...">
+                <button type="submit">Ir</button>
+            </form>
+        </div>
+    </nav>
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+    </script>
+
+    <header class="page-header">
+        <div class="page-header-inner">
+            <h1 class="page-title">Instrumentos</h1>
+        </div>
+    </header>
+
+    <section class="section" id="child-assessments">
+        <div class="section-inner">
+            <h2 class="section-title">Evaluaciones Infantiles</h2>
+            <div class="topic-block">
+                <img src="../images/research-8.png" alt="Evaluaciones Infantiles" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-list">
+                        <a href="research.html#paper-state-capacity" class="material-item">
+                            <span class="material-title">Aumentando la capacidad estatal para el desarrollo infantil: Evidencia experimental de India</span>
+                            <span class="material-authors">con K. Muralidharan y C. R. Walters</span>
+                            <span class="material-venue">Journal of Political Economy, 2024</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors"><span class="lang-flag en"></span> <a href="../files/instruments/Baseline_Child%20measurements%20and%20assessments%20-%202020-07-15%20-%20sd.pdf" target="_blank">Linea base</a> | <a href="../files/instruments/R5%20Child%20assessments%20-%202020-07-29%20-%20sd.pdf" target="_blank">Linea final</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="classroom-observations" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Observaciones de Aula</h2>
+            <div class="topic-block">
+                <img src="../images/research-8.png" alt="Observaciones de Aula" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-list">
+                        <a href="research.html#paper-state-capacity" class="material-item">
+                            <span class="material-title">Aumentando la capacidad estatal para el desarrollo infantil: Evidencia experimental de India</span>
+                            <span class="material-authors">con K. Muralidharan y C. R. Walters</span>
+                            <span class="material-venue">Journal of Political Economy, 2024</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors"><span class="lang-flag en"></span> <a href="../files/instruments/Announced%20observations%20-%202020-07-25%20-%20sd.pdf" target="_blank">Anunciadas</a> | <a href="../files/instruments/Unannounced%20observations%20-%202020-07-25%20-%20sd.pdf" target="_blank">No anunciadas</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="principal-surveys">
+        <div class="section-inner">
+            <h2 class="section-title">Encuestas a Directores</h2>
+            <div class="topic-block">
+                <img src="../images/research-7.png" alt="Encuestas a Directores" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-list">
+                        <a href="research.html#paper-teaching-with-test" class="material-item">
+                            <span class="material-title">Enseñando con la prueba: Evidencia experimental sobre retroalimentación diagnóstica y desarrollo de capacidades para escuelas públicas en Argentina</span>
+                            <span class="material-authors">con R. de Hoyos y P. A. Holland</span>
+                            <span class="material-venue">The World Bank Economic Review, 2021</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors"><a href="../files/instruments/Cuestionarios%20para%20DIRECTORES.pdf" target="_blank">Linea media</a> | <a href="../files/instruments/Encuesta%20de%20directores%20-%203oct2015.pdf" target="_blank">Linea final</a></span>
+                        </div>
+                        <a href="research.html#paper-combining-diagnostic" class="material-item">
+                            <span class="material-title">El impacto de combinar herramientas de gestión del desempeño y capacitación con retroalimentación diagnóstica en escuelas públicas: Evidencia experimental de Argentina</span>
+                            <span class="material-authors">con R. de Hoyos, S. Djaker y P. A. Holland</span>
+                            <span class="material-venue">Economics of Education Review, 2024</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors"><a href="../files/instruments/Cuestionarios%20para%20DIRECTORES%20SALTA.pdf" target="_blank">Linea base</a> | <a href="../files/instruments/SLT%20Encuesta%20de%20directores%20-%2024sep2015.pdf" target="_blank">Linea media</a> | <a href="../files/instruments/Encuesta%20directores-2016.pdf" target="_blank">Linea final</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="student-assessments" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Evaluaciones de Estudiantes</h2>
+            <div class="topic-block">
+                <img src="../images/news-1.png" alt="Evaluaciones de Estudiantes" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-list">
+                        <a href="research.html#paper-teaching-with-test" class="material-item">
+                            <span class="material-title">Enseñando con la prueba: Evidencia experimental sobre retroalimentación diagnóstica y desarrollo de capacidades para escuelas públicas en Argentina</span>
+                            <span class="material-authors">con R. de Hoyos y P. A. Holland</span>
+                            <span class="material-venue">The World Bank Economic Review, 2021</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors">Linea base: matemática - <a href="../files/instruments/test_blmat3_oct2013.pdf" target="_blank">Grado 3</a>, <a href="../files/instruments/test_blmat5_oct2013.pdf" target="_blank">Grado 5</a> | Lengua - <a href="../files/instruments/test_blspa3_oct2013.pdf" target="_blank">Grado 3</a>, <a href="../files/instruments/test_blspa5_oct2013.pdf" target="_blank">Grado 5</a></span>
+                        </div>
+                        <div class="material-item">
+                            <span class="material-authors">Linea media: matemática - <a href="../files/instruments/test_fu1mat3_nov2014.pdf" target="_blank">Grado 3</a>, <a href="../files/instruments/test_fu1mat4_nov2014.pdf" target="_blank">Grado 4</a>, <a href="../files/instruments/test_fu1mat5_nov2014.pdf" target="_blank">Grado 5</a> | Lengua - <a href="../files/instruments/test_fu1spa3_nov2014.pdf" target="_blank">Grado 3</a>, <a href="../files/instruments/test_fu1spa4_nov2014.pdf" target="_blank">Grado 4</a>, <a href="../files/instruments/test_fu1spa5_nov2014.pdf" target="_blank">Grado 5</a></span>
+                        </div>
+                        <div class="material-item">
+                            <span class="material-authors">Linea final: matemática - <a href="../files/instruments/3%C2%BA%20Mate%20La%20Rioja.pdf" target="_blank">Grado 3</a>, <a href="../files/instruments/5%C2%BA%20Mate%20La%20Rioja%20(1).pdf" target="_blank">Grado 5</a> | Lengua - <a href="../files/instruments/3%C2%BA%20Lengua%20La%20Rioja.pdf" target="_blank">Grado 3</a>, <a href="../files/instruments/5%C2%BA%20Lengua%20La%20Rioja.pdf" target="_blank">Grado 5</a></span>
+                        </div>
+                        <a href="research.html#paper-combining-diagnostic" class="material-item">
+                            <span class="material-title">El impacto de combinar herramientas de gestión del desempeño y capacitación con retroalimentación diagnóstica en escuelas públicas: Evidencia experimental de Argentina</span>
+                            <span class="material-authors">con R. de Hoyos, S. Djaker y P. A. Holland</span>
+                            <span class="material-venue">Economics of Education Review, 2024</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors">Linea base: matemática - <a href="../files/instruments/3%C2%BA%20Mate%20Salta.pdf" target="_blank">Grado 3</a> | Lengua - <a href="../files/instruments/3%C2%BA%20Lengua%20Salta.pdf" target="_blank">Grado 3</a></span>
+                        </div>
+                        <div class="material-item">
+                            <span class="material-authors">Linea media: matemática - <a href="../files/instruments/3%C2%BA%20Mate%20Salta%202015.pdf" target="_blank">Grado 3</a>, <a href="../files/instruments/4%C2%BA%20Mate%20Salta%202015.pdf" target="_blank">Grado 4</a> | Lengua - <a href="../files/instruments/3%C2%BA%20Lengua%20Salta%202015.pdf" target="_blank">Grado 3</a>, <a href="../files/instruments/4%C2%BA%20Lengua%20Salta%202015.pdf" target="_blank">Grado 4</a></span>
+                        </div>
+                        <div class="material-item">
+                            <span class="material-authors">Linea final: matemática - <a href="../files/instruments/3%C2%BA%20Mate%20Salta%202016.pdf" target="_blank">Grado 3</a>, <a href="../files/instruments/4%C2%BA%20Mate%20Salta%202016.pdf" target="_blank">Grado 4</a>, <a href="../files/instruments/5%C2%BA%20Mate%20Salta.pdf" target="_blank">Grado 5</a> | Lengua - <a href="../files/instruments/3%C2%BA%20Lengua%20Salta%20(1).pdf" target="_blank">Grado 3</a>, <a href="../files/instruments/4%C2%BA%20Lengua%20Salta%202016.pdf" target="_blank">Grado 4</a>, <a href="../files/instruments/5%C2%BA%20Lengua%20Salta.pdf" target="_blank">Grado 5</a></span>
+                        </div>
+                        <a href="research.html#paper-hard-cash" class="material-item">
+                            <span class="material-title">Dinero en efectivo y habilidades blandas: Evidencia experimental sobre la combinación de becas y mentorías en Argentina</span>
+                            <span class="material-authors">con F. Barrera-Osorio, M. L. Biehl y M. A. Cortelezzi</span>
+                            <span class="material-venue">Journal of Research on Educational Effectiveness, 2020</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors">Linea final: <a href="../files/instruments/Prueba%20Mat%20BID%20Cimientos%202015-06-11.pdf" target="_blank">Matemática</a> | <a href="../files/instruments/Prueba%20Len%20BID%20Cimientos%202015-06-11.pdf" target="_blank">Lectura</a></span>
+                        </div>
+                        <a href="research.html#paper-disrupting-education" class="material-item">
+                            <span class="material-title">Disruptiendo la educación? Evidencia experimental sobre instrucción asistida por tecnología en India</span>
+                            <span class="material-authors">con K. Muralidharan y A. Singh</span>
+                            <span class="material-venue">American Economic Review, 2019</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors"><span class="lang-flag en"></span> Linea base: matemática - <a href="../files/instruments/Math%20BL%20Gr45_final.pdf" target="_blank">Grados 4-5</a>, <a href="../files/instruments/Math%20BL%20Gr67_final.pdf" target="_blank">Grados 6-7</a>, <a href="../files/instruments/Math%20BL%20Gr89_final.pdf" target="_blank">Grados 8-9</a> | Hindi - <a href="../files/instruments/Hindi%20BL%20Gr45_final.pdf" target="_blank">Grados 4-5</a>, <a href="../files/instruments/Hindi%20BL%20Gr67_final.pdf" target="_blank">Grados 6-7</a>, <a href="../files/instruments/Hindi%20BL%20Gr89_final.pdf" target="_blank">Grados 8-9</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="student-surveys">
+        <div class="section-inner">
+            <h2 class="section-title">Encuestas a Estudiantes</h2>
+            <div class="topic-block">
+                <img src="../images/news-4.png" alt="Encuestas a Estudiantes" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-list">
+                        <a href="research.html#paper-teaching-with-test" class="material-item">
+                            <span class="material-title">Enseñando con la prueba: Evidencia experimental sobre retroalimentación diagnóstica y desarrollo de capacidades para escuelas públicas en Argentina</span>
+                            <span class="material-authors">con R. de Hoyos y P. A. Holland</span>
+                            <span class="material-venue">The World Bank Economic Review, 2021</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors"><a href="../files/instruments/Cuestionario%20para%20ESTUDIANTES%20final.pdf" target="_blank">Linea base</a> | <a href="../files/instruments/Cuestionario%20para%20ESTUDIANTES%2028%20SEPTIEMBRE.pdf" target="_blank">Linea media</a> | <a href="../files/instruments/Encuesta%20de%20alumnos%20-%203oct2015.pdf" target="_blank">Linea final</a></span>
+                        </div>
+                        <a href="research.html#paper-combining-diagnostic" class="material-item">
+                            <span class="material-title">El impacto de combinar herramientas de gestión del desempeño y capacitación con retroalimentación diagnóstica en escuelas públicas: Evidencia experimental de Argentina</span>
+                            <span class="material-authors">con R. de Hoyos, S. Djaker y P. A. Holland</span>
+                            <span class="material-venue">Economics of Education Review, 2024</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors"><a href="../files/instruments/Cuestionario%20para%20ESTUDIANTES%20SALTA%20final%2015-10%20(1).pdf" target="_blank">Linea base</a> | <a href="../files/instruments/SLT%20Encuesta%20de%20alumnos%20-%2024sep2015.pdf" target="_blank">Linea media</a> | <a href="../files/instruments/Encuesta%20de%20alumnos%20-%202016-10-04.pdf" target="_blank">Linea final</a></span>
+                        </div>
+                        <a href="research.html#paper-disrupting-education" class="material-item">
+                            <span class="material-title">Disruptiendo la educación? Evidencia experimental sobre instrucción asistida por tecnología en India</span>
+                            <span class="material-authors">con K. Muralidharan y A. Singh</span>
+                            <span class="material-venue">American Economic Review, 2019</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors"><span class="lang-flag en"></span> <a href="../files/instruments/Student%20Survey%20(Survey%20CTO)%20-%20FINAL_5Oct_2015.pdf" target="_blank">Linea base</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teacher-surveys" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Encuestas a Docentes</h2>
+            <div class="topic-block">
+                <img src="../images/research-2.jpg" alt="Encuestas a Docentes" class="topic-image">
+                <div class="topic-content">
+                    <div class="material-list">
+                        <a href="research.html#paper-teaching-with-test" class="material-item">
+                            <span class="material-title">Enseñando con la prueba: Evidencia experimental sobre retroalimentación diagnóstica y desarrollo de capacidades para escuelas públicas en Argentina</span>
+                            <span class="material-authors">con R. de Hoyos y P. A. Holland</span>
+                            <span class="material-venue">The World Bank Economic Review, 2021</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors"><a href="../files/instruments/Cuestionario%20para%20DOCENTES%20final.pdf" target="_blank">Linea base</a> | <a href="../files/instruments/Cuestionario%20para%20DOCENTES%20.pdf" target="_blank">Linea media</a> | <a href="../files/instruments/Encuesta%20de%20maestros%20-%203oct2015.pdf" target="_blank">Linea final</a></span>
+                        </div>
+                        <a href="research.html#paper-combining-diagnostic" class="material-item">
+                            <span class="material-title">El impacto de combinar herramientas de gestión del desempeño y capacitación con retroalimentación diagnóstica en escuelas públicas: Evidencia experimental de Argentina</span>
+                            <span class="material-authors">con R. de Hoyos, S. Djaker y P. A. Holland</span>
+                            <span class="material-venue">Economics of Education Review, 2024</span>
+                        </a>
+                        <div class="material-item">
+                            <span class="material-authors"><a href="../files/instruments/Cuestionario%20para%20DOCENTES%20SALTA.pdf" target="_blank">Linea base</a> | <a href="../files/instruments/SLT%20Encuesta%20de%20maestros%20-%2021sep2015.pdf" target="_blank">Linea media</a> | <a href="../files/instruments/Encuesta%20de%20maestros%20-%202016%20(1).pdf" target="_blank">Linea final</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

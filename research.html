@@ -106,7 +106,7 @@
             background: rgba(255,255,255,0.1);
             color: var(--white);
             outline: none;
-            width: 200px;
+            width: 150px;
         }
 
         .nav-search input::placeholder {
@@ -505,6 +505,50 @@
             text-decoration-thickness: 1px;
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+        }
+        .lang-switcher a {
+            display: flex;
+            align-items: center;
+            padding: 0.25rem;
+            transition: opacity 0.2s;
+        }
+        .lang-switcher a:hover {
+            opacity: 0.8;
+        }
+        .lang-flag-nav {
+            display: inline-block;
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .lang-flag-nav.es {
+            background: linear-gradient(to bottom, #c60b1e 0%, #c60b1e 25%, #ffc400 25%, #ffc400 75%, #c60b1e 75%, #c60b1e 100%);
+        }
+        .lang-flag-nav.en {
+            background: linear-gradient(to bottom, #012169 0%, #012169 50%, #c8102e 50%, #c8102e 100%);
+        }
+        .mobile-lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            font-weight: 600;
+        }
+        @media (max-width: 700px) {
+            .lang-switcher {
+                display: none;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 900px) {
             .paper-item {
@@ -582,10 +626,14 @@
                     <a href="teaching.html">Teaching</a>
                     <a href="media.html">Media</a>
                 </div>
+                <div class="lang-switcher">
+                    <a href="es/research.html" title="Español"><span class="lang-flag-nav es"></span></a>
+                </div>
                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">&#9776;</button>
             </div>
         </div>
         <div class="mobile-menu" id="mobile-menu">
+            <a href="es/research.html" class="mobile-lang-switcher"><span class="lang-flag-nav es"></span> Español</a>
             <a href="research.html">Research</a>
             <a href="instruments.html">Instruments</a>
             <a href="policy.html">Policy</a>

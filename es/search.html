@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XY0MQ9E3D"></script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8XY0MQ9E3D');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar - Alejandro J. Ganimian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #222;
+            --accent-hover: #000;
+            --black: #222;
+            --white: #fff;
+            --gray: #f5f5f5;
+            --gray-dark: #ddd;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Libre Franklin', -apple-system, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Nav */
+        nav {
+            background: var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-search {
+            display: flex;
+        }
+
+        .nav-search input {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+            width: 150px;
+        }
+
+        .nav-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .nav-search input:focus {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-search button {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .page-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .page-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        .search-query {
+            font-weight: 300;
+            color: #555;
+        }
+
+        /* Section */
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 2px solid var(--gray-dark);
+            border-right: none;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: var(--black);
+        }
+
+        .search-box button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--black);
+            color: var(--white);
+            border: 2px solid var(--black);
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Results */
+        .results-count {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .result-item {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-category {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #777;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1.4;
+            color: var(--black);
+            margin-bottom: 0.35rem;
+        }
+
+        .result-title:hover {
+            text-decoration: underline;
+        }
+
+        .result-meta {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-excerpt {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .result-excerpt mark {
+            background: #fff3cd;
+            padding: 0 2px;
+        }
+
+        .no-results {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #555;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+        }
+        .lang-switcher a {
+            display: flex;
+            align-items: center;
+            padding: 0.25rem;
+            transition: opacity 0.2s;
+        }
+        .lang-switcher a:hover {
+            opacity: 0.8;
+        }
+        .lang-flag-nav {
+            display: inline-block;
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .lang-flag-nav.es {
+            background: linear-gradient(to bottom, #c60b1e 0%, #c60b1e 25%, #ffc400 25%, #ffc400 75%, #c60b1e 75%, #c60b1e 100%);
+        }
+        .lang-flag-nav.en {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v30h60V0z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23b)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            background-position: center;
+        }
+        .mobile-lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            font-weight: 600;
+        }
+        @media (max-width: 700px) {
+            .lang-switcher {
+                display: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .nav-links,
+            .nav-search {
+                display: none;
+            }
+
+            .page-header-inner,
+            .section-inner {
+                padding: 0 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Alejandro J. Ganimian</a>
+            <div class="nav-right">
+                <form class="nav-search" action="search.html" method="get">
+                    <input type="text" name="q" placeholder="Buscar...">
+                    <button type="submit">Ir</button>
+                </form>
+                <div class="nav-links">
+                    <a href="research.html">Investigación</a>
+                    <a href="instruments.html">Instrumentos</a>
+                    <a href="policy.html">Política</a>
+                    <a href="teaching.html">Docencia</a>
+                    <a href="media.html">Medios</a>
+                </div>
+                <div class="lang-switcher">
+                    <a href="../search.html" title="English"><span class="lang-flag-nav en"></span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="page-header-inner">
+            <h1 class="page-title">Buscar <span class="search-query" id="search-query-display"></span></h1>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="section-inner">
+            <form class="search-box" action="search.html" method="get">
+                <input type="text" name="q" id="search-input" placeholder="Buscar artículos, cursos, informes de política...">
+                <button type="submit">Buscar</button>
+            </form>
+            <p class="results-count" id="results-count"></p>
+            <div class="results-list" id="results-list"></div>
+        </div>
+    </section>
+
+    <script>
+        // Search index - contains all searchable content
+        const searchIndex = [
+            // Documentos de Trabajo
+            {
+                category: "Documento de Trabajo",
+                title: "La confiabilidad de las observaciones de aula y las encuestas a estudiantes en contextos no experimentales: Evidencia de Argentina",
+                authors: "con A. Ho y A. Campos Quintero",
+                abstract: "Ambos instrumentos pueden lograr una confiabilidad relativamente alta cuándo se promedian entre evaluadores y ocasiones, aunque la confiabilidad de las observaciones varia significativamente según cómo se asignen los evaluadores a los docentes.",
+                tags: ["Desarrollo Docente", "Evaluaciones", "Argentina"],
+                url: "research.html#working-papers"
+            },
+            {
+                category: "Documento de Trabajo",
+                title: "Aprovechando las complementariedades entre el conocimiento del contenido de los docentes y los apoyos pedagógicos: Evidencia experimental de India",
+                authors: "con I. Mbiti y A. Mishra",
+                abstract: "Los becarios con sólido conocimiento del contenido pero experiencia mínima, combinados con capacitación y acompañamiento, superaron sustancialmente a los docentes regulares en resultados de matemáticas y ciencias.",
+                tags: ["Desarrollo Docente", "Evaluación de Impacto", "India"],
+                url: "research.html#working-papers"
+            },
+            {
+                category: "Documento de Trabajo",
+                title: "La Educación Cívica impacta los resultados cívicos de los estudiantes de primaria? Evidencia experimental de Liberia",
+                authors: "con S. Acris, E. King y K. Marple-Cantrell",
+                abstract: "El programa mejoró sustancialmente el conocimiento cívico factual, particularmente para estudiantes de bajo rendimiento y rurales, pero no se tradujo en mayor participación cívica.",
+                tags: ["Habilidades Socioemocionales", "Evaluación de Impacto"],
+                url: "research.html#working-papers"
+            },
+            {
+                category: "Documento de Trabajo",
+                title: "cómo pueden los países en desarrollo abordar la heterogeneidad en la preparación de los estudiantes para la escuela? Una revisión del desafío y posibles soluciones",
+                authors: "con S. Djaker",
+                abstract: "está revision explora por que las escuelas tienen dificultades para acomodar los diversos niveles de preparación de los estudiantes y propone un marco conceptual para entender las barreras sistemicas.",
+                tags: ["Evaluaciones", "Habilidades Fundamentales"],
+                url: "research.html#working-papers"
+            },
+            // artículos de Revista
+            {
+                category: "Artículo de Revista",
+                title: "Los desafíos de escalar prácticas efectivas de crianza utilizando tecnología en contextos en desarrollo: Evidencia experimental de India",
+                authors: "con I. Arteaga y A. de Barros",
+                venue: "Journal of Research on Educational Effectiveness, 2025",
+                abstract: "Una intervención automatizada de crianza mostró resultados decepcionantes, reduciendo la autoeficacia de los cuidadores y aumentando la ansiedad sin mejorar los resultados de desarrollo infantil.",
+                tags: ["Tecnología Educativa", "Educación de Primera Infancia", "Evaluación de Impacto", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "Las habilidades aritméticas de los niños no se transfieren entre las matemáticas aplicadas y académicas",
+                authors: "con A. V. Banerjee, S. Bhattacharjee, R. Chattopadhyay, E. Duflo, K. Rajah y E. S. Spelke",
+                venue: "Nature, 2025",
+                abstract: "Los niños trabajadores en India demostraron cálculos sofisticados en el mercado pero tuvieron dificultades con problemas equivalentes en formato escolar abstracto, revelando una brecha significativa de transferencia.",
+                tags: ["Habilidades Fundamentales", "Evaluaciones", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "Ojos qué no ven, corazón que no siente? La brecha entre el desempeño de los estudiantes en exámenes y las estimaciones de los docentes en India y Bangladesh",
+                authors: "con S. Djaker y S. Sabarwal",
+                venue: "Economics of Education Review, 2024",
+                abstract: "Los docentes sistemáticamente estiman erroneamente el desempeño estudiantil, particularmente tendiendo a sobreestimar a los estudiantes de bajo rendimiento mientras subestiman la variabilidad de la clase.",
+                tags: ["Desarrollo Docente", "Evaluaciones", "India", "Bangladesh"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "El impacto de combinar herramientas de gestión del desempeño y capacitación con retroalimentación diagnóstica en escuelas públicas: Evidencia experimental de Argentina",
+                authors: "con R. de Hoyos, S. Djaker y P. A. Holland",
+                venue: "Economics of Education Review, 2024",
+                abstract: "Combinar herramientas de gestión del desempeño con capacitación redujo la repetición de grado, mientras que la retroalimentación sola mostró efectos mínimos en los resultados de logro estudiantil.",
+                tags: ["Desarrollo Docente", "Gestión Escolar", "Evaluaciones", "Evaluación de Impacto", "Argentina"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "Aumentando la capacidad estatal para el desarrollo infantil: Evidencia experimental de India",
+                authors: "con K. Muralidharan y C. R. Walters",
+                venue: "Journal of Political Economy, 2024",
+                abstract: "Agregar personal al programa de primera infancia de India casi duplicó el tiempo de instrucción y produjo mejoras significativas en las puntuaciones de matemáticas y lenguaje.",
+                tags: ["Educación de Primera Infancia", "Evaluación de Impacto", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "qué estudiantes se benefician de la instrucción individualizada por computadora? Evidencia experimental de escuelas públicas en India",
+                authors: "con A. de Barros",
+                venue: "Journal of Research on Educational Effectiveness, 2023",
+                abstract: "El software de aprendizaje adaptativo por computadora demostró ser más beneficioso para los estudiantes de bajo rendimiento mientras mostraba efectos promedio insignificantes en el logro general.",
+                tags: ["Tecnología Educativa", "Evaluación de Impacto", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "Las habilidades matemáticas fundamentales de los niños indios",
+                authors: "con A. de Barros",
+                venue: "Economics of Education Review, 2023",
+                abstract: "La evaluación de habilidades fundamentales reveló qué solo el 27% de los estudiantes domino habilidades tipicamente no evaluadas a pesar de que el 52% domino conceptos frecuentemente evaluados.",
+                tags: ["Habilidades Fundamentales", "Evaluaciones", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "Intervenciones de mentalidad de crecimiento a escala: Evidencia experimental de Argentina",
+                authors: "A. Ganimian",
+                venue: "Educational Evaluation and Policy Analysis, 2020",
+                abstract: "Una intervención de mentalidad de crecimiento a escala no produjo efectos detectables en el enfoque de tareas de los estudiantes, clima escolar, logro o planes futuros.",
+                tags: ["Habilidades Socioemocionales", "Evaluación de Impacto", "Argentina"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "Disrumpiendo la educación? Evidencia experimental sobre instrucción asistida por tecnología en India",
+                authors: "con K. Muralidharan y A. Singh",
+                venue: "American Economic Review, 2019",
+                abstract: "La instrucción personalizada hábilitada por tecnología generó ganancias sustanciales en matemáticas e hindi, beneficiando particularmente a los estudiantes académicamente más débiles a bajo costo.",
+                tags: ["Tecnología Educativa", "Evaluación de Impacto", "India"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "Mejorando los resultados educativos en países en desarrollo: lecciónes de evaluaciones rigurosas",
+                authors: "con R. J. Murnane",
+                venue: "Review of Educational Research, 2016",
+                abstract: "La síntesis de 223 evaluaciones identifico que la reducción de costos expande el acceso, la información moldea las decisiones parentales, la calidad de los recursos importa más que la cantidad, y los incentivos focalizados mejoran el desempeño.",
+                tags: ["Revisión Sistemática"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "Midiendo y prediciendo el compromiso de los docentes para implementar programas basados en evidencia",
+                authors: "con T. Cramer, E. Cappella y P. Morris",
+                venue: "Early Childhood Research Quarterly, 2023",
+                abstract: "La creencia de los docentes de que los programas benefician a los niños surgio cómo el predictor más fuerte de la fidelidad de implementación en intervenciones de aprendizaje socioemocional.",
+                tags: ["Desarrollo Docente", "Habilidades Socioemocionales", "Educación de Primera Infancia", "Estados Unidos"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "Puede el clima escolar positivo mejorar las disparidades raciales-étnicas en la calidad del preescolar? Evidencia de un gran distrito escolar urbano",
+                authors: "con J. Siegel y E. Cappella",
+                venue: "Early Childhood Research Quarterly, 2023",
+                abstract: "El clima escolar modero las disparidades en la organización del aula y el apoyo emocional pero no en la calidad instruccional entre grupos raciales-étnicos de estudiantes.",
+                tags: ["Educación de Primera Infancia", "Estados Unidos"],
+                url: "research.html#journal-articles"
+            },
+            {
+                category: "Artículo de Revista",
+                title: "El rol del compromiso de los docentes para implementar en la entrega de programas de aprendizaje socioemocional basados en evidencia",
+                authors: "con T. Cramer, P. Morris y E. Cappella",
+                venue: "Journal of School Psychology, 2021",
+                abstract: "El compromiso docente con la implementación predijo consistentemente la fidelidad a través del tiempo y explico variación independientemente de otros factores individuales o contextuales.",
+                tags: ["Desarrollo Docente", "Habilidades Socioemocionales", "Estados Unidos"],
+                url: "research.html#journal-articles"
+            },
+            // Informes de política
+            {
+                category: "Informe de política",
+                title: "Educación Cívica en Liberia: Informe final",
+                authors: "con E. King, S. Acris y K. Marple-Cantrell",
+                venue: "USAID, 2025",
+                tags: ["Habilidades Socioemocionales", "Evaluación de Impacto"],
+                url: "policy.html#civic-education"
+            },
+            {
+                category: "Informe de política",
+                title: "Realizando la promesa: ¿cómo puede la Tecnología Educativa mejorar el aprendizaje para todos?",
+                authors: "con E. Vegas y F. M. Hess",
+                venue: "Brookings Institution, 2020",
+                tags: ["Tecnología Educativa", "Evaluación de Impacto"],
+                url: "policy.html#education-technology"
+            },
+            {
+                category: "Informe de política",
+                title: "teoría y evidencia sobre políticas docentes en países desarrollados y en desarrollo",
+                authors: "con E. Vegas",
+                venue: "Banco Interamericaño de Desarrollo, 2013",
+                tags: ["Desarrollo Docente"],
+                url: "policy.html#teacher-policies"
+            },
+            {
+                category: "Informe de política",
+                title: "qué aprendimos de Aprender? Argentina 2016-2023",
+                authors: "con V. Mesalles",
+                venue: "Educar 2050 / Argentinos por la educación, 2024",
+                tags: ["Evaluaciones", "Habilidades Fundamentales", "Argentina"],
+                url: "policy.html#assessments"
+            },
+            {
+                category: "Informe de política",
+                title: "Informe sobre ausencias estudiantiles en Mendoza, Argentina",
+                venue: "dirección General de Escuelas, Provincia de Mendoza, 2022",
+                tags: ["Ausentismo", "Argentina"],
+                url: "policy.html#evidence-briefs"
+            },
+            // Docencia
+            {
+                category: "Curso",
+                title: "La economía de la educación en países de ingresos bajos y medios",
+                venue: "Harvard Graduate School of Education, Primavera 2025",
+                abstract: "Este curso examina el análisis económico de los sistemas educativos en países en desarrollo. Los temas incluyen los retornos a la educación, los determinantes de la calidad educativa, los mercados laborales docentes, la elección escolar y la competencia, y el diseño y evaluación de políticas e intervenciones educativas.",
+                tags: ["Posgrado"],
+                url: "teaching.html#visiting-professor"
+            },
+            {
+                category: "Curso",
+                title: "Evidencia",
+                venue: "Harvard Graduate School of Education, Veraño 2024",
+                tags: ["Posgrado"],
+                url: "teaching.html#visiting-professor"
+            },
+            {
+                category: "Curso",
+                title: "métodos de investigación I",
+                venue: "New York University Steinhardt, Primavera 2018-2021",
+                abstract: "Este curso introduce a los estudiantes a los fundamentos de los métodos de investigación en las ciencias sociales. Los estudiantes aprenden a formular preguntas de investigación, disenar estudios, recolectar y analizar datos, e interpretar hallazgos.",
+                tags: ["Pregrado"],
+                url: "teaching.html#assistant-professor"
+            },
+            {
+                category: "Curso",
+                title: "Medición psicológica",
+                venue: "New York University Steinhardt, Otono 2017-Primavera 2021",
+                abstract: "Este curso proporciona una introducción integral a la teoría y práctica de la medición psicológica. Los temas incluyen la teoría clasica de tests, confiabilidad y validez, análisis de items, construcción de tests, e introducción a la teoría de respuesta al item.",
+                tags: ["Posgrado"],
+                url: "teaching.html#assistant-professor"
+            },
+            {
+                category: "Curso",
+                title: "Evaluaciones aleatorizadas de intervenciones educativas",
+                authors: "con M. Cortelezzi",
+                venue: "Ministerio de Educación nacional de Argentina y Universidad Torcuato Di Tella",
+                tags: ["educación Ejecutiva"],
+                url: "teaching.html#executive-education"
+            },
+            {
+                category: "Asistente de Docencia",
+                title: "métodos cuantitativos para mejorar la inferencia causal en la investigación educativa",
+                authors: "con D. J. Deming",
+                venue: "Harvard Graduate School of Education, Primavera 2014",
+                url: "teaching.html#teaching-fellow"
+            },
+            {
+                category: "Asistente de Docencia",
+                title: "Desigualdad social y desventaja educativa",
+                authors: "con R. J. Murnane",
+                venue: "Harvard Graduate School of Education, Primavera 2013",
+                url: "teaching.html#teaching-fellow"
+            },
+            {
+                category: "Asistente de Docencia",
+                title: "métodos de medición educativa",
+                authors: "con D. M. Koretz y A. D. Ho",
+                venue: "Harvard Graduate School of Education, Otono 2012",
+                url: "teaching.html#teaching-fellow"
+            },
+            // Medios
+            {
+                category: "Medios",
+                title: "Estos adolescentes pueden hacer matemáticas increibles mentalmente pero fracasan en el aula",
+                venue: "The Hechinger Report",
+                tags: ["Habilidades Fundamentales", "India"],
+                url: "index.html#media"
+            },
+            {
+                category: "Medios",
+                title: "Los niños indios dominan las matemáticas del mercado pero tienen dificultades en clase, según estudio de premios Nobel",
+                venue: "India Today",
+                tags: ["Habilidades Fundamentales", "India"],
+                url: "index.html#media"
+            },
+            {
+                category: "Medios",
+                title: "Las habilidades aritméticas del mundo real de los niños no se transfieren al aula",
+                venue: "Nature Podcast",
+                tags: ["Habilidades Fundamentales", "India"],
+                url: "index.html#media"
+            },
+            {
+                category: "Medios",
+                title: "Surge debate sobre ensenar mentalidades de crecimiento para motivar a los estudiantes",
+                venue: "Scientific American",
+                tags: ["Habilidades Socioemocionales", "Argentina"],
+                url: "index.html#media"
+            },
+            {
+                category: "Medios",
+                title: "En países pobres la tecnología puede hacer grandes mejoras a la educación",
+                venue: "The Economist",
+                tags: ["Tecnología Educativa"],
+                url: "index.html#media"
+            }
+        ];
+
+        // Get query from URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Highlight search terms in text
+        function highlightText(text, query) {
+            if (!text || !query) return text || '';
+            const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 2);
+            let result = text;
+            terms.forEach(term => {
+                const regex = new RegExp(`(${term})`, 'gi');
+                result = result.replace(regex, '<mark>$1</mark>');
+            });
+            return result;
+        }
+
+        // Search function
+        function search(query) {
+            if (!query || query.trim().length < 2) return [];
+
+            const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 1);
+
+            return searchIndex.filter(item => {
+                const searchText = [
+                    item.title,
+                    item.authors,
+                    item.venue,
+                    item.abstract,
+                    ...(item.tags || [])
+                ].filter(Boolean).join(' ').toLowerCase();
+
+                return terms.some(term => searchText.includes(term));
+            }).map(item => {
+                // Calculate relevance score
+                const searchText = [item.title, item.authors, item.venue, item.abstract, ...(item.tags || [])].filter(Boolean).join(' ').toLowerCase();
+                let score = 0;
+                terms.forEach(term => {
+                    if (item.title && item.title.toLowerCase().includes(term)) score += 10;
+                    if (item.tags && item.tags.some(tag => tag.toLowerCase().includes(term))) score += 5;
+                    if (item.authors && item.authors.toLowerCase().includes(term)) score += 3;
+                    if (item.abstract && item.abstract.toLowerCase().includes(term)) score += 1;
+                });
+                return { ...item, score };
+            }).sort((a, b) => b.score - a.score);
+        }
+
+        // Render results
+        function renderResults(results, query) {
+            const resultsCount = document.getElementById('results-count');
+            const resultsList = document.getElementById('results-list');
+
+            if (results.length === 0) {
+                resultsCount.textContent = '';
+                resultsList.innerHTML = '<p class="no-results">No se encontraron resultados. Intente con otras palabras clave.</p>';
+                return;
+            }
+
+            resultsCount.textContent = `${results.length} resultado${results.length !== 1 ? 's' : ''} encontrado${results.length !== 1 ? 's' : ''}`;
+
+            resultsList.innerHTML = results.map(item => `
+                <div class="result-item">
+                    <div class="result-category">${item.category}</div>
+                    <a href="${item.url}" class="result-title">${highlightText(item.title, query)}</a>
+                    ${item.authors ? `<div class="result-meta">${highlightText(item.authors, query)}</div>` : ''}
+                    ${item.venue ? `<div class="result-meta">${highlightText(item.venue, query)}</div>` : ''}
+                    ${item.abstract ? `<div class="result-excerpt">${highlightText(item.abstract, query)}</div>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            const query = getQueryParam('q');
+            const searchInput = document.getElementById('search-input');
+            const queryDisplay = document.getElementById('search-query-display');
+
+            if (query) {
+                searchInput.value = query;
+                queryDisplay.textContent = `para "${query}"`;
+                const results = search(query);
+                renderResults(results, query);
+            }
+        });
+    </script>
+</body>
+</html>

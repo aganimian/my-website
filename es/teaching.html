@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XY0MQ9E3D"></script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8XY0MQ9E3D');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docencia - Alejandro J. Ganimian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #222;
+            --accent-hover: #000;
+            --black: #222;
+            --white: #fff;
+            --gray: #f5f5f5;
+            --gray-dark: #ddd;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Libre Franklin', -apple-system, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Nav */
+        nav {
+            background: var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-search {
+            display: flex;
+        }
+
+        .nav-search input {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+            width: 150px;
+        }
+
+        .nav-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .nav-search input:focus {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-search button {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            line-height: 1;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--accent);
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu-search {
+            display: flex;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-search input {
+            flex: 1;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+        }
+
+        .mobile-menu-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .mobile-menu-search button {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .page-header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .page-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        /* Section */
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .section-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--black);
+        }
+
+        .section-subtitle {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Course Grid */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .course-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .course-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            line-height: 1.4;
+            color: var(--black);
+            margin-bottom: 0.35rem;
+        }
+
+        .course-meta {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: #555;
+            margin-bottom: 0.25rem;
+        }
+
+        .course-level {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #777;
+            margin-bottom: 0.75rem;
+        }
+
+        .course-description {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 0.75rem;
+        }
+
+        .course-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .course-link {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .course-link:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .lang-flag {
+            display: inline-block;
+            width: 18px;
+            height: 12px;
+            margin-left: 0.35rem;
+            vertical-align: middle;
+            border-radius: 1px;
+        }
+
+        .lang-flag.en {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v30h60V0z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23b)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 100% 100%;
+        }
+
+        /* Teaching Fellow List */
+        .tf-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem 2.5rem;
+        }
+
+        .tf-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tf-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1.4;
+            color: var(--black);
+            margin-bottom: 0.25rem;
+        }
+
+        .tf-faculty {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #555;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+        }
+        .lang-switcher a {
+            display: flex;
+            align-items: center;
+            padding: 0.25rem;
+            transition: opacity 0.2s;
+        }
+        .lang-switcher a:hover {
+            opacity: 0.8;
+        }
+        .lang-flag-nav {
+            display: inline-block;
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .lang-flag-nav.es {
+            background: linear-gradient(to bottom, #c60b1e 0%, #c60b1e 25%, #ffc400 25%, #ffc400 75%, #c60b1e 75%, #c60b1e 100%);
+        }
+        .lang-flag-nav.en {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v30h60V0z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23b)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            background-position: center;
+        }
+        .mobile-lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            font-weight: 600;
+        }
+        @media (max-width: 700px) {
+            .lang-switcher {
+                display: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .nav-container {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-links,
+            .nav-search {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header-inner,
+            .section-inner {
+                padding: 0 1.5rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .course-grid,
+            .tf-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Alejandro J. Ganimian</a>
+            <div class="nav-right">
+                <form class="nav-search" action="../search.html" method="get">
+                    <input type="text" name="q" placeholder="Buscar...">
+                    <button type="submit">Ir</button>
+                </form>
+                <div class="nav-links">
+                    <a href="research.html">Investigación</a>
+                    <a href="instruments.html">Instrumentos</a>
+                    <a href="policy.html">Política</a>
+                    <a href="teaching.html">Docencia</a>
+                    <a href="media.html">Medios</a>
+                </div>
+                <div class="lang-switcher">
+                    <a href="../teaching.html" title="English"><span class="lang-flag-nav en"></span></a>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">&#9776;</button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="../teaching.html" class="mobile-lang-switcher"><span class="lang-flag-nav en"></span> English</a>
+            <a href="research.html">Investigación</a>
+            <a href="instruments.html">Instrumentos</a>
+            <a href="policy.html">Política</a>
+            <a href="teaching.html">Docencia</a>
+            <a href="media.html">Medios</a>
+            <form class="mobile-menu-search" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Buscar...">
+                <button type="submit">Ir</button>
+            </form>
+        </div>
+    </nav>
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        }
+    </script>
+
+    <header class="page-header">
+        <div class="page-header-inner">
+            <h1 class="page-title">Docencia</h1>
+        </div>
+    </header>
+
+    <section class="section" id="visiting-professor">
+        <div class="section-inner">
+            <h2 class="section-title">Profesor Asociado</h2>
+            <p class="section-subtitle">Harvard Graduate School of Education</p>
+            <div class="course-grid">
+                <div class="course-card">
+                    <img src="../images/news-2.png" alt="Economía de la Educación" class="course-image">
+                    <h3 class="course-title">La economía de la educación en países de ingresos bajos y medios</h3>
+                    <p class="course-meta">Primavera 2025</p>
+                    <p class="course-level">Posgrado</p>
+                    <p class="course-description">Este curso examina el análisis económico de los sistemas educativos en países en desarrollo. Los temas incluyen los retornos a la educación, los determinantes de la calidad educativa, los mercados laborales docentes, la elección escolar y la competencia, y el diseño y evaluación de políticas e intervenciones educativas.</p>
+                    <div class="course-links">
+                        <a href="../files/A-845-Syllabus.pdf" target="_blank" class="course-link">Programa <span class="lang-flag en"></span></a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="../images/news-4.png" alt="Evidencia" class="course-image">
+                    <h3 class="course-title">Evidencia</h3>
+                    <p class="course-meta">Período J 2026, Veraño 2024</p>
+                    <p class="course-level">Posgrado</p>
+                    <p class="course-description">Este curso equipa a los estudiantes con las habilidades y conocimientos fundamentales qué necesitan para interpretar las formas más comunes de evidencia en entornos educativos y aplicarlas a su práctica. Los temas incluyen estadística descriptiva, diseño de investigación, inferencia causal y evaluación crítica de estudios cuantitativos y cualitativos.</p>
+                    <div class="course-links">
+                        <a href="../files/EVI101-syllabus-2026.pdf" target="_blank" class="course-link">Programa <span class="lang-flag en"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="assistant-professor" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Profesor Asistente</h2>
+            <p class="section-subtitle">New York University, Steinhardt School of Culture, Education, and Human Development</p>
+            <div class="course-grid">
+                <div class="course-card">
+                    <img src="../images/news-1.png" alt="Métodos de Investigación" class="course-image">
+                    <h3 class="course-title">Métodos de investigación I</h3>
+                    <p class="course-meta">Primavera 2018, Otoño 2018, Primavera 2019, Otoño 2019, Primavera 2020, Primavera 2021</p>
+                    <p class="course-level">Pregrado</p>
+                    <p class="course-description">Este curso introduce a los estudiantes a los fundamentos de los métodos de investigación en ciencias sociales. Los estudiantes aprenden a formular preguntas de investigación, diseñar estudios, recopilar y analizar datos, e interpretar hallazgos. El curso cubre enfoques tanto cuantitativos cómo cualitativos, con énfasis en el desarrollo de habilidades de pensamiento crítico para evaluar investigaciones.</p>
+                    <div class="course-links">
+                        <a href="../files/APSY-UE-25-Syllabus.pdf" target="_blank" class="course-link">Programa <span class="lang-flag en"></span></a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <img src="../images/research-1.jpg" alt="Medición Psicológica" class="course-image">
+                    <h3 class="course-title">Medición psicológica</h3>
+                    <p class="course-meta">Otoño 2017, Primavera 2020, Primavera 2021</p>
+                    <p class="course-level">Posgrado</p>
+                    <p class="course-description">Este curso proporciona una introducción integral a la teoría y práctica de la medición psicológica. Los temas incluyen la teoría clásica de los tests, confiabilidad y validez, análisis de ítems, construcción de tests e introducción a la teoría de respuesta al ítem. Los estudiantes adquieren experiencia práctica desarrollando y evaluando instrumentos de medición.</p>
+                    <div class="course-links">
+                        <a href="../files/APSY-GE-2524-Syllabus.pdf" target="_blank" class="course-link">Programa <span class="lang-flag en"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="executive-education">
+        <div class="section-inner">
+            <h2 class="section-title">Educación Ejecutiva</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <img src="../images/news-9.png" alt="Evaluaciones Aleatorias" class="course-image">
+                    <h3 class="course-title">Evaluaciones aleatorias de intervenciones educativas</h3>
+                    <p class="course-meta">con M. Cortelezzi</p>
+                    <p class="course-level">Ministerio nacional de Educación y Deportes, Argentina (2017) · Universidad Torcuato Di Tella (2016)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="teaching-fellow" style="background: var(--gray);">
+        <div class="section-inner">
+            <h2 class="section-title">Asistente de Docencia</h2>
+            <p class="section-subtitle">Harvard Graduate School of Education</p>
+            <div class="tf-grid">
+                <div class="tf-card">
+                    <h3 class="tf-title">Métodos cuantitativos para mejorar la inferencia causal en investigación educativa</h3>
+                    <p class="tf-faculty">con D. J. Deming (Primavera 2014)</p>
+                </div>
+                <div class="tf-card">
+                    <h3 class="tf-title">Desigualdad social y desventaja educativa</h3>
+                    <p class="tf-faculty">con R. J. Murnane (Primavera 2013)</p>
+                </div>
+                <div class="tf-card">
+                    <h3 class="tf-title">Métodos cuantitativos para mejorar la inferencia causal en investigación educativa</h3>
+                    <p class="tf-faculty">con R. J. Murnane & J. B. Willett (Otoño 2012)</p>
+                </div>
+                <div class="tf-card">
+                    <h3 class="tf-title">Métodos de medición educativa</h3>
+                    <p class="tf-faculty">con D. M. Koretz & A. D. Ho (Otoño 2012)</p>
+                </div>
+                <div class="tf-card">
+                    <h3 class="tf-title">Reformas de mercado en la educación estadounidense</h3>
+                    <p class="tf-faculty">con M. R. West (Primavera 2011)</p>
+                </div>
+                <div class="tf-card">
+                    <h3 class="tf-title">Microeconomía: Una herramienta de política para educadores</h3>
+                    <p class="tf-faculty">con F. Barrera-Osorio (Otoño 2011)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

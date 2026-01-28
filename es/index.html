@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XY0MQ9E3D"></script>
+    <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8XY0MQ9E3D');
+    </script>
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alejandro J. Ganimian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* público Headline - Commercial Type */
+        @font-face {
+            font-family: 'público Headline';
+            src: local('público Headline'), local('PublicoHeadline-Roman');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'público Headline';
+            src: local('público Headline Bold'), local('PublicoHeadline-Bold');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Atlas Grotesk - Commercial Type */
+        @font-face {
+            font-family: 'Atlas Grotesk';
+            src: local('Atlas Grotesk'), local('AtlasGrotesk-Regular');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Atlas Grotesk';
+            src: local('Atlas Grotesk Medium'), local('AtlasGrotesk-Medium');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Atlas Grotesk';
+            src: local('Atlas Grotesk Bold'), local('AtlasGrotesk-Bold');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #222;
+            --accent-hover: #000;
+            --black: #222;
+            --white: #fff;
+            --gray: #f5f5f5;
+            --gray-dark: #ddd;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Libre Franklin', -apple-system, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Libre Franklin ExtraBold for headlines */
+        .section-title,
+        .research-title,
+        .news-headline,
+        .media-title,
+        .popular-list li a,
+        .contact-section h2 {
+            font-family: 'Libre Franklin', sans-serif;
+            font-weight: 800;
+        }
+
+        /* Libre Franklin Light for body text */
+        .hero-content p,
+        .research-abstract,
+        .contact-info p,
+        .research-featured-abstract {
+            font-family: 'Libre Franklin', sans-serif;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .illustration {
+            width: 100%;
+            aspect-ratio: 16/10;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .illustration svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .media-card .illustration {
+            aspect-ratio: 16/9;
+        }
+
+        /* Nav */
+        nav {
+            background: var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-search {
+            display: flex;
+        }
+
+        .nav-search input {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+            width: 150px;
+        }
+
+        .nav-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .nav-search input:focus {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-search button {
+            padding: 0.4rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            line-height: 1;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--accent);
+            padding: 1rem 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu-search {
+            display: flex;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-search input {
+            flex: 1;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            outline: none;
+        }
+
+        .mobile-menu-search input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .mobile-menu-search button {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--black);
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Section base */
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .section-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--black);
+            letter-spacing: -0.5px;
+        }
+
+        /* Hero / Bio */
+        .hero {
+            padding: 2rem 0 4rem 0;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: grid;
+            grid-template-columns: 480px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .hero-photo {
+            position: sticky;
+            top: 100px;
+            overflow: hidden;
+        }
+
+        .profile-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            object-position: center 20%;
+            transform: scale(1.1);
+        }
+
+        .hero-content h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-content p {
+            font-size: 1.35rem;
+            line-height: 1.65;
+            color: #333;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .hero-content p a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .profile-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .profile-btn {
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .profile-btn:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* Tags Section */
+        .tags-section {
+            padding: 2rem 0;
+            border-top: 1px solid var(--gray-dark);
+        }
+
+        .tags-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tags-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+        }
+
+        .tags-list {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .tag-link {
+            color: var(--accent);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .tag-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .tags-search {
+            display: flex;
+        }
+
+        .tags-search input {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            border: 2px solid var(--gray-dark);
+            background: var(--white);
+            outline: none;
+            width: 180px;
+        }
+
+        .tags-search input:focus {
+            border-color: var(--black);
+        }
+
+        .tags-search button {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+        }
+
+        .popular-list {
+            list-style: none;
+            counter-reset: popular;
+        }
+
+        .popular-list li {
+            counter-increment: popular;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .popular-list li:last-child {
+            border-bottom: none;
+        }
+
+        .popular-list li a {
+            display: flex;
+            gap: 0.75rem;
+            color: var(--black);
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            line-height: 1.4;
+            transition: color 0.2s;
+        }
+
+        .popular-list li a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .popular-list li a::before {
+            content: counter(popular);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--accent);
+            min-width: 1.5rem;
+        }
+
+        .popular-horizontal {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+        }
+
+        .popular-horizontal li {
+            border-bottom: none;
+            padding: 0;
+        }
+
+        .popular-horizontal li a {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .popular-horizontal li a::before {
+            font-size: 2rem;
+        }
+
+        .paper-meta {
+            display: block;
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #000;
+            margin-top: 0.35rem;
+            line-height: 1.4;
+        }
+
+        .section-dark .paper-meta {
+            color: #fff;
+        }
+
+        /* Research Section - Vox Layout */
+        .research-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 3rem;
+        }
+
+        .research-featured {
+            display: block;
+        }
+
+        .research-featured-image {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            margin-bottom: 1.25rem;
+        }
+
+        .research-category {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+
+        .research-featured-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            color: var(--black);
+            transition: color 0.2s;
+        }
+
+        .research-featured:hover .research-featured-title {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .research-featured-abstract {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 0.75rem;
+        }
+
+        .research-featured-meta {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        /* Research Sidebar */
+        .research-sidebar {
+            border-left: 1px solid #ddd;
+            padding-left: 2rem;
+        }
+
+        .research-sidebar-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1.5rem;
+        }
+
+        .research-sidebar-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .research-sidebar-item {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .research-sidebar-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .research-sidebar-item.no-image {
+            grid-template-columns: 1fr;
+        }
+
+        .research-sidebar-item.with-image {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .research-sidebar-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 0.75rem;
+            border-radius: 4px;
+        }
+
+        /* Tags */
+        .tag {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.6rem;
+            border-radius: 2px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .tag:hover {
+            opacity: 0.8;
+        }
+
+        .tag-teacher-development {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .tag-education-technology {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .tag-early-childhood {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .tag-india {
+            background-color: #ffe5cc;
+            color: #854d0e;
+        }
+
+        .tag-argentina {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .tag-impact-evaluation {
+            background-color: #fce4ec;
+            color: #880e4f;
+        }
+
+        .tag-math-education {
+            background-color: #ede7f6;
+            color: #4527a0;
+        }
+
+        .tag-foundational-skills {
+            background-color: #fff8e1;
+            color: #f57f17;
+        }
+
+        .tag-assessments {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .tag-systematic-review {
+            background-color: #e8eaf6;
+            color: #283593;
+        }
+
+        .research-featured-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .research-sidebar-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.5rem;
+        }
+
+        .research-sidebar-tags .tag {
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+        }
+
+        .research-sidebar-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .research-sidebar-category {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #000;
+            margin-bottom: 0.35rem;
+        }
+
+        .research-sidebar-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: var(--black);
+            transition: color 0.2s;
+        }
+
+        .research-sidebar-item.no-image .research-sidebar-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .research-sidebar-item:hover .research-sidebar-title {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .research-sidebar-authors {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        .research-sidebar-thumb {
+            width: 160px;
+            height: 110px;
+            object-fit: cover;
+        }
+
+        /* Legacy classes for backwards compatibility */
+        .research-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-slide {
+            display: none;
+        }
+
+        .research-slide.active {
+            display: block;
+        }
+
+        .research-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .research-source {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #000;
+        }
+
+        .more-link {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: opacity 0.2s;
+        }
+
+        .more-link:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        /* Carousel Arrow */
+        .carousel-arrow {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-arrow:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .carousel-arrow-light {
+            border-color: var(--black);
+            color: var(--black);
+        }
+
+        .carousel-arrow-light:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .carousel-nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .carousel-arrow-prev {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .carousel-arrow-prev.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* News Carousel */
+        .news-carousel-container {
+            position: relative;
+            overflow: visible;
+        }
+
+        #media .section-inner {
+            overflow: visible;
+        }
+
+        .news-carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .news-carousel-arrow.arrow-left {
+            left: -80px;
+        }
+
+        .news-carousel-arrow.arrow-right {
+            right: -80px;
+        }
+
+        .news-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .news-slide {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            position: absolute;
+            width: 100%;
+            transform: translateX(100%);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .news-slide.active {
+            position: relative;
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .news-slide.slide-out {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .news-slide.slide-out-right {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        .news-slide.slide-in-left {
+            transform: translateX(-100%);
+        }
+
+        /* News Section - Vox style */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+        }
+
+        .news-card {
+            background: transparent;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 70px;
+            object-fit: contain;
+            object-position: left;
+            margin-bottom: 0.75rem;
+        }
+
+        .news-card:hover .news-headline {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .news-headline {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--black);
+            margin-bottom: 0.75rem;
+            transition: color 0.2s;
+        }
+
+        .news-source {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #000;
+        }
+
+        .section-dark .news-source {
+            color: #fff;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .contact-info strong {
+            color: var(--black);
+        }
+
+        .social-link {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 1.25rem;
+        }
+
+        .social-link:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        /* Dark Section */
+        .section-dark {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .section-dark .section-title {
+            color: var(--white);
+        }
+
+        .section-dark .more-link {
+            color: var(--white);
+        }
+
+        .section-dark .research-source,
+        .section-dark .news-source,
+        .section-dark .listen-source {
+            color: #999;
+        }
+
+        .section-dark .research-title,
+        .section-dark .news-headline,
+        .section-dark .listen-title {
+            color: var(--white);
+        }
+
+        .section-dark .popular-list li {
+            border-bottom-color: #444;
+        }
+
+        .section-dark .popular-list li a {
+            color: var(--white);
+        }
+
+        .section-dark .popular-list li a::before {
+            color: #999;
+        }
+
+        .section-dark .research-sidebar-authors {
+            color: #ccc;
+        }
+
+        .section-dark .sidebar-title {
+            color: #999;
+        }
+
+        .section-dark .profile-btn,
+        .section-dark .sidebar-link {
+            color: var(--white);
+        }
+
+        .section-dark p {
+            color: #ccc;
+        }
+
+        .section-dark h1,
+        .section-dark h2 {
+            color: var(--white);
+        }
+
+        .section-dark .contact-info strong {
+            color: var(--white);
+        }
+
+        .section-dark .social-link {
+            color: #999;
+        }
+
+        .section-dark .research-card:hover .research-title,
+        .section-dark .news-card:hover .news-headline,
+        .section-dark .media-card:hover .media-title,
+        .section-dark .popular-list li a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .section-dark .tag-education-technology {
+            background-color: #1a3d1f;
+            color: #8fbc8f;
+        }
+
+        .section-dark .tag-impact-evaluation {
+            background-color: #3d1a2e;
+            color: #dda0c3;
+        }
+
+        .section-dark .tag-india {
+            background-color: #3d2a1a;
+            color: #ddb892;
+        }
+
+        .section-dark .tag-argentina {
+            background-color: #3d351a;
+            color: #d4c47a;
+        }
+
+        .section-dark .tag-early-childhood {
+            background-color: #3d1a1a;
+            color: #dd9a9a;
+        }
+
+        .section-dark .tag-systematic-review {
+            background-color: #1a1a3d;
+            color: #9a9add;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 2px solid var(--gray-dark);
+            background: var(--white);
+            outline: none;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--black);
+        }
+
+        .search-bar button {
+            padding: 0.75rem 1.25rem;
+            font-size: 1rem;
+            font-family: inherit;
+            font-weight: 600;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+        }
+
+        .section-dark .search-bar input {
+            border-color: #444;
+            background: #333;
+            color: var(--white);
+        }
+
+        .section-dark .search-bar input:focus {
+            border-color: #666;
+        }
+
+        .section-dark .search-bar button {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* Listen & Watch Section */
+        .media-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        .media-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .media-card {
+            display: block;
+        }
+
+        .media-card img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            margin-bottom: 0.75rem;
+        }
+
+        .listen-card img {
+            height: 90px;
+            aspect-ratio: unset;
+            object-fit: contain;
+            object-position: left;
+        }
+
+        .media-card:hover .media-title {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .media-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .media-source {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 100;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .lang-flag {
+            display: inline-block;
+            width: 18px;
+            height: 12px;
+            margin-left: 0.35rem;
+            vertical-align: middle;
+            border-radius: 1px;
+        }
+
+        .lang-flag.es {
+            background: linear-gradient(to bottom, #c60b1e 0%, #c60b1e 25%, #ffc400 25%, #ffc400 75%, #c60b1e 75%, #c60b1e 100%);
+        }
+
+        .lang-flag.en {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v30h60V0z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23b)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 100% 100%;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            margin-left: 1rem;
+        }
+        .lang-switcher a {
+            display: flex;
+            align-items: center;
+            padding: 0.25rem;
+            transition: opacity 0.2s;
+        }
+        .lang-switcher a:hover {
+            opacity: 0.8;
+        }
+        .lang-flag-nav {
+            display: inline-block;
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        .lang-flag-nav.es {
+            background: linear-gradient(to bottom, #c60b1e 0%, #c60b1e 25%, #ffc400 25%, #ffc400 75%, #c60b1e 75%, #c60b1e 100%);
+        }
+        .lang-flag-nav.en {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v30h60V0z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23b)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            background-position: center;
+        }
+        .mobile-lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--white);
+            font-weight: 600;
+        }
+        @media (max-width: 700px) {
+            .lang-switcher {
+                display: none;
+            }
+        }
+
+        .video-thumb {
+            position: relative;
+        }
+
+        .video-thumb img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            padding-left: 4px;
+        }
+
+        .media-card:hover .play-btn {
+            background: rgba(0,0,0,0.9);
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-photo {
+                position: static;
+                max-width: 150px;
+                margin: 0 auto;
+            }
+
+            .tags-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .tags-search {
+                width: 100%;
+            }
+
+            .tags-search input {
+                flex: 1;
+            }
+
+            .popular-list li a {
+                font-size: 0.95rem;
+            }
+
+            .research-layout {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .research-sidebar {
+                border-left: none;
+                border-top: 1px solid #ddd;
+                padding-left: 0;
+                padding-top: 2rem;
+            }
+
+            .news-grid,
+            .news-slide {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .contact-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                padding: 0.75rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .nav-links,
+            .nav-search {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .section {
+                padding: 2rem 0;
+            }
+
+            .section-inner,
+            .hero-inner,
+            .tags-inner {
+                padding: 0 1.5rem;
+            }
+
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .hero-content h1 {
+                font-size: 1.75rem;
+            }
+
+            .profile-links {
+                flex-direction: column;
+            }
+
+            .profile-btn {
+                text-align: center;
+            }
+
+            .research-featured-title {
+                font-size: 1.75rem;
+            }
+
+            .news-grid,
+            .news-slide {
+                grid-template-columns: 1fr;
+            }
+
+            .media-row {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .popular-horizontal {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Alejandro J. Ganimian</a>
+            <div class="nav-right">
+                <form class="nav-search" action="search.html" method="get">
+                    <input type="text" name="q" placeholder="Buscar...">
+                    <button type="submit">Ir</button>
+                </form>
+                <div class="nav-links">
+                    <a href="research.html">Investigación</a>
+                    <a href="instruments.html">Instrumentos</a>
+                    <a href="policy.html">Política</a>
+                    <a href="teaching.html">Docencia</a>
+                    <a href="media.html">Medios</a>
+                </div>
+                <div class="lang-switcher">
+                    <a href="../index.html" title="English"><span class="lang-flag-nav en"></span></a>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">&#9776;</button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="../index.html" class="mobile-lang-switcher"><span class="lang-flag-nav en"></span> English</a>
+            <a href="research.html">Investigación</a>
+            <a href="instruments.html">Instrumentos</a>
+            <a href="policy.html">Política</a>
+            <a href="teaching.html">Docencia</a>
+            <a href="media.html">Medios</a>
+            <form class="mobile-menu-search" action="search.html" method="get">
+                <input type="text" name="q" placeholder="Buscar...">
+                <button type="submit">Ir</button>
+            </form>
+        </div>
+    </nav>
+
+    <section class="hero section-dark" id="bio">
+        <div class="hero-inner">
+            <div class="hero-photo">
+                <img src="https://images.squarespace-cdn.com/content/v1/5990cfd52994ca797742fae9/7af0789d-ee14-4212-8148-c0638be9af6d/i-cc44f4F-4K.jpg" alt="Alejandro J. Ganimian" class="profile-photo">
+            </div>
+            <div class="hero-content">
+                <p>Soy Profesor Asociado de Psicología Aplicada y Economía en la <a href="https://steinhardt.nyu.edu/" target="_blank">Steinhardt School of Culture, Education, and Human Development</a> de <a href="https://www.nyu.edu/" target="_blank">NYU</a>, actualmente visitando la <a href="https://www.gse.harvard.edu/" target="_blank">Harvard Graduate School of Education</a>.</p>
+                <p>Realizo investigaciones para apoyar a los países de ingresos bajos y medios a abordar las necesidades de poblaciones estudiantiles cada vez más grandes y diversas, desde la educación preescolar hasta la secundaria. Puedes leer más <a href="https://boldscience.org/the-economist-asking-why-differentiated-instruction-works/" target="_blank">aquí</a>.</p>
+                <p>Tengo un EdD en Análisis Cuantitativo de Políticas en educación de <a href="https://www.harvard.edu/" target="_blank">Harvard</a>, donde fui becario del <a href="https://inequality.hks.harvard.edu" target="_blank">Programa Multidisciplinario en Desigualdad y Política Social</a>; un MPhil de <a href="https://www.cam.ac.uk/" target="_blank">Cambridge</a>, donde fui <a href="https://www.gatescambridge.org" target="_blank">Gates Scholar</a>; y un BSFS de <a href="https://www.georgetown.edu/" target="_blank">Georgetown</a>. Fui becario postdoctoral en <a href="https://povertyactionlab.org" target="_blank">J-PAL</a>.</p>
+                <div class="profile-links">
+                    <a href="https://www.dropbox.com/scl/fi/gaszhyzqq7bdnkb4posgf/Ganimian-A.-J.-CV-2026-01-24.pdf?rlkey=21jqjh1idw8sdj7nmvxio1kz4&raw=1" target="_blank" class="profile-btn">Curriculum Vitae</a>
+                    <a href="https://scholar.google.com/citations?user=IoNjwrIAAAAJ" target="_blank" class="profile-btn">Google Scholar</a>
+                    <a href="https://www.gse.harvard.edu/directory/faculty/alejandro-ganimian" target="_blank" class="profile-btn">Perfil HGSE</a>
+                    <a href="https://steinhardt.nyu.edu/people/alejandro-j-ganimian" target="_blank" class="profile-btn">Perfil NYU</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="research">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-title">Investigación Reciente</span>
+            </div>
+            <div class="research-layout">
+                <!-- Featured Article (Left) -->
+                <a href="research.html#paper-classroom-observations" class="research-featured">
+                    <img src="../images/research-1.jpg" alt="Observación de Aula" class="research-featured-image">
+                    <div class="research-category">Documento de Trabajo</div>
+                    <h2 class="research-featured-title">La confiabilidad de las observaciones de aula y las encuestas a estudiantes en contextos no investigativos</h2>
+                    <p class="research-featured-abstract">Este estudio examina si las observaciones de aula y las encuestas a estudiantes pueden lograr calificaciones confiables cuándo son realizadas por profesionales en lugar de investigadores capacitados en un país de ingresos medios.</p>
+                    <div class="research-featured-meta">con A. Ho y A. Campos Quintero</div>
+                    <div class="research-featured-tags">
+                        <span class="tag tag-teacher-development">Desarrollo Docente</span>
+                        <span class="tag tag-assessments">Evaluaciones</span>
+                        <span class="tag tag-argentina">Argentina</span>
+                    </div>
+                </a>
+
+                <!-- Sidebar (Right) -->
+                <div class="research-sidebar">
+                    <div class="research-sidebar-header">
+                        <a href="research.html" class="more-link">Más</a>
+                    </div>
+                    <div class="research-sidebar-list">
+                        <a href="research.html#paper-teacher-knowledge" class="research-sidebar-item with-image">
+                            <img src="../images/research-2.jpg" alt="" class="research-sidebar-img">
+                            <div class="research-sidebar-content">
+                                <div class="research-sidebar-category">Documento de Trabajo</div>
+                                <h3 class="research-sidebar-title">Aprovechando las complementariedades entre el conocimiento de contenido de los docentes y los apoyos pedagógicos: Evidencia experimental de India</h3>
+                                <div class="research-sidebar-authors">con I. Mbiti y A. Mishra</div>
+                                <div class="research-sidebar-tags">
+                                    <span class="tag tag-teacher-development">Desarrollo Docente</span>
+                                    <span class="tag tag-impact-evaluation">Evaluación de Impacto</span>
+                                    <span class="tag tag-india">India</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="research.html#paper-math-transfer" class="research-sidebar-item with-image">
+                            <img src="../images/news-2.png" alt="" class="research-sidebar-img">
+                            <div class="research-sidebar-content">
+                                <div class="research-sidebar-category">Nature, 2025</div>
+                                <h3 class="research-sidebar-title">Las habilidades aritméticas de los niños no se transfieren entre las matemáticas aplicadas y académicas</h3>
+                                <div class="research-sidebar-authors">con A. V. Banerjee, S. Bhattacharjee, R. Chattopadhyay, E. Duflo, K. Rajah y E. S. Spelke</div>
+                                <div class="research-sidebar-tags">
+                                    <span class="tag tag-math-education">Educación Matemática</span>
+                                    <span class="tag tag-foundational-skills">Habilidades Fundamentales</span>
+                                    <span class="tag tag-india">India</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="popular">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-title">Más Citados</span>
+            </div>
+            <ol class="popular-list popular-horizontal">
+                <li>
+                    <a href="research.html#paper-disrupting-education">¿Transformando la educación? Evidencia experimental sobre instrucción asistida por tecnología en India</a>
+                    <span class="paper-meta">American Economic Review, 2019</span>
+                    <div class="research-sidebar-authors">con K. Muralidharan y A. Singh</div>
+                    <div class="research-sidebar-tags">
+                        <span class="tag tag-education-technology">Tecnología Educativa</span>
+                        <span class="tag tag-impact-evaluation">Evaluación de Impacto</span>
+                        <span class="tag tag-india">India</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="research.html#paper-improving-education">Mejorando la educación en países en desarrollo: lecciónes de evaluaciones de impacto rigurosas</a>
+                    <span class="paper-meta">Review of Educational Research, 2016</span>
+                    <div class="research-sidebar-authors">con R. Murnane</div>
+                    <div class="research-sidebar-tags">
+                        <span class="tag tag-systematic-review">Revisión Sistemática</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="research.html#paper-realizing-promise">Realizando la promesa: ¿cómo puede la Tecnología Educativa mejorar el aprendizaje para todos?</a>
+                    <span class="paper-meta">Brookings Institution, 2020</span>
+                    <div class="research-sidebar-authors">con E. Vegas y F. Hess</div>
+                    <div class="research-sidebar-tags">
+                        <span class="tag tag-systematic-review">Revisión Sistemática</span>
+                        <span class="tag tag-education-technology">Tecnología Educativa</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="research.html#paper-growth-mindset">Intervenciones de mentalidad de crecimiento a escala: Evidencia experimental de Argentina</a>
+                    <span class="paper-meta">Educational Evaluation and Policy Analysis, 2020</span>
+                    <div class="research-sidebar-tags">
+                        <span class="tag tag-impact-evaluation">Evaluación de Impacto</span>
+                        <span class="tag tag-argentina">Argentina</span>
+                    </div>
+                </li>
+                <li>
+                    <a href="research.html#paper-state-capacity">Aumentando la capacidad estatal para el desarrollo infantil: Evidencia experimental de India</a>
+                    <span class="paper-meta">Journal of Political Economy, 2024</span>
+                    <div class="research-sidebar-authors">con K. Muralidharan y C. Walters</div>
+                    <div class="research-sidebar-tags">
+                        <span class="tag tag-early-childhood">Primera Infancia</span>
+                        <span class="tag tag-impact-evaluation">Evaluación de Impacto</span>
+                        <span class="tag tag-india">India</span>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="section" id="media">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-title">En las Noticias</span>
+            </div>
+            <div class="news-carousel-container">
+                <button class="carousel-arrow carousel-arrow-light news-carousel-arrow arrow-left carousel-arrow-prev" id="news-prev" onclick="prevNewsSlide()" aria-label="Historias anteriores">&#8592;</button>
+                <button class="carousel-arrow carousel-arrow-light news-carousel-arrow arrow-right" onclick="nextNewsSlide()" aria-label="Historias siguientes">&#8594;</button>
+                <div class="news-carousel">
+                <div class="news-slide active">
+                    <a href="https://hechingerreport.org/proof-points-child-street-sellers-india-math/" target="_blank" class="news-card">
+                        <img src="../logos/hechinger.png" alt="The Hechinger Report">
+                        <h3 class="news-headline">Estos adolescentes pueden hacer matemáticas increibles en su cabeza pero fracasan en el aula</h3>
+                        <div class="news-source">The Hechinger Report</div>
+                    </a>
+                    <a href="https://www.indiatoday.in/education-today/latest-studies/story/indian-kids-ace-market-math-but-struggle-in-class-finds-study-by-nobel-laureates-2672888-2025-02-07" target="_blank" class="news-card">
+                        <img src="../logos/indiatoday.png" alt="India Today">
+                        <h3 class="news-headline">Niños indios dominan las matemáticas del mercado pero tienen dificultades en clase, según estudio de premios Nobel</h3>
+                        <div class="news-source">India Today</div>
+                    </a>
+                    <a href="https://news.mit.edu/2025/study-shows-kids-use-different-math-skills-work-vs-school-0205" target="_blank" class="news-card">
+                        <img src="../logos/mitnews.png" alt="MIT News">
+                        <h3 class="news-headline">Estudio en India muestra que los niños usan diferentes habilidades matemáticas en el trabajo vs. la escuela</h3>
+                        <div class="news-source">MIT News</div>
+                    </a>
+                    <a href="https://voxdev.org/topic/important-null-results-development-economics" target="_blank" class="news-card">
+                        <img src="../logos/voxdev.png" alt="VoxDev">
+                        <h3 class="news-headline">Resultados nulos importantes en economía del desarrollo</h3>
+                        <div class="news-source">VoxDev</div>
+                    </a>
+                </div>
+                <div class="news-slide">
+                    <a href="https://www.nature.com/articles/d41586-025-00381-z" target="_blank" class="news-card">
+                        <img src="../logos/nature.png" alt="Nature">
+                        <h3 class="news-headline">Las habilidades aritméticas del mundo real de los niños no se transfieren al aula</h3>
+                        <div class="news-source">Nature Podcast</div>
+                    </a>
+                    <a href="https://www.brookings.edu/articles/does-instructing-students-at-the-right-level-truly-drive-the-impacts-of-targeted-remediation-programs/" target="_blank" class="news-card">
+                        <img src="../logos/brookings.jpeg" alt="Brookings">
+                        <h3 class="news-headline">Realmente instruir a los estudiantes 'al nivel correcto' impulsa los impactos de los programas de remediación dirigida?</h3>
+                        <div class="news-source">Brookings</div>
+                    </a>
+                    <a href="https://www.economist.com/asia/2021/10/16/indias-high-tech-governance-risks-leaving-behind-its-poorest-citizens" target="_blank" class="news-card">
+                        <img src="../logos/theeconomist.png" alt="The Economist">
+                        <h3 class="news-headline">La gobernanza de alta tecnología de India corre el riesgo de dejar atras a sus ciudadanos más pobres</h3>
+                        <div class="news-source">The Economist</div>
+                    </a>
+                    <a href="https://www.scientíficamerican.com/article/debate-arises-over-teaching-growth-mindsets-to-motivate-students/" target="_blank" class="news-card">
+                        <img src="../logos/scientificamerica.png" alt="Scientific American">
+                        <h3 class="news-headline">Surge debate sobre ensenar 'mentalidades de crecimiento' para motivar a los estudiantes</h3>
+                        <div class="news-source">Scientific American</div>
+                    </a>
+                </div>
+                <div class="news-slide">
+                    <a href="https://www.economist.com/international/2018/11/17/in-poor-countries-technology-can-make-big-improvements-to-education" target="_blank" class="news-card">
+                        <img src="../logos/theeconomist.png" alt="The Economist">
+                        <h3 class="news-headline">En países pobres la tecnología puede hacer grandes mejoras a la educación</h3>
+                        <div class="news-source">The Economist</div>
+                    </a>
+                    <a href="https://scroll.in/article/850763/why-children-do-well-in-street-maths-but-not-in-the-classroom-researchers-fault-teaching-methods" target="_blank" class="news-card">
+                        <img src="../logos/scrollin.png" alt="Scroll.in">
+                        <h3 class="news-headline">Por que los niños lo hacen bien en 'matemáticas de la calle' pero no en el aula</h3>
+                        <div class="news-source">Scroll.in</div>
+                    </a>
+                    <a href="https://www.brookings.edu/blog/education-plus-development/2020/09/10/to-make-ed-tech-work-set-clear-goals-review-the-evidence-and-pilot-before-you-scale/" target="_blank" class="news-card">
+                        <img src="../logos/brookings.jpeg" alt="Brookings">
+                        <h3 class="news-headline">Para que la Tecnología Educativa funcióne, establezca metas claras, revise la evidencia y pilotee antes de escalar</h3>
+                        <div class="news-source">Brookings</div>
+                    </a>
+                    <a href="https://economictimes.indiatimes.com/news/new-updates/in-india-home-to-iitians-iimians-school-kids-struggle-with-day-to-day-calculations/articleshow/117348039.cms" target="_blank" class="news-card">
+                        <img src="../logos/economictimes.jpeg" alt="Economic Times">
+                        <h3 class="news-headline">En India, hogar de IITians e IIMians, 'los niños de escuela luchan con cálculos del dia a dia'</h3>
+                        <div class="news-source">Economic Times</div>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="media-audio">
+        <div class="section-inner">
+            <div class="media-row">
+            <div class="media-column">
+                <div class="section-header">
+                    <span class="section-title">Escuchar</span>
+                </div>
+                <div class="media-grid">
+                    <a href="#" class="media-card listen-card">
+                        <img src="../logos/nature.png" alt="Nature Podcast">
+                        <h3 class="media-title">Las habilidades aritméticas del mundo real de los niños no se transfieren al aula <span class="lang-flag en"></span></h3>
+                        <div class="media-source">Nature Podcast, 2025</div>
+                    </a>
+                    <a href="#" class="media-card listen-card">
+                        <img src="../logos/educationnext.png" alt="Education Next">
+                        <h3 class="media-title">Dando a EdTech una oportunidad de brillar <span class="lang-flag en"></span></h3>
+                        <div class="media-source">Education Next, 2019</div>
+                    </a>
+                </div>
+            </div>
+            <div class="media-column">
+                <div class="section-header">
+                    <span class="section-title">Ver</span>
+                </div>
+                <div class="media-grid">
+                    <a href="https://www.youtube.com/watch?v=ckl44ls7uVQ" target="_blank" class="media-card listen-card">
+                        <img src="../logos/andino.png" alt="Andino Streaming">
+                        <h3 class="media-title">Juegos cerebrales propuestos para aulas de 5 años</h3>
+                        <div class="media-source">Andino Streaming</div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=i3usrraHdRw" target="_blank" class="media-card listen-card">
+                        <img src="../logos/educacionba.png" alt="EducacionBA">
+                        <h3 class="media-title">Asistencia: Evidencia, desafíos y estrategias para fortalecer la asistencia escolar</h3>
+                        <div class="media-source">EducacionBA</div>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('open');
+        }
+
+        function nextNewsSlide() {
+            const slides = document.querySelectorAll('.news-slide');
+            let currentIndex = 0;
+
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    currentIndex = index;
+                }
+            });
+
+            const nextIndex = (currentIndex + 1) % slides.length;
+
+            // Show the prev button
+            document.getElementById('news-prev').classList.add('visible');
+
+            // Current slide exits to the left
+            slides[currentIndex].classList.add('slide-out');
+            slides[currentIndex].classList.remove('active');
+
+            // Next slide enters from the right (default position)
+            slides[nextIndex].classList.add('active');
+
+            // Clean up after animation
+            setTimeout(() => {
+                slides[currentIndex].classList.remove('slide-out');
+            }, 500);
+        }
+
+        function prevNewsSlide() {
+            const slides = document.querySelectorAll('.news-slide');
+            let currentIndex = 0;
+
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    currentIndex = index;
+                }
+            });
+
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+
+            // Hide prev button if going back to first slide
+            if (prevIndex === 0) {
+                document.getElementById('news-prev').classList.remove('visible');
+            }
+
+            // Current slide exits to the right
+            slides[currentIndex].classList.add('slide-out-right');
+            slides[currentIndex].classList.remove('active');
+
+            // Prev slide needs to enter from the left
+            slides[prevIndex].style.transition = 'none';
+            slides[prevIndex].style.transform = 'translateX(-100%)';
+            slides[prevIndex].offsetHeight; // Force reflow
+            slides[prevIndex].style.transition = '';
+            slides[prevIndex].style.transform = '';
+            slides[prevIndex].classList.add('active');
+
+            // Clean up after animation
+            setTimeout(() => {
+                slides[currentIndex].classList.remove('slide-out-right');
+            }, 500);
+        }
+
+    </script>
+</body>
+</html>
