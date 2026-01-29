@@ -411,6 +411,26 @@
             color: #4527a0;
         }
 
+        .material-cited {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: #666;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .material-cited a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .material-cited a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
         /* Language Switcher */
         .lang-switcher {
             display: flex;
@@ -583,11 +603,14 @@
                 <img src="images/news-1.png" alt="Assessments" class="topic-image">
                 <div class="topic-content">
                     <div class="material-list">
-                        <a href="https://alejandroganimian.com/s/Informe-Aprender-2016-2023-2024-11-28-ajg.pdf" target="_blank" class="material-item">
-                            <span class="material-title">What did we learn from Aprender? Argentina 2016-2023 <span class="lang-flag"></span></span>
+                        <div class="material-item">
+                            <a href="https://alejandroganimian.com/s/Informe-Aprender-2016-2023-2024-11-28-ajg.pdf" target="_blank">
+                                <span class="material-title">What did we learn from Aprender? Argentina 2016-2023 <span class="lang-flag"></span></span>
+                            </a>
                             <span class="material-authors">with V. Mesalles</span>
                             <span class="material-venue">Educar 2050 / Argentinos por la Educacion, 2024</span>
-                        </a>
+                            <p class="material-cited">Featured in: <a href="https://www.lanacion.com.ar/opinion/aprender-mayor-transparencia-sobre-el-desafio-pendiente-de-la-alfabetizacion-nid06052025/" target="_blank">La Nacion</a></p>
+                        </div>
                         <a href="https://argentinosporlaeducacion.org/informe/uso-de-pruebas-estandarizadas-para-la-mejora-continua/" target="_blank" class="material-item">
                             <span class="material-title">Using standardized tests for continuous improvement <span class="lang-flag"></span></span>
                             <span class="material-authors">with L. Saenz Guillenz & M. Nistal</span>
@@ -597,10 +620,13 @@
                             <span class="material-title">Low, unequal, and stagnant learning: PISA 2018 Argentina <span class="lang-flag"></span></span>
                             <span class="material-venue">Proyecto Educar 2050, 2019</span>
                         </a>
-                        <a href="https://alejandroganimian.com/s/Informe-ONE-2005-2013.pdf" target="_blank" class="material-item">
-                            <span class="material-title">The educational thermometer: Argentina ONE 2005-2013 <span class="lang-flag"></span></span>
+                        <div class="material-item">
+                            <a href="https://alejandroganimian.com/s/Informe-ONE-2005-2013.pdf" target="_blank">
+                                <span class="material-title">The educational thermometer: Argentina ONE 2005-2013 <span class="lang-flag"></span></span>
+                            </a>
                             <span class="material-venue">Proyecto Educar 2050, 2015</span>
-                        </a>
+                            <p class="material-cited">Featured in: <a href="https://chequeado.com/el-explicador/ocho-claves-sobre-la-calidad-educativa-en-la-argentina/" target="_blank">Chequeado</a></p>
+                        </div>
                         <a href="http://umc.minedu.gob.pe/wp-content/uploads/2015/06/Resumen-TERCE-PISA2012.pdf" target="_blank" class="material-item">
                             <span class="material-title">Low results, high improvements: International evaluation of Peru <span class="lang-flag"></span></span>
                             <span class="material-venue">Ministerio de Educacion del Peru, 2015</span>
@@ -613,14 +639,20 @@
                             <span class="material-title">Progress and pending challenges: TERCE 2013 Argentina <span class="lang-flag"></span></span>
                             <span class="material-venue">Proyecto Educar 2050, 2014</span>
                         </a>
-                        <a href="https://alejandroganimian.com/s/Informe-PISA-Argentina-2012-Vol-III.pdf" target="_blank" class="material-item">
-                            <span class="material-title">Unequal learning: PISA 2012 Argentine regions <span class="lang-flag"></span></span>
+                        <div class="material-item">
+                            <a href="https://alejandroganimian.com/s/Informe-PISA-Argentina-2012-Vol-III.pdf" target="_blank">
+                                <span class="material-title">Unequal learning: PISA 2012 Argentine regions <span class="lang-flag"></span></span>
+                            </a>
                             <span class="material-venue">Proyecto Educar 2050, 2014</span>
-                        </a>
-                        <a href="https://alejandroganimian.com/s/Informe-PISA-Argentina-2012.pdf" target="_blank" class="material-item">
-                            <span class="material-title">We failed to improve: PISA 2012 Argentina <span class="lang-flag"></span></span>
+                            <p class="material-cited">Featured in: <a href="https://www.lanacion.com.ar/opinion/los-diez-mitos-de-la-educacion-argentina-y-por-que-hay-que-discutirlos-nid1769824/" target="_blank">La Nacion</a>, <a href="https://www.lanacion.com.ar/editoriales/inseguridad-desigualdad-y-educacion-nid1738540/" target="_blank">La Nacion</a></p>
+                        </div>
+                        <div class="material-item">
+                            <a href="https://alejandroganimian.com/s/Informe-PISA-Argentina-2012.pdf" target="_blank">
+                                <span class="material-title">We failed to improve: PISA 2012 Argentina <span class="lang-flag"></span></span>
+                            </a>
                             <span class="material-venue">Proyecto Educar 2050, 2013</span>
-                        </a>
+                            <p class="material-cited">Featured in: <a href="https://www.lanacion.com.ar/opinion/la-educacion-de-las-elites-tambien-en-problemas-nid1679595/" target="_blank">La Nacion</a>, <a href="https://www.infobae.com/2015/01/31/1623921-cual-es-el-mejor-camino-medir-la-calidad-educativa/" target="_blank">Infobae</a></p>
+                        </div>
                         <a href="https://alejandroganimian.com/s/preal_pisa_englowres.pdf" target="_blank" class="material-item">
                             <span class="material-title">Measuring up? Latin America and the Caribbean on PISA 2009</span>
                             <span class="material-authors">with A. Solano Rocha</span>
@@ -699,10 +731,13 @@
                             <span class="material-authors">with E. Vegas & F. M. Hess</span>
                             <span class="material-venue">Brookings Institution, 2020</span>
                         </a>
-                        <a href="https://alejandroganimian.com/s/Resumen-de-Evidencia-en-Tecnologias-de-Educacion.pdf" target="_blank" class="material-item">
-                            <span class="material-title">Technology in education: How can it improve learning? <span class="lang-flag"></span></span>
+                        <div class="material-item">
+                            <a href="https://alejandroganimian.com/s/Resumen-de-Evidencia-en-Tecnologias-de-Educacion.pdf" target="_blank">
+                                <span class="material-title">Technology in education: How can it improve learning? <span class="lang-flag"></span></span>
+                            </a>
                             <span class="material-venue">J-PAL LAC & Proyecto Educar 2050, 2018</span>
-                        </a>
+                            <p class="material-cited">Featured in: <a href="https://www.lanacion.com.ar/opinion/el-papel-de-la-tecnologia-en-el-aula-nid2150273/" target="_blank">La Nacion</a></p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -865,6 +865,10 @@
             overflow: visible;
         }
 
+        #media-audio .section-inner {
+            overflow: visible;
+        }
+
         .news-carousel-arrow {
             position: absolute;
             top: 50%;
@@ -878,6 +882,120 @@
 
         .news-carousel-arrow.arrow-right {
             right: -80px;
+        }
+
+        /* Listen Carousel */
+        .listen-carousel-container {
+            position: relative;
+            overflow: visible;
+        }
+
+        .listen-carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .listen-carousel-arrow.arrow-left {
+            left: -80px;
+        }
+
+        .listen-carousel-arrow.arrow-right {
+            right: -50px;
+        }
+
+        .listen-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .listen-carousel .listen-slide {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            position: absolute;
+            width: 100%;
+            transform: translateX(100%);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .listen-carousel .listen-slide.active {
+            position: relative;
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+        }
+
+        .listen-carousel .listen-slide.slide-out {
+            transform: translateX(-100%);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .listen-carousel .listen-slide.slide-out-right {
+            transform: translateX(100%);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Watch Carousel */
+        .watch-carousel-container {
+            position: relative;
+            overflow: visible;
+        }
+
+        .watch-carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .watch-carousel-arrow.arrow-left {
+            left: -50px;
+        }
+
+        .watch-carousel-arrow.arrow-right {
+            right: -50px;
+        }
+
+        .watch-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .watch-slide {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            position: absolute;
+            width: 100%;
+            transform: translateX(100%);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .watch-slide.active {
+            position: relative;
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .watch-slide.slide-out {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .watch-slide.slide-out-right {
+            transform: translateX(100%);
+            opacity: 0;
         }
 
         .news-carousel {
@@ -1189,7 +1307,7 @@
         }
 
         .listen-card img {
-            height: 90px;
+            height: 70px;
             aspect-ratio: unset;
             object-fit: contain;
             object-position: left;
@@ -1693,17 +1811,29 @@
                 <div class="section-header">
                     <span class="section-title">Escuchar</span>
                 </div>
-                <div class="media-grid">
-                    <a href="#" class="media-card listen-card">
-                        <img src="../logos/nature.png" alt="Nature Podcast">
-                        <h3 class="media-title">Las habilidades aritméticas del mundo real de los niños no se transfieren al aula <span class="lang-flag en"></span></h3>
-                        <div class="media-source">Nature Podcast, 2025</div>
-                    </a>
-                    <a href="#" class="media-card listen-card">
-                        <img src="../logos/educationnext.png" alt="Education Next">
-                        <h3 class="media-title">Dando a EdTech una oportunidad de brillar <span class="lang-flag en"></span></h3>
-                        <div class="media-source">Education Next, 2019</div>
-                    </a>
+                <div class="listen-carousel-container">
+                    <button class="carousel-arrow carousel-arrow-light listen-carousel-arrow arrow-left" onclick="nextListenSlide()" aria-label="Más podcasts">←</button>
+                    <div class="listen-carousel">
+                        <div class="listen-slide active">
+                            <a href="https://www.nature.com/articles/d41586-025-00381-z" target="_blank" class="media-card listen-card">
+                                <img src="../logos/nature.png" alt="Nature Podcast">
+                                <h3 class="media-title">Las habilidades aritméticas del mundo real de los niños no se transfieren al aula <span class="lang-flag en"></span></h3>
+                                <div class="media-source">Nature Podcast, 2025</div>
+                            </a>
+                            <a href="https://www.educationnext.org/ednext-podcast-giving-ed-tech-chance-shine/" target="_blank" class="media-card listen-card">
+                                <img src="../logos/educationnext.png" alt="Education Next">
+                                <h3 class="media-title">Dando a EdTech una oportunidad de brillar <span class="lang-flag en"></span></h3>
+                                <div class="media-source">Education Next, 2019</div>
+                            </a>
+                        </div>
+                        <div class="listen-slide">
+                            <a href="https://www.brookings.edu/podcast-episode/how-education-technology-can-improve-learning-for-all-students/" target="_blank" class="media-card listen-card">
+                                <img src="../logos/brookings.jpeg" alt="Brookings Cafeteria">
+                                <h3 class="media-title">Cómo la tecnología educativa puede mejorar el aprendizaje para todos <span class="lang-flag en"></span></h3>
+                                <div class="media-source">Brookings Cafeteria, 2020</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="media-column">
@@ -1718,7 +1848,7 @@
                     </a>
                     <a href="https://www.youtube.com/watch?v=i3usrraHdRw" target="_blank" class="media-card listen-card">
                         <img src="../logos/educacionba.png" alt="EducacionBA">
-                        <h3 class="media-title">Asistencia: Evidencia, desafíos y estrategias para fortalecer la asistencia escolar</h3>
+                        <h3 class="media-title">Asistencia: Evidencia, desafíos y estrategias</h3>
                         <div class="media-source">EducacionBA</div>
                     </a>
                 </div>
@@ -1776,6 +1906,124 @@
             // Hide prev button if going back to first slide
             if (prevIndex === 0) {
                 document.getElementById('news-prev').classList.remove('visible');
+            }
+
+            // Current slide exits to the right
+            slides[currentIndex].classList.add('slide-out-right');
+            slides[currentIndex].classList.remove('active');
+
+            // Prev slide needs to enter from the left
+            slides[prevIndex].style.transition = 'none';
+            slides[prevIndex].style.transform = 'translateX(-100%)';
+            slides[prevIndex].offsetHeight; // Force reflow
+            slides[prevIndex].style.transition = '';
+            slides[prevIndex].style.transform = '';
+            slides[prevIndex].classList.add('active');
+
+            // Clean up after animation
+            setTimeout(() => {
+                slides[currentIndex].classList.remove('slide-out-right');
+            }, 500);
+        }
+
+        function nextListenSlide() {
+            const slides = document.querySelectorAll('.listen-slide');
+            let currentIndex = 0;
+
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    currentIndex = index;
+                }
+            });
+
+            const nextIndex = (currentIndex + 1) % slides.length;
+
+            // Current slide exits to the left
+            slides[currentIndex].classList.add('slide-out');
+            slides[currentIndex].classList.remove('active');
+
+            // Next slide enters from the right (default position)
+            slides[nextIndex].classList.add('active');
+
+            // Clean up after animation
+            setTimeout(() => {
+                slides[currentIndex].classList.remove('slide-out');
+            }, 500);
+        }
+
+        function prevListenSlide() {
+            const slides = document.querySelectorAll('.listen-slide');
+            let currentIndex = 0;
+
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    currentIndex = index;
+                }
+            });
+
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+
+            // Current slide exits to the right
+            slides[currentIndex].classList.add('slide-out-right');
+            slides[currentIndex].classList.remove('active');
+
+            // Prev slide needs to enter from the left
+            slides[prevIndex].style.transition = 'none';
+            slides[prevIndex].style.transform = 'translateX(-100%)';
+            slides[prevIndex].offsetHeight; // Force reflow
+            slides[prevIndex].style.transition = '';
+            slides[prevIndex].style.transform = '';
+            slides[prevIndex].classList.add('active');
+
+            // Clean up after animation
+            setTimeout(() => {
+                slides[currentIndex].classList.remove('slide-out-right');
+            }, 500);
+        }
+
+        function nextWatchSlide() {
+            const slides = document.querySelectorAll('.watch-slide');
+            let currentIndex = 0;
+
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    currentIndex = index;
+                }
+            });
+
+            const nextIndex = (currentIndex + 1) % slides.length;
+
+            // Show the prev button
+            document.getElementById('watch-prev').classList.add('visible');
+
+            // Current slide exits to the left
+            slides[currentIndex].classList.add('slide-out');
+            slides[currentIndex].classList.remove('active');
+
+            // Next slide enters from the right (default position)
+            slides[nextIndex].classList.add('active');
+
+            // Clean up after animation
+            setTimeout(() => {
+                slides[currentIndex].classList.remove('slide-out');
+            }, 500);
+        }
+
+        function prevWatchSlide() {
+            const slides = document.querySelectorAll('.watch-slide');
+            let currentIndex = 0;
+
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    currentIndex = index;
+                }
+            });
+
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+
+            // Hide prev button if going back to first slide
+            if (prevIndex === 0) {
+                document.getElementById('watch-prev').classList.remove('visible');
             }
 
             // Current slide exits to the right
