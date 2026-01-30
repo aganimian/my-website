@@ -89,7 +89,7 @@
         .research-title,
         .news-headline,
         .media-title,
-        .popular-list li a,
+        .popular-list li > a,
         .contact-section h2 {
             font-family: 'Libre Franklin', sans-serif;
             font-weight: 800;
@@ -462,7 +462,7 @@
             border-bottom: none;
         }
 
-        .popular-list li a {
+        .popular-list li > a {
             display: flex;
             gap: 0.75rem;
             color: var(--black);
@@ -473,12 +473,12 @@
             transition: color 0.2s;
         }
 
-        .popular-list li a:hover {
+        .popular-list li > a:hover {
             text-decoration: underline;
             text-decoration-thickness: 1px;
         }
 
-        .popular-list li a::before {
+        .popular-list li > a::before {
             content: counter(popular);
             font-size: 1.25rem;
             font-weight: 800;
@@ -497,12 +497,12 @@
             padding: 0;
         }
 
-        .popular-horizontal li a {
+        .popular-horizontal li > a {
             flex-direction: column;
             gap: 0.5rem;
         }
 
-        .popular-horizontal li a::before {
+        .popular-horizontal li > a::before {
             font-size: 2rem;
         }
 
@@ -1155,11 +1155,11 @@
             border-bottom-color: #444;
         }
 
-        .section-dark .popular-list li a {
+        .section-dark .popular-list li > a {
             color: var(--white);
         }
 
-        .section-dark .popular-list li a::before {
+        .section-dark .popular-list li > a::before {
             color: #999;
         }
 
@@ -1196,7 +1196,7 @@
         .section-dark .research-card:hover .research-title,
         .section-dark .news-card:hover .news-headline,
         .section-dark .media-card:hover .media-title,
-        .section-dark .popular-list li a:hover {
+        .section-dark .popular-list li > a:hover {
             text-decoration: underline;
             text-decoration-thickness: 1px;
         }
@@ -1458,7 +1458,7 @@
                 flex: 1;
             }
 
-            .popular-list li a {
+            .popular-list li > a {
                 font-size: 0.95rem;
             }
 
