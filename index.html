@@ -459,7 +459,7 @@
         }
 
         .popular-list li:last-child {
-            border-bottom: none;
+counter(popular)
         }
 
         .popular-list li a {
@@ -489,6 +489,10 @@
         .popular-horizontal {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
+
+                    .popular-list li a.tag::before {
+                                    content: none;
+                    }
             gap: 2rem;
         }
 
@@ -2037,4 +2041,5 @@
     </script>
 </body>
 </html>
+
 
