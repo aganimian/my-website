@@ -533,6 +533,18 @@
             display: block;
         }
 
+        .research-featured-column {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .research-featured-column .more-link {
+            align-self: flex-end;
+            margin-top: auto;
+            padding-top: 1.5rem;
+        }
+
         .research-featured-image {
             width: 100%;
             aspect-ratio: 3/2;
@@ -586,12 +598,6 @@
         .research-sidebar {
             border-left: 1px solid #ddd;
             padding-left: 2rem;
-        }
-
-        .research-sidebar-header {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 1.5rem;
         }
 
         .research-sidebar-list {
@@ -1619,6 +1625,7 @@
             </div>
             <div class="research-layout">
                 <!-- Featured Article (Left) -->
+                <div class="research-featured-column">
                 <a href="research.html#paper-civic-education" class="research-featured">
                     <img src="../images/research-14.jpg?v=20260713-optimized" alt="Educación Cívica" class="research-featured-image">
                     <div class="research-category">Educational Evaluation and Policy Analysis, próxima publicación</div>
@@ -1630,12 +1637,11 @@
                         <span class="tag tag-impact-evaluation" onclick="window.location.href='search.html?q=evaluación+de+impacto'; event.stopPropagation(); event.preventDefault();">Evaluación de Impacto</span>
                     </div>
                 </a>
+                <a href="research.html" class="more-link">Más</a>
+                </div>
 
                 <!-- Sidebar (Right) -->
                 <div class="research-sidebar">
-                    <div class="research-sidebar-header">
-                        <a href="research.html" class="more-link">Más</a>
-                    </div>
                     <div class="research-sidebar-list">
                         <a href="research.html#paper-classroom-observations" class="research-sidebar-item with-image">
                             <img src="../images/research-1-v2.jpg?v=20260713-optimized" alt="" class="research-sidebar-img">

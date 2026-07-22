@@ -533,6 +533,18 @@ counter(popular)
             display: block;
         }
 
+        .research-featured-column {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .research-featured-column .more-link {
+            align-self: flex-end;
+            margin-top: auto;
+            padding-top: 1.5rem;
+        }
+
         .research-featured-image {
             width: 100%;
             aspect-ratio: 3/2;
@@ -586,12 +598,6 @@ counter(popular)
         .research-sidebar {
             border-left: 1px solid #ddd;
             padding-left: 2rem;
-        }
-
-        .research-sidebar-header {
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 1.5rem;
         }
 
         .research-sidebar-list {
@@ -1609,6 +1615,7 @@ counter(popular)
             </div>
             <div class="research-layout">
                 <!-- Featured Article (Left) -->
+                <div class="research-featured-column">
                 <a href="research.html#paper-civic-education" class="research-featured">
                     <img src="images/research-14.jpg?v=20260713-optimized" alt="Civic education" class="research-featured-image">
                     <div class="research-category">Educational Evaluation and Policy Analysis, forthcoming</div>
@@ -1620,12 +1627,11 @@ counter(popular)
                         <span class="tag tag-impact-evaluation" onclick="window.location.href='search.html?q=Impact+evaluation'; event.stopPropagation(); event.preventDefault();">Impact evaluation</span>
                     </div>
                 </a>
+                <a href="research.html" class="more-link">More</a>
+                </div>
 
                 <!-- Sidebar (Right) -->
                 <div class="research-sidebar">
-                    <div class="research-sidebar-header">
-                        <a href="research.html" class="more-link">More</a>
-                    </div>
                     <div class="research-sidebar-list">
                         <a href="research.html#paper-classroom-observations" class="research-sidebar-item with-image">
                             <img src="images/research-1-v2.jpg?v=20260713-optimized" alt="" class="research-sidebar-img">
