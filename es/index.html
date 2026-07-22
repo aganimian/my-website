@@ -525,7 +525,7 @@
         /* Research Section - Vox Layout */
         .research-layout {
             display: grid;
-            grid-template-columns: 1fr 380px;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
             gap: 3rem;
         }
 
@@ -631,7 +631,7 @@
         .research-sidebar-img {
             width: 100%;
             height: auto;
-            aspect-ratio: 2/1;
+            aspect-ratio: 3/2;
             object-fit: cover;
             margin-bottom: 0.75rem;
             border-radius: 4px;
@@ -1480,10 +1480,6 @@
                 border-top: 1px solid #ddd;
                 padding-left: 0;
                 padding-top: 2rem;
-            }
-
-            .research-sidebar-img {
-                aspect-ratio: 3/2;
             }
 
             .news-grid,
