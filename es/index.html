@@ -309,6 +309,7 @@
         /* Temporary PISA 2025 presentation banner */
         .pisa-banner-wrap { width: 100%; }
         .pisa-banner {
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -317,13 +318,27 @@
             min-height: 180px;
             padding: 2rem 1.5rem;
             background-color: #fff;
-            background-image: url('../images/pisa-triangles-left.svg?v=20260914-colors'), url('../images/pisa-triangles-right.svg?v=20260914-colors');
-            background-position: left top, right top;
-            background-size: auto 100%;
-            background-repeat: no-repeat;
             color: #121212;
             font-family: 'Libre Franklin', sans-serif;
             text-align: center;
+        }
+        .pisa-banner > span { position: relative; z-index: 1; }
+        .pisa-triangles { position: absolute; top: 0; height: 100%; width: auto; pointer-events: none; overflow: hidden; }
+        .pisa-triangles-left { left: 0; }
+        .pisa-triangles-right { right: 0; }
+        @keyframes assemblePisaTriangle {
+            from { opacity: 0; transform: translateX(var(--triangle-offset)) scale(.72); }
+            to { opacity: 1; transform: translateX(0) scale(1); }
+        }
+        .pisa-animation-ready:not(.pisa-animation-visible) .pisa-triangles polygon { opacity: 0; }
+        .pisa-animation-visible .pisa-triangles polygon {
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: assemblePisaTriangle .7s cubic-bezier(.22,.78,.24,1) backwards;
+            animation-delay: var(--triangle-delay, 0ms);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .pisa-banner .pisa-triangles polygon { animation: none; opacity: 1; }
         }
         .pisa-banner:focus-visible { outline: 3px solid #348fdd; outline-offset: -3px; }
         .pisa-banner-label { display: block; font-size: .75rem; font-weight: 600; margin-bottom: .75rem; color: #555; }
@@ -333,10 +348,11 @@
         .pisa-banner-action { display: block; font-size: .95rem; font-weight: 700; color: #348fdd; }
         .pisa-banner:hover .pisa-banner-action { text-decoration: underline; }
         @media (max-width: 1100px) {
-            .pisa-banner { background-size: 22vw auto; }
+            .pisa-triangles { width: 22vw; height: auto; }
         }
         @media (max-width: 600px) {
-            .pisa-banner { min-height: 140px; background-size: 10vw auto; }
+            .pisa-banner { min-height: 140px; }
+            .pisa-triangles { width: 10vw; height: auto; }
         }
 
         /* Hero / Bio */
@@ -1684,6 +1700,57 @@
     <!-- Temporary PISA 2025 feature -->
     <aside class="pisa-banner-wrap" aria-label="Presentación destacada">
         <a class="pisa-banner" href="../files/Ganimian_PISA-2025.html?v=c47b78e784fc">
+            <svg class="pisa-triangles pisa-triangles-left" aria-hidden="true" focusable="false" width="457.142858" height="240" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 457.142858 240" preserveAspectRatio="xMidYMid meet">
+<polygon fill="#348FDD" points="0.000000,0 0.000000,80 91.428571,40"/>
+<polygon fill="#348FDD" points="0.000000,80 0.000000,160 91.428571,120"/>
+<polygon fill="#348FDD" points="0.000000,160 0.000000,240 91.428571,200"/>
+<polygon fill="#A6D4FC" points="91.428571,40 91.428571,120 0.000000,80"/>
+<polygon fill="#348FDD" points="91.428571,40 91.428571,120 182.857143,80"/>
+<polygon fill="#A6D4FC" points="91.428571,120 91.428571,200 0.000000,160"/>
+<polygon fill="#348FDD" points="91.428571,120 91.428571,200 182.857143,160"/>
+<polygon fill="#A6D4FC" points="182.857143,0 182.857143,80 91.428571,40"/>
+<polygon fill="#A6D4FC" points="182.857143,80 182.857143,160 91.428571,120"/>
+<polygon fill="#A6D4FC" points="182.857143,160 182.857143,240 91.428571,200"/>
+<g transform="translate(182.85714285714286 0)"><polygon fill="#A6D4FC" points="182.857143,0.000000 182.857143,80.000000 91.428571,40.000000" />
+<polygon fill="#348FDD" points="0.000000,0.000000 0.000000,80.000000 91.428571,40.000000" />
+<polygon fill="#348FDD" points="182.857143,0.000000 182.857143,80.000000 274.285714,40.000000" />
+<polygon fill="#A6D4FC" points="182.857143,80.000000 182.857143,160.000000 91.428571,120.000000" />
+<polygon fill="#A6D4FC" points="91.428571,120.000000 91.428571,200.000000 0.000000,160.000000" />
+<polygon fill="#A6D4FC" points="91.428571,40.000000 91.428571,120.000000 0.000000,80.000000" />
+<polygon fill="#348FDD" points="91.428571,120.000000 91.428571,200.000000 182.857143,160.000000" />
+<polygon fill="#348FDD" points="0.000000,160.000000 0.000000,240.000000 91.428571,200.000000" />
+<polygon fill="#A6D4FC" points="182.857143,160.000000 182.857143,240.000000 91.428571,200.000000" />
+<polygon fill="#348FDD" points="91.428571,40.000000 91.428571,120.000000 182.857143,80.000000" />
+<polygon fill="#348FDD" points="0.000000,80.000000 0.000000,160.000000 91.428571,120.000000" />
+<polygon fill="#348FDD" points="182.857143,80.000000 182.857143,160.000000 274.285714,120.000000" />
+<polygon fill="#348FDD" points="182.857143,160.000000 182.857143,240.000000 274.285714,200.000000" />
+</g>
+</svg>
+            <svg class="pisa-triangles pisa-triangles-right" aria-hidden="true" focusable="false" width="457.142858" height="240" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 457.142858 240" preserveAspectRatio="xMidYMid meet">
+<polygon fill="#666666" points="457.142857,0.000000 457.142857,80.000000 365.714286,40.000000"/>
+<polygon fill="#666666" points="457.142857,80.000000 457.142857,160.000000 365.714286,120.000000"/>
+<polygon fill="#666666" points="457.142857,160.000000 457.142857,240.000000 365.714286,200.000000"/>
+<polygon fill="#DDDDDD" points="365.714286,40.000000 365.714286,120.000000 457.142857,80.000000"/>
+<polygon fill="#666666" points="365.714286,40.000000 365.714286,120.000000 274.285714,80.000000"/>
+<polygon fill="#DDDDDD" points="365.714286,120.000000 365.714286,200.000000 457.142857,160.000000"/>
+<polygon fill="#666666" points="365.714286,120.000000 365.714286,200.000000 274.285714,160.000000"/>
+<polygon fill="#DDDDDD" points="274.285714,0.000000 274.285714,80.000000 365.714286,40.000000"/>
+<polygon fill="#DDDDDD" points="274.285714,80.000000 274.285714,160.000000 365.714286,120.000000"/>
+<polygon fill="#DDDDDD" points="274.285714,160.000000 274.285714,240.000000 365.714286,200.000000"/>
+<polygon fill="#DDDDDD" points="91.428571,0.000000 91.428571,80.000000 182.857143,40.000000"/>
+<polygon fill="#666666" points="274.285714,0.000000 274.285714,80.000000 182.857143,40.000000"/>
+<polygon fill="#666666" points="91.428571,0.000000 91.428571,80.000000 0.000000,40.000000"/>
+<polygon fill="#DDDDDD" points="91.428571,80.000000 91.428571,160.000000 182.857143,120.000000"/>
+<polygon fill="#DDDDDD" points="182.857143,120.000000 182.857143,200.000000 274.285714,160.000000"/>
+<polygon fill="#DDDDDD" points="182.857143,40.000000 182.857143,120.000000 274.285714,80.000000"/>
+<polygon fill="#666666" points="182.857143,120.000000 182.857143,200.000000 91.428571,160.000000"/>
+<polygon fill="#666666" points="274.285714,160.000000 274.285714,240.000000 182.857143,200.000000"/>
+<polygon fill="#DDDDDD" points="91.428571,160.000000 91.428571,240.000000 182.857143,200.000000"/>
+<polygon fill="#666666" points="182.857143,40.000000 182.857143,120.000000 91.428571,80.000000"/>
+<polygon fill="#666666" points="274.285714,80.000000 274.285714,160.000000 182.857143,120.000000"/>
+<polygon fill="#666666" points="91.428571,80.000000 91.428571,160.000000 0.000000,120.000000"/>
+<polygon fill="#666666" points="91.428571,160.000000 91.428571,240.000000 0.000000,200.000000"/>
+</svg>
             <span>
                 <span class="pisa-banner-title"><span>América Latina</span> en PISA 2025</span>
                 <span class="pisa-banner-subtitle">Resultados y tendencias</span>
@@ -2131,6 +2198,31 @@
             }, 500);
         }
 
+    </script>
+    <script>
+    (() => {
+        const banner = document.querySelector('.pisa-banner');
+        if (!banner || !('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        banner.querySelectorAll('.pisa-triangles').forEach(svg => {
+            const left = svg.classList.contains('pisa-triangles-left');
+            svg.querySelectorAll('polygon').forEach(triangle => {
+                const box = triangle.getBBox();
+                const center = new DOMPoint(box.x + box.width / 2, box.y + box.height / 2)
+                    .matrixTransform(triangle.getCTM()).matrixTransform(svg.getCTM().inverse());
+                const inward = left ? center.x : svg.viewBox.baseVal.width - center.x;
+                triangle.style.setProperty('--triangle-delay', `${Math.round(center.y / 40 * 32 + inward / (640 / 7) * 38)}ms`);
+                triangle.style.setProperty('--triangle-offset', left ? '-26px' : '26px');
+            });
+        });
+        banner.classList.add('pisa-animation-ready');
+        const observer = new IntersectionObserver(entries => {
+            if (entries.some(entry => entry.isIntersecting)) {
+                banner.classList.add('pisa-animation-visible');
+                observer.disconnect();
+            }
+        }, { threshold: 0.25 });
+        observer.observe(banner);
+    })();
     </script>
 </body>
 </html>
