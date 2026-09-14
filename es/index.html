@@ -316,7 +316,11 @@
             gap: 1rem;
             min-height: 340px;
             padding: 5rem 1.5rem;
-            background: #fff url('../images/pisa-cover-pattern.svg') center / 100% 100% no-repeat;
+            background-color: #fff;
+            background-image: url('../images/pisa-triangles-left.svg'), url('../images/pisa-triangles-right.svg');
+            background-position: left center, right center;
+            background-size: min(22vw, 300px) 100%;
+            background-repeat: no-repeat;
             color: #121212;
             font-family: 'Libre Franklin', sans-serif;
             text-align: center;
@@ -329,7 +333,7 @@
         .pisa-banner-action { display: block; font-size: .95rem; font-weight: 700; color: #348fdd; }
         .pisa-banner:hover .pisa-banner-action { text-decoration: underline; }
         @media (max-width: 600px) {
-            .pisa-banner { min-height: 340px; background-size: auto 100%; }
+            .pisa-banner { min-height: 340px; background-size: 8vw 100%; }
         }
 
         /* Hero / Bio */
