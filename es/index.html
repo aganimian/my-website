@@ -323,7 +323,7 @@
             text-align: center;
         }
         .pisa-banner > span { position: relative; z-index: 1; }
-        .pisa-triangles { position: absolute; top: 0; height: 100%; width: auto; pointer-events: none; overflow: hidden; }
+        .pisa-triangles { position: absolute; top: 0; height: 100%; width: auto; max-width: calc((100% - clamp(1rem, 3.5vw, 3rem) * 14 - 2rem) / 2); pointer-events: none; overflow: hidden; }
         .pisa-triangles-left { left: 0; }
         .pisa-triangles-right { right: 0; }
         @keyframes assemblePisaTriangle {
@@ -348,11 +348,11 @@
         .pisa-banner-action { display: block; font-size: .95rem; font-weight: 700; color: #348fdd; }
         .pisa-banner:hover .pisa-banner-action { text-decoration: underline; }
         @media (max-width: 1100px) {
-            .pisa-triangles { width: 22vw; height: auto; }
+            .pisa-triangles { width: 27vw; height: auto; }
         }
         @media (max-width: 600px) {
             .pisa-banner { min-height: 140px; }
-            .pisa-triangles { width: 10vw; height: auto; }
+            .pisa-triangles { width: 13vw; height: auto; }
         }
 
         /* Hero / Bio */
@@ -1700,7 +1700,18 @@
     <!-- Temporary PISA 2025 feature -->
     <aside class="pisa-banner-wrap" aria-label="Presentación destacada">
         <a class="pisa-banner" href="../files/Ganimian_PISA-2025.html?v=c47b78e784fc">
-            <svg class="pisa-triangles pisa-triangles-left" aria-hidden="true" focusable="false" width="457.142858" height="240" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 457.142858 240" preserveAspectRatio="xMidYMid meet">
+            <svg class="pisa-triangles pisa-triangles-left" aria-hidden="true" focusable="false" width="640" height="240" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" preserveAspectRatio="xMinYMin meet">
+<polygon fill="#A6D4FC" points="0.000000,0 0.000000,80 91.428571,40"/>
+<polygon fill="#A6D4FC" points="0.000000,80 0.000000,160 91.428571,120"/>
+<polygon fill="#C7E4FC" points="0.000000,160 0.000000,240 91.428571,200"/>
+<polygon fill="#2B8BE6" points="91.428571,40 91.428571,120 0.000000,80"/>
+<polygon fill="#A6D4FC" points="91.428571,40 91.428571,120 182.857143,80"/>
+<polygon fill="#4AA8F0" points="91.428571,120 91.428571,200 0.000000,160"/>
+<polygon fill="#A6D4FC" points="91.428571,120 91.428571,200 182.857143,160"/>
+<polygon fill="#4AA8F0" points="182.857143,0 182.857143,80 91.428571,40"/>
+<polygon fill="#A6D4FC" points="182.857143,80 182.857143,160 91.428571,120"/>
+<polygon fill="#2B8BE6" points="182.857143,160 182.857143,240 91.428571,200"/>
+<g transform="translate(182.85714285714286 0)">
 <polygon fill="#A6D4FC" points="0.000000,0 0.000000,80 91.428571,40"/>
 <polygon fill="#A6D4FC" points="0.000000,80 0.000000,160 91.428571,120"/>
 <polygon fill="#C7E4FC" points="0.000000,160 0.000000,240 91.428571,200"/>
@@ -1725,8 +1736,20 @@
 <polygon fill="#A6D4FC" points="182.857143,80.000000 182.857143,160.000000 274.285714,120.000000" />
 <polygon fill="#A6D4FC" points="182.857143,160.000000 182.857143,240.000000 274.285714,200.000000" />
 </g>
+</g>
 </svg>
-            <svg class="pisa-triangles pisa-triangles-right" aria-hidden="true" focusable="false" width="457.142858" height="240" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 457.142858 240" preserveAspectRatio="xMidYMid meet">
+            <svg class="pisa-triangles pisa-triangles-right" aria-hidden="true" focusable="false" width="640" height="240" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" preserveAspectRatio="xMaxYMin meet">
+<polygon fill="#FFFFFF" points="457.142857,0 457.142857,80 548.571429,40"/>
+<polygon fill="#FFFFFF" points="457.142857,80 457.142857,160 548.571429,120"/>
+<polygon fill="#FFFFFF" points="457.142857,160 457.142857,240 548.571429,200"/>
+<polygon fill="#E4E4E4" points="548.571429,40 548.571429,120 457.142857,80"/>
+<polygon fill="#FFFFFF" points="548.571429,40 548.571429,120 640.000000,80"/>
+<polygon fill="#E4E4E4" points="548.571429,120 548.571429,200 457.142857,160"/>
+<polygon fill="#FFFFFF" points="548.571429,120 548.571429,200 640.000000,160"/>
+<polygon fill="#E4E4E4" points="640.000000,0 640.000000,80 548.571429,40"/>
+<polygon fill="#E4E4E4" points="640.000000,80 640.000000,160 548.571429,120"/>
+<polygon fill="#E4E4E4" points="640.000000,160 640.000000,240 548.571429,200"/>
+<g transform="translate(0 0)">
 <polygon fill="#E4E4E4" points="457.142857,0.000000 457.142857,80.000000 365.714286,40.000000"/>
 <polygon fill="#E4E4E4" points="457.142857,80.000000 457.142857,160.000000 365.714286,120.000000"/>
 <polygon fill="#E4E4E4" points="457.142857,160.000000 457.142857,240.000000 365.714286,200.000000"/>
@@ -1750,6 +1773,7 @@
 <polygon fill="#E4E4E4" points="274.285714,80.000000 274.285714,160.000000 182.857143,120.000000"/>
 <polygon fill="#E4E4E4" points="91.428571,80.000000 91.428571,160.000000 0.000000,120.000000"/>
 <polygon fill="#E4E4E4" points="91.428571,160.000000 91.428571,240.000000 0.000000,200.000000"/>
+</g>
 </svg>
             <span>
                 <span class="pisa-banner-title"><span>América Latina</span> en PISA 2025</span>

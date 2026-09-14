@@ -1,4 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 457.142858 240" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" preserveAspectRatio="xMinYMin meet">
+<polygon fill="#A6D4FC" points="0.000000,0 0.000000,80 91.428571,40"/>
+<polygon fill="#A6D4FC" points="0.000000,80 0.000000,160 91.428571,120"/>
+<polygon fill="#C7E4FC" points="0.000000,160 0.000000,240 91.428571,200"/>
+<polygon fill="#2B8BE6" points="91.428571,40 91.428571,120 0.000000,80"/>
+<polygon fill="#A6D4FC" points="91.428571,40 91.428571,120 182.857143,80"/>
+<polygon fill="#4AA8F0" points="91.428571,120 91.428571,200 0.000000,160"/>
+<polygon fill="#A6D4FC" points="91.428571,120 91.428571,200 182.857143,160"/>
+<polygon fill="#4AA8F0" points="182.857143,0 182.857143,80 91.428571,40"/>
+<polygon fill="#A6D4FC" points="182.857143,80 182.857143,160 91.428571,120"/>
+<polygon fill="#2B8BE6" points="182.857143,160 182.857143,240 91.428571,200"/>
+<g transform="translate(182.85714285714286 0)">
 <polygon fill="#A6D4FC" points="0.000000,0 0.000000,80 91.428571,40"/>
 <polygon fill="#A6D4FC" points="0.000000,80 0.000000,160 91.428571,120"/>
 <polygon fill="#C7E4FC" points="0.000000,160 0.000000,240 91.428571,200"/>
@@ -22,5 +33,6 @@
 <polygon fill="#C7E4FC" points="0.000000,80.000000 0.000000,160.000000 91.428571,120.000000" />
 <polygon fill="#A6D4FC" points="182.857143,80.000000 182.857143,160.000000 274.285714,120.000000" />
 <polygon fill="#A6D4FC" points="182.857143,160.000000 182.857143,240.000000 274.285714,200.000000" />
+</g>
 </g>
 </svg>
