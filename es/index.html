@@ -306,6 +306,31 @@
             letter-spacing: -0.5px;
         }
 
+        /* Temporary PISA 2025 presentation banner */
+        .pisa-banner-wrap { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .pisa-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 2rem;
+            border-left: 6px solid #2b8be6;
+            border-radius: 4px;
+            background: #eef6fe;
+            color: #153858;
+        }
+        .pisa-banner:hover { background: #e2effc; }
+        .pisa-banner:focus-visible { outline: 3px solid #153858; outline-offset: 4px; }
+        .pisa-banner-label { display: block; font-size: .8rem; font-weight: 600; margin-bottom: .4rem; }
+        .pisa-banner-title { display: block; font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.25; }
+        .pisa-banner-subtitle { display: block; margin-top: .5rem; font-size: 1rem; }
+        .pisa-banner-action { display: block; font-size: .95rem; font-weight: 700; }
+        @media (max-width: 600px) {
+            .pisa-banner-wrap { padding-left: 1.5rem; padding-right: 1.5rem; }
+            .pisa-banner { padding: 1.5rem; }
+        }
+
         /* Hero / Bio */
         .hero {
             padding: 2rem 0 4rem 0;
@@ -1647,6 +1672,18 @@
             </div>
         </div>
     </section>
+
+    <!-- Temporary PISA 2025 feature -->
+    <aside class="section-inner pisa-banner-wrap" aria-label="Presentación destacada">
+        <a class="pisa-banner" href="../files/Ganimian_PISA-2025.html">
+            <span>
+                <span class="pisa-banner-label">PRESENTACIÓN</span>
+                <span class="pisa-banner-title">América Latina en PISA 2025</span>
+                <span class="pisa-banner-subtitle">Resultados y tendencias</span>
+            </span>
+            <span class="pisa-banner-action">Ver la presentación completa <span aria-hidden="true">→</span></span>
+        </a>
+    </aside>
 
     <section class="section" id="research">
         <div class="section-inner">
