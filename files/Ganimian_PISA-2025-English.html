@@ -1598,4 +1598,25 @@ root.querySelectorAll('[aria-label],[title]').forEach(el=>{for(const a of ['aria
 applyEnglish(document.body);document.fonts.ready.then(()=>{document.querySelectorAll('svg text,svg title').forEach(el=>{el.textContent=translateText(el.textContent)});});document.title='Latin America in PISA 2025';document.documentElement.lang='en';
 })();
 </script>
+<script>
+(()=>{
+ let start=null;
+ const interactive='select,input,textarea';
+ document.body.addEventListener('touchstart',e=>{
+  start=e.touches.length===1&&!e.target.closest(interactive)
+   ?{x:e.touches[0].clientX,y:e.touches[0].clientY}:null;
+ },{passive:true});
+ document.body.addEventListener('touchcancel',()=>{start=null},{passive:true});
+ document.body.addEventListener('touchend',e=>{
+  if(!start)return;
+  const origin=start;start=null;
+  if(e.touches.length||e.changedTouches.length!==1)return;
+  const dx=e.changedTouches[0].clientX-origin.x,dy=e.changedTouches[0].clientY-origin.y;
+  if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.5){
+   e.preventDefault();
+   dx<0?advance():retreat();
+  }
+ },{passive:false});
+})();
+</script>
 </body></html>
