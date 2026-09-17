@@ -34,6 +34,9 @@
         .nav-container { max-width: 1200px; margin: auto; padding: 1.25rem 3rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
         .logo { font-size: 1.6rem; font-weight: 800; }
         .nav-links { display: flex; gap: 1.75rem; font-weight: 700; }
+        .lang-flag-nav { display: inline-block; width: 24px; height: 16px; border-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,.2); vertical-align: middle; }
+        .lang-flag-nav.es { background: linear-gradient(to bottom, #c60b1e 0%, #c60b1e 25%, #ffc400 25%, #ffc400 75%, #c60b1e 75%, #c60b1e 100%); }
+        .lang-flag-nav.en { background: linear-gradient(to bottom, #012169 0%, #012169 50%, #c8102e 50%, #c8102e 100%); }
         .nav-links a:hover, .mobile-menu a:hover { text-decoration: underline; text-underline-offset: .3em; }
         .menu-button { display: none; background: none; border: 1px solid #777; color: #fff; font: inherit; padding: .4rem .7rem; cursor: pointer; }
         .mobile-menu { padding: 0 1.5rem 1rem; }
@@ -235,6 +238,7 @@
 <a href="policy.html">Política</a>
 <a href="teaching.html">Docencia</a>
 <a href="media.html">Medios</a>
+<a href="../study-student-heterogeneity.html" title="English" aria-label="English" lang="en" hreflang="en"><span class="lang-flag-nav en" aria-hidden="true"></span></a>
 </div>
 <button aria-controls="mobile-menu" aria-expanded="false" class="menu-button">Menú</button>
 </div>
@@ -244,6 +248,7 @@
 <a href="policy.html">Política</a>
 <a href="teaching.html">Docencia</a>
 <a href="media.html">Medios</a>
+<a href="../study-student-heterogeneity.html" title="English" aria-label="English" lang="en" hreflang="en"><span class="lang-flag-nav en" aria-hidden="true"></span> English</a>
 </div>
 </nav>
 <main id="main">
