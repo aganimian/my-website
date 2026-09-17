@@ -196,11 +196,15 @@
         .related-studies { background: var(--gray); border-top: 1px solid var(--line); padding: 2.5rem 0; }
         .related-studies h2 { margin-bottom: 1.5rem; }
         .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
-        .related-study { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: #fff; border-top: 2px solid var(--black); font-weight: 600; line-height: 1.5; }
-        .related-study-title { overflow-wrap: anywhere; }
+        .related-study { display: flex; flex-direction: column; gap: 1rem; }
+        .related-study-image { display: block; width: 100%; height: auto; border-radius: 4px; margin-bottom: .75rem; }
+        .related-study-category { font-size: .7rem; font-weight: 100; text-transform: uppercase; letter-spacing: .5px; color: #000; margin-bottom: .35rem; }
+        .related-study-title { display: block; font-size: 1.1rem; font-weight: 800; line-height: 1.25; overflow-wrap: anywhere; }
+        .related-study-authors { display: block; font-size: .8rem; font-weight: 300; color: #666; margin-top: .25rem; }
+        .related-study-tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .5rem; }
+        .related-study-tags .tag { font-size: .65rem; padding: .2rem .5rem; }
         .related-study:hover .related-study-title { text-decoration: underline; text-underline-offset: .2em; }
         .related-study:focus-visible { outline: 2px solid var(--black); outline-offset: 4px; }
-        .related-study-arrow { flex-shrink: 0; }
         @media (max-width: 900px) {
             .related-grid { grid-template-columns: 1fr; gap: 1rem; }
         }
@@ -255,9 +259,9 @@
         <div class="container">
             <h2 id="related-studies-title">Related studies</h2>
             <div class="related-grid">
-                <a class="related-study" href="study-child-rearing.html"><span class="related-study-title">The challenges of scaling up effective child-rearing practices using technology in developing settings: Experimental evidence from India</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
-                <a class="related-study" href="study-school-climate.html"><span class="related-study-title">Can positive school climate ameliorate racial-ethnic disparities in pre-kindergarten quality? Evidence from a large urban school district</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
-                <a class="related-study" href="study-teacher-knowledge.html"><span class="related-study-title">Leveraging complementarities between teachers&#x27; content knowledge and pedagogical supports: Experimental evidence from India</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+                <a class="related-study" href="study-child-rearing.html"><img class="related-study-image" src="images/research-6.jpg?v=20260713-optimized" alt="" loading="lazy"><span class="related-study-content"><span class="related-study-category">Journal of Research on Educational Effectiveness, 2025</span><span class="related-study-title">The challenges of scaling up effective child-rearing practices using technology in developing settings: Experimental evidence from India</span><span class="related-study-authors">with I. Arteaga &amp; A. de Barros</span><span class="related-study-tags"><span class="tag tag-education-technology">Education technology</span><span class="tag tag-early-childhood">Early childhood education</span><span class="tag tag-impact-evaluation">Impact evaluation</span><span class="tag tag-india">India</span></span></span></a>
+                <a class="related-study" href="study-school-climate.html"><img class="related-study-image" src="images/research-17.jpg?v=20260713-optimized" alt="" loading="lazy"><span class="related-study-content"><span class="related-study-category">Early Childhood Research Quarterly, 2023</span><span class="related-study-title">Can positive school climate ameliorate racial-ethnic disparities in pre-kindergarten quality? Evidence from a large urban school district</span><span class="related-study-authors">with J. Siegel &amp; E. Cappella</span><span class="related-study-tags"><span class="tag tag-early-childhood">Early childhood education</span><span class="tag tag-united-states">United States</span></span></span></a>
+                <a class="related-study" href="study-teacher-knowledge.html"><img class="related-study-image" src="images/research-2-v2.jpg?v=20260713-optimized" alt="" loading="lazy"><span class="related-study-content"><span class="related-study-category">Working paper</span><span class="related-study-title">Leveraging complementarities between teachers&#x27; content knowledge and pedagogical supports: Experimental evidence from India</span><span class="related-study-authors">with I. Mbiti &amp; A. Mishra</span><span class="related-study-tags"><span class="tag tag-teacher-development">Teacher development</span><span class="tag tag-impact-evaluation">Impact evaluation</span><span class="tag tag-india">India</span></span></span></a>
             </div>
         </div>
     </section>
