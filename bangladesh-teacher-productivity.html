@@ -39,12 +39,12 @@
         .mobile-menu a { display: block; padding: .65rem 0; font-weight: 600; }
         .container { max-width: 1200px; padding: 0 3rem; margin: auto; }
         .breadcrumb { display: inline-block; font-size: .9rem; margin: 2rem 0; border-bottom: 1px solid #aaa; }
-        .hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 3rem; align-items: center; padding-bottom: 3rem; }
+        .hero { display: flex; flex-direction: column; gap: 1.25rem; padding-bottom: 3rem; }
         .eyebrow { font-size: .875rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; margin-bottom: 1rem; }
         h1 { font-size: clamp(2rem, 3.1vw, 2.8rem); font-weight: 800; line-height: 1.2; letter-spacing: -.025em; overflow-wrap: anywhere; }
         .authors { margin-top: 1.5rem; font-weight: 500; }
         .coauthors { margin-top: .2rem; }
-        .hero-image { width: 100%; height: auto; display: block; order: -1; }
+        .hero-image { width: 100%; height: auto; display: block; border-radius: 4px; }
         .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.4rem; }
         .tag { font-size: .875rem; padding: .3rem .65rem; font-weight: 500; }
         .tag-teacher-development { background: #cce5ff; color: #004085; }
@@ -73,7 +73,6 @@
         @media (max-width: 1050px) {
             .nav-links { gap: 1rem; font-size: .9rem; }
             .logo { font-size: 1.3rem; }
-            .hero { gap: 2rem; }
             .section-layout { grid-template-columns: 180px minmax(0, 1fr); gap: 2rem; }
         }
         @media (max-width: 900px) {
@@ -83,8 +82,7 @@
             .menu-button { display: block; }
             .container { padding: 0 1.5rem; }
             .breadcrumb { margin: 1.5rem 0; }
-            .hero { grid-template-columns: 1fr; gap: 2rem; padding-bottom: 2rem; }
-            .hero-image { order: 0; }
+            .hero { padding-bottom: 2rem; }
             .section-layout { grid-template-columns: 1fr; gap: 1.5rem; }
             .study-section { padding: 2.5rem 0; }
             .instrument-grid { gap: 1.75rem; }
@@ -121,6 +119,7 @@
         <div class="container">
             <a class="breadcrumb" href="research.html#paper-teacher-productivity">Research / Bangladesh</a>
             <header class="hero">
+                <img class="hero-image" src="images/research-teacher-productivity.png" alt="Teacher using assessment reports in Bangladesh">
                 <div>
                     <p class="eyebrow">Working paper</p>
                     <h1>Enhancing teacher productivity with information on students and skills: Experimental evidence from Bangladesh</h1>
@@ -133,7 +132,6 @@
                     </div>
                     <a class="primary-link" href="files/Djakeretal_20260916.pdf" target="_blank" rel="noopener">Latest manuscript <span aria-hidden="true">↗</span></a>
                 </div>
-                <img class="hero-image" src="images/research-teacher-productivity.png" alt="Teacher using assessment reports in Bangladesh">
             </header>
             <nav class="section-links" aria-label="On this page">
                 <a href="#overview">Overview</a>
