@@ -93,6 +93,17 @@
             .instrument-grid { grid-template-columns: 1fr; }
             .section-links { gap: 1rem; font-size: .9rem; }
         }
+        .related-studies { background: var(--gray); border-top: 1px solid var(--line); padding: 2.5rem 0; }
+        .related-studies h2 { margin-bottom: 1.5rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+        .related-study { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: #fff; border-top: 2px solid var(--black); font-weight: 600; line-height: 1.5; }
+        .related-study-title { overflow-wrap: anywhere; }
+        .related-study:hover .related-study-title { text-decoration: underline; text-underline-offset: .2em; }
+        .related-study:focus-visible { outline: 2px solid var(--black); outline-offset: 4px; }
+        .related-study-arrow { flex-shrink: 0; }
+        @media (max-width: 900px) {
+            .related-grid { grid-template-columns: 1fr; gap: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -180,6 +191,16 @@
                 </div>
             </div>
         </section>
+    <section class="related-studies" aria-labelledby="related-studies-title">
+        <div class="container">
+            <h2 id="related-studies-title">Related studies</h2>
+            <div class="related-grid">
+                <a class="related-study" href="study-teacher-estimations.html"><span class="related-study-title">Out of sight, out of mind? The gap between students&#x27; test performance and teachers&#x27; estimations in India and Bangladesh</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+                <a class="related-study" href="study-teaching-with-test.html"><span class="related-study-title">Teaching with the test: Experimental evidence on diagnostic feedback and capacity-building for public schools in Argentina</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+                <a class="related-study" href="study-combining-diagnostic.html"><span class="related-study-title">The impact of combining performance-management tools and training with diagnostic feedback in public schools: Experimental evidence from Argentina</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </section>
     </main>
     <footer><div class="container"><a href="research.html">All research</a></div></footer>
     <script>

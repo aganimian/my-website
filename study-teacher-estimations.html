@@ -193,6 +193,17 @@
         .media-item { padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
         .media-item a { font-weight: 600; }
         .media-item a:hover { text-decoration: underline; text-underline-offset: .2em; }
+        .related-studies { background: var(--gray); border-top: 1px solid var(--line); padding: 2.5rem 0; }
+        .related-studies h2 { margin-bottom: 1.5rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+        .related-study { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: #fff; border-top: 2px solid var(--black); font-weight: 600; line-height: 1.5; }
+        .related-study-title { overflow-wrap: anywhere; }
+        .related-study:hover .related-study-title { text-decoration: underline; text-underline-offset: .2em; }
+        .related-study:focus-visible { outline: 2px solid var(--black); outline-offset: 4px; }
+        .related-study-arrow { flex-shrink: 0; }
+        @media (max-width: 900px) {
+            .related-grid { grid-template-columns: 1fr; gap: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -242,6 +253,16 @@
 </div>
 <section class="study-section instruments-section" id="instruments" aria-labelledby="instruments-title"><div class="container section-layout"><h2 id="instruments-title">Instruments</h2><div class="instrument-grid"><div class="instrument-group"><h3>Teacher Surveys</h3><div class="instrument-row"><a href="files/instruments/TeacherBeliefs-Bangladesh-Teacher-Survey.pdf" target="_blank">Bangladesh</a></div></div></div></div></section>
 <section class="study-section" id="media" aria-labelledby="media-title"><div class="container section-layout"><h2 id="media-title">Media coverage</h2><div class="media-list"><div class="media-item"><a href="https://www.hks.harvard.edu/centers/cid/voices/fixing-learning-illusion-insights-global-education-experts" target="_blank" rel="noopener">Fixing the learning illusion: Insights from global education experts <span aria-hidden="true">↗</span></a><p class="muted">Harvard Kennedy School CID, June 24, 2025</p></div><div class="media-item"><a href="https://boldscience.org/lets-help-teachers-address-students-learning-needs/" target="_blank" rel="noopener">Let&#x27;s help teachers address students&#x27; learning needs <span aria-hidden="true">↗</span></a><p class="muted">BOLD, January 23, 2023</p></div></div></div></section>
+    <section class="related-studies" aria-labelledby="related-studies-title">
+        <div class="container">
+            <h2 id="related-studies-title">Related studies</h2>
+            <div class="related-grid">
+                <a class="related-study" href="bangladesh-teacher-productivity.html"><span class="related-study-title">Enhancing teacher productivity with information on students and skills: Experimental evidence from Bangladesh</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+                <a class="related-study" href="study-foundational-math.html"><span class="related-study-title">The foundational math skills of Indian children</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+                <a class="related-study" href="study-teaching-with-test.html"><span class="related-study-title">Teaching with the test: Experimental evidence on diagnostic feedback and capacity-building for public schools in Argentina</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </section>
 </main>
     <footer><div class="container"><a href="research.html">All research</a></div></footer>
     <script>

@@ -193,6 +193,17 @@
         .media-item { padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
         .media-item a { font-weight: 600; }
         .media-item a:hover { text-decoration: underline; text-underline-offset: .2em; }
+        .related-studies { background: var(--gray); border-top: 1px solid var(--line); padding: 2.5rem 0; }
+        .related-studies h2 { margin-bottom: 1.5rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+        .related-study { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: #fff; border-top: 2px solid var(--black); font-weight: 600; line-height: 1.5; }
+        .related-study-title { overflow-wrap: anywhere; }
+        .related-study:hover .related-study-title { text-decoration: underline; text-underline-offset: .2em; }
+        .related-study:focus-visible { outline: 2px solid var(--black); outline-offset: 4px; }
+        .related-study-arrow { flex-shrink: 0; }
+        @media (max-width: 900px) {
+            .related-grid { grid-template-columns: 1fr; gap: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -240,6 +251,16 @@
 <section class="study-section section-layout" id="overview" aria-labelledby="overview-title"><h2 id="overview-title">Study overview</h2><p>Working children in India demonstrated sophisticated market calculations but struggled with equivalent abstract school-format problems, revealing a significant transfer gap.</p></section>
 </div>
 <section class="study-section" id="media" aria-labelledby="media-title"><div class="container section-layout"><h2 id="media-title">Media coverage</h2><div class="media-list"><div class="media-item"><a href="https://hechingerreport.org/proof-points-child-street-sellers-india-math/" target="_blank" rel="noopener">These teens can do incredible math in their heads but fail in a classroom <span aria-hidden="true">↗</span></a><p class="muted">The Hechinger Report, February 24, 2025</p></div><div class="media-item"><a href="https://www.kqed.org/mindshift/65229/these-teens-can-do-incredible-math-in-their-heads-but-fail-in-a-classroom" target="_blank" rel="noopener">These teens can do incredible math in their heads but fail in a classroom <span aria-hidden="true">↗</span></a><p class="muted">KQED MindShift, February 24, 2025</p></div><div class="media-item"><a href="https://indianexpress.com/article/education/schools-india-math-skills-home-formal-learning-different-nobel-laureate-esther-duflo-9822786/" target="_blank" rel="noopener">Indian schools treat math skills picked up at home and in classrooms as different <span aria-hidden="true">↗</span></a><p class="muted">The Indian Express, February 9, 2025</p></div><div class="media-item"><a href="https://www.indiatoday.in/education-today/latest-studies/story/big-gap-in-market-math-and-school-math-in-india-study-by-nobel-laureates-2676315-2025-02-07" target="_blank" rel="noopener">Indian kids ace market math but struggle in class, finds study by Nobel laureates <span aria-hidden="true">↗</span></a><p class="muted">India Today, February 7, 2025</p></div><div class="media-item"><a href="https://www.nature.com/articles/d41586-025-00381-z" target="_blank" rel="noopener">Kids&#x27; real-world arithmetic skills don&#x27;t transfer to the classroom <span aria-hidden="true">↗</span></a><p class="muted">Nature Podcast, February 5, 2025</p></div><div class="media-item"><a href="https://news.mit.edu/2025/study-shows-kids-use-different-math-skills-work-vs-school-0205" target="_blank" rel="noopener">Study in India shows kids use different math skills at work vs. school <span aria-hidden="true">↗</span></a><p class="muted">MIT News, February 5, 2025</p></div><div class="media-item"><a href="https://www.sciencedaily.com/releases/2025/02/250205130941.htm" target="_blank" rel="noopener">Study in India shows kids use different math skills at work vs. school <span aria-hidden="true">↗</span></a><p class="muted">ScienceDaily, February 5, 2025</p></div><div class="media-item"><a href="https://phys.org/news/2025-02-kids-math-skills-school-india.html" target="_blank" rel="noopener">Kids use different math skills at work vs. school, India study shows <span aria-hidden="true">↗</span></a><p class="muted">Phys.org, February 5, 2025</p></div><div class="media-item"><a href="https://scroll.in/article/850763/why-children-do-well-in-street-maths-but-not-in-the-classroom-researchers-fault-teaching-methods" target="_blank" rel="noopener">Why children do well in &#x27;street maths&#x27; but not in the classroom <span aria-hidden="true">↗</span></a><p class="muted">Scroll.in, October 15, 2017</p></div></div></div></section>
+    <section class="related-studies" aria-labelledby="related-studies-title">
+        <div class="container">
+            <h2 id="related-studies-title">Related studies</h2>
+            <div class="related-grid">
+                <a class="related-study" href="study-foundational-math.html"><span class="related-study-title">The foundational math skills of Indian children</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+                <a class="related-study" href="study-student-heterogeneity.html"><span class="related-study-title">How can developing countries address heterogeneity in students&#x27; preparation for school? A review of the challenge and potential solutions</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+                <a class="related-study" href="study-individualized-instruction.html"><span class="related-study-title">Which students benefit from computer-based individualized instruction? Experimental evidence from public schools in India</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </section>
 </main>
     <footer><div class="container"><a href="research.html">All research</a></div></footer>
     <script>

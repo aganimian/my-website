@@ -193,6 +193,17 @@
         .media-item { padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
         .media-item a { font-weight: 600; }
         .media-item a:hover { text-decoration: underline; text-underline-offset: .2em; }
+        .related-studies { background: var(--gray); border-top: 1px solid var(--line); padding: 2.5rem 0; }
+        .related-studies h2 { margin-bottom: 1.5rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+        .related-study { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: #fff; border-top: 2px solid var(--black); font-weight: 600; line-height: 1.5; }
+        .related-study-title { overflow-wrap: anywhere; }
+        .related-study:hover .related-study-title { text-decoration: underline; text-underline-offset: .2em; }
+        .related-study:focus-visible { outline: 2px solid var(--black); outline-offset: 4px; }
+        .related-study-arrow { flex-shrink: 0; }
+        @media (max-width: 900px) {
+            .related-grid { grid-template-columns: 1fr; gap: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -241,6 +252,16 @@
 <section class="study-section section-layout" id="paper" aria-labelledby="paper-title"><h2 id="paper-title">Paper &amp; related materials</h2><div><a class="resource-link" href="files/de Barros et al. - 2021-05-23 - adb.pdf" target="_blank" rel="noopener"><span class="resource-title">Latest manuscript</span><span class="file-type" aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.tandfonline.com/doi/10.1080/19345747.2021.2005203" target="_blank" rel="noopener"><span class="resource-title">Published version</span><span class="file-type" aria-hidden="true">↗</span></a><a class="resource-link" href="https://www.socialscienceregistry.org/trials/2455" target="_blank" rel="noopener"><span class="resource-title">AEA RCT registration</span><span class="file-type" aria-hidden="true">↗</span></a></div></section>
 </div>
 <section class="study-section instruments-section" id="instruments" aria-labelledby="instruments-title"><div class="container section-layout"><h2 id="instruments-title">Instruments</h2><div class="instrument-grid"><div class="instrument-group"><h3>Student Assessments</h3><div class="instrument-row">Baseline: Math - <a href="files/instruments/Learning_Lab_Math_BL_Gr45.pdf" target="_blank">Grades 4-5</a>, <a href="files/instruments/Learning_Lab_Math_BL_Gr67.pdf" target="_blank">Grades 6-7</a></div><div class="instrument-row">Endline: Math - <a href="files/instruments/Learning_Lab_Math_EL_Gr45.pdf" target="_blank">Grades 4-5</a>, <a href="files/instruments/Learning_Lab_Math_EL_Gr67.pdf" target="_blank">Grades 6-7</a></div></div></div></div></section>
+    <section class="related-studies" aria-labelledby="related-studies-title">
+        <div class="container">
+            <h2 id="related-studies-title">Related studies</h2>
+            <div class="related-grid">
+                <a class="related-study" href="study-individualized-instruction.html"><span class="related-study-title">Which students benefit from computer-based individualized instruction? Experimental evidence from public schools in India</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+                <a class="related-study" href="study-disrupting-education.html"><span class="related-study-title">Disrupting education? Experimental evidence on technology-aided instruction in India</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+                <a class="related-study" href="study-foundational-math.html"><span class="related-study-title">The foundational math skills of Indian children</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </section>
 </main>
     <footer><div class="container"><a href="research.html">All research</a></div></footer>
     <script>

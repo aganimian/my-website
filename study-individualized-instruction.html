@@ -193,6 +193,17 @@
         .media-item { padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); }
         .media-item a { font-weight: 600; }
         .media-item a:hover { text-decoration: underline; text-underline-offset: .2em; }
+        .related-studies { background: var(--gray); border-top: 1px solid var(--line); padding: 2.5rem 0; }
+        .related-studies h2 { margin-bottom: 1.5rem; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+        .related-study { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.25rem; background: #fff; border-top: 2px solid var(--black); font-weight: 600; line-height: 1.5; }
+        .related-study-title { overflow-wrap: anywhere; }
+        .related-study:hover .related-study-title { text-decoration: underline; text-underline-offset: .2em; }
+        .related-study:focus-visible { outline: 2px solid var(--black); outline-offset: 4px; }
+        .related-study-arrow { flex-shrink: 0; }
+        @media (max-width: 900px) {
+            .related-grid { grid-template-columns: 1fr; gap: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -242,6 +253,16 @@
 </div>
 <section class="study-section instruments-section" id="instruments" aria-labelledby="instruments-title"><div class="container section-layout"><h2 id="instruments-title">Instruments</h2><div class="instrument-grid"><div class="instrument-group"><h3>Student Assessments</h3><div class="instrument-row">Baseline: Math - <a href="files/instruments/Learning_Lab_Math_BL_Gr68.pdf" target="_blank">Grades 6-8</a></div><div class="instrument-row">Endline: Math - <a href="files/instruments/Learning_Lab_Math_EL_Gr68.pdf" target="_blank">Grades 6-8</a></div></div></div></div></section>
 <section class="study-section" id="media" aria-labelledby="media-title"><div class="container section-layout"><h2 id="media-title">Media coverage</h2><div class="media-list"><div class="media-item"><a href="https://www.brookings.edu/articles/does-instructing-students-at-the-right-level-truly-drive-the-impacts-of-targeted-remediation-programs/" target="_blank" rel="noopener">Does instructing students &#x27;at the right level&#x27; truly drive the impacts of targeted remediation programs? <span aria-hidden="true">↗</span></a><p class="muted">Brookings Institution, August 1, 2023</p></div></div></div></section>
+    <section class="related-studies" aria-labelledby="related-studies-title">
+        <div class="container">
+            <h2 id="related-studies-title">Related studies</h2>
+            <div class="related-grid">
+                <a class="related-study" href="study-disrupting-education.html"><span class="related-study-title">Disrupting education? Experimental evidence on technology-aided instruction in India</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+                <a class="related-study" href="study-independent-practice.html"><span class="related-study-title">Which students benefit from independent practice? Experimental evidence from a math software in private schools in India</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+                <a class="related-study" href="study-student-heterogeneity.html"><span class="related-study-title">How can developing countries address heterogeneity in students&#x27; preparation for school? A review of the challenge and potential solutions</span><span class="related-study-arrow" aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </section>
 </main>
     <footer><div class="container"><a href="research.html">All research</a></div></footer>
     <script>
