@@ -1,0 +1,10 @@
+/* Search controls shared by the study-page navigation. */
+.site-nav .nav-links { align-items: center; }
+.site-nav .nav-search, .site-nav .mobile-menu-search { display: flex; }
+.site-nav .nav-search { flex-shrink: 0; }
+.site-nav .nav-search input, .site-nav .mobile-menu-search input { min-width: 0; width: 120px; padding: .4rem .75rem; border: 0; font: .9rem 'Libre Franklin', sans-serif; background: rgba(255,255,255,.1); color: #fff; }
+.site-nav .nav-search input::placeholder, .site-nav .mobile-menu-search input::placeholder { color: rgba(255,255,255,.5); }
+.site-nav .nav-search input:focus, .site-nav .mobile-menu-search input:focus { background: rgba(255,255,255,.2); }
+.site-nav .nav-search button, .site-nav .mobile-menu-search button { padding: .4rem .75rem; border: 0; background: #fff; color: #222; font: 600 .9rem 'Libre Franklin', sans-serif; cursor: pointer; }
+.site-nav .mobile-menu-search { padding-top: 1rem; margin-top: .5rem; border-top: 1px solid rgba(255,255,255,.2); }
+.site-nav .mobile-menu-search input { flex: 1; }
