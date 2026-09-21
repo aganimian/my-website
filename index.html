@@ -69,9 +69,9 @@
       ]
     }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="Fonts/jizDREVItHgc8qDIbSTKq4XkRiUf2zcZiVbJ.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link href="Fonts/libre-franklin.css" rel="stylesheet">
     <style>
         /* Publico Headline - Commercial Type */
         @font-face {
@@ -1736,7 +1736,7 @@ counter(popular)
     <section class="hero section-dark" id="bio">
         <div class="hero-inner">
             <div class="hero-photo">
-                <img src="https://images.squarespace-cdn.com/content/v1/5990cfd52994ca797742fae9/7af0789d-ee14-4212-8148-c0638be9af6d/i-cc44f4F-4K.jpg" alt="Alejandro J. Ganimian" class="profile-photo">
+                <img src="images/profile-photo-640.webp" alt="Alejandro J. Ganimian" class="profile-photo" srcset="images/profile-photo-320.webp 320w, images/profile-photo-640.webp 640w, images/profile-photo-960.webp 960w" sizes="(max-width: 700px) 220px, 360px" fetchpriority="high">
             </div>
             <div class="hero-content">
                 <p>I am an Associate Professor of Applied Psychology and Economics at <a href="https://www.nyu.edu/" target="_blank">NYU</a>'s <a href="https://steinhardt.nyu.edu/" target="_blank">Steinhardt School of Culture, Education, and Human Development</a>.</p>
@@ -1845,7 +1845,7 @@ counter(popular)
                 <!-- Featured Article (Left) -->
                 <div class="research-featured-column">
                 <a href="bangladesh-teacher-productivity.html" class="research-featured">
-                    <img src="images/research-teacher-productivity.png" alt="Teacher using assessment reports in Bangladesh" class="research-featured-image">
+                    <img src="images/research-teacher-productivity-960.webp" alt="Teacher using assessment reports in Bangladesh" class="research-featured-image" srcset="images/research-teacher-productivity-480.webp 480w, images/research-teacher-productivity-960.webp 960w, images/research-teacher-productivity-1536.webp 1536w" sizes="(max-width: 768px) calc(100vw - 48px), 768px" loading="lazy">
                     <div class="research-category">Working paper</div>
                     <h2 class="research-featured-title">Enhancing teacher productivity with information on students and skills: Experimental evidence from Bangladesh</h2>
                     <div class="research-featured-meta">with S. Djaker, N. Angrist & S. Sabarwal</div>
@@ -1870,7 +1870,7 @@ counter(popular)
                 <div class="research-sidebar">
                     <div class="research-sidebar-list">
                         <a href="study-civic-education.html" class="research-sidebar-item with-image">
-                            <img src="images/research-14.jpg?v=20260713-optimized" alt="" class="research-sidebar-img">
+                            <img src="images/research-14-960.webp" alt="" class="research-sidebar-img" srcset="images/research-14-480.webp 480w, images/research-14-960.webp 960w, images/research-14-1536.webp 1536w" sizes="(max-width: 768px) calc(100vw - 48px), 768px" loading="lazy">
                             <div class="research-sidebar-content">
                                 <div class="research-sidebar-category">Educational Evaluation and Policy Analysis, 2026</div>
                                 <h3 class="research-sidebar-title">Does civic education impact primary-school students' civic outcomes? Experimental evidence from Liberia</h3>
@@ -1882,7 +1882,7 @@ counter(popular)
                             </div>
                         </a>
                         <a href="study-classroom-observations.html" class="research-sidebar-item with-image">
-                            <img src="images/research-1-v2.jpg?v=20260713-optimized" alt="" class="research-sidebar-img">
+                            <img src="images/research-1-v2-960.webp" alt="" class="research-sidebar-img" srcset="images/research-1-v2-480.webp 480w, images/research-1-v2-960.webp 960w, images/research-1-v2-1536.webp 1536w" sizes="(max-width: 768px) calc(100vw - 48px), 768px" loading="lazy">
                             <div class="research-sidebar-content">
                                 <div class="research-sidebar-category">Educational Evaluation and Policy Analysis, 2026</div>
                                 <h3 class="research-sidebar-title">The reliability of classroom observations and student surveys in non-research settings: Evidence from a middle-income country</h3>
@@ -1966,66 +1966,66 @@ counter(popular)
                 <div class="news-carousel">
                 <div class="news-slide active">
                     <a href="https://www.hks.harvard.edu/centers/cid/voices/fixing-learning-illusion-insights-global-education-experts" target="_blank" class="news-card">
-                        <img src="logos/harvard-cid.svg" alt="Harvard Kennedy School CID">
+                        <img src="logos/harvard-cid.svg" alt="Harvard Kennedy School CID" loading="lazy">
                         <h3 class="news-headline">Fixing the learning illusion: Insights from global education experts</h3>
                         <div class="news-source">Harvard Kennedy School CID, June 24, 2025</div>
                     </a>
                     <a href="https://voxdev.org/topic/important-null-results-development-economics" target="_blank" class="news-card">
-                        <img src="logos/voxdev.png" alt="VoxDev">
+                        <img src="logos/voxdev.png" alt="VoxDev" loading="lazy">
                         <h3 class="news-headline">Important null results in development economics</h3>
                         <div class="news-source">VoxDev, April 11, 2025</div>
                     </a>
                     <a href="https://voxdev.org/topic/education/challenges-improving-parenting-practices-scale" target="_blank" class="news-card">
-                        <img src="logos/voxdev.png" alt="VoxDev">
+                        <img src="logos/voxdev.png" alt="VoxDev" loading="lazy">
                         <h3 class="news-headline">The challenges of improving parenting practices at scale</h3>
                         <div class="news-source">VoxDev, March 25, 2025</div>
                     </a>
                     <a href="https://hechingerreport.org/proof-points-child-street-sellers-india-math/" target="_blank" class="news-card">
-                        <img src="logos/hechinger.png" alt="The Hechinger Report">
+                        <img src="logos/hechinger.png" alt="The Hechinger Report" loading="lazy">
                         <h3 class="news-headline">These teens can do incredible math in their heads but fail in a classroom</h3>
                         <div class="news-source">The Hechinger Report, February 24, 2025</div>
                     </a>
                 </div>
                 <div class="news-slide">
                     <a href="https://www.kqed.org/mindshift/65229/these-teens-can-do-incredible-math-in-their-heads-but-fail-in-a-classroom" target="_blank" class="news-card">
-                        <img src="logos/kqed.png" alt="KQED MindShift">
+                        <img src="logos/kqed.png" alt="KQED MindShift" loading="lazy">
                         <h3 class="news-headline">These teens can do incredible math in their heads but fail in a classroom</h3>
                         <div class="news-source">KQED MindShift, February 24, 2025</div>
                     </a>
                     <a href="https://indianexpress.com/article/education/schools-india-math-skills-home-formal-learning-different-nobel-laureate-esther-duflo-9822786/" target="_blank" class="news-card">
-                        <img src="logos/indianexpress.svg" alt="The Indian Express">
+                        <img src="logos/indianexpress.svg" alt="The Indian Express" loading="lazy">
                         <h3 class="news-headline">Indian schools treat math skills picked up at home and in classrooms as different</h3>
                         <div class="news-source">The Indian Express, February 9, 2025</div>
                     </a>
                     <a href="https://www.indiatoday.in/education-today/latest-studies/story/big-gap-in-market-math-and-school-math-in-india-study-by-nobel-laureates-2676315-2025-02-07" target="_blank" class="news-card">
-                        <img src="logos/indiatoday.png" alt="India Today">
+                        <img src="logos/indiatoday.png" alt="India Today" loading="lazy">
                         <h3 class="news-headline">Indian kids ace market math but struggle in class, finds study by Nobel laureates</h3>
                         <div class="news-source">India Today, February 7, 2025</div>
                     </a>
                     <a href="https://www.nature.com/articles/d41586-025-00381-z" target="_blank" class="news-card">
-                        <img src="logos/nature.png" alt="Nature Podcast">
+                        <img src="logos/nature.png" alt="Nature Podcast" loading="lazy">
                         <h3 class="news-headline">Kids' real-world arithmetic skills don't transfer to the classroom</h3>
                         <div class="news-source">Nature Podcast, February 5, 2025</div>
                     </a>
                 </div>
                 <div class="news-slide">
                     <a href="https://news.mit.edu/2025/study-shows-kids-use-different-math-skills-work-vs-school-0205" target="_blank" class="news-card">
-                        <img src="logos/mitnews.png" alt="MIT News">
+                        <img src="logos/mitnews.png" alt="MIT News" loading="lazy">
                         <h3 class="news-headline">Study in India shows kids use different math skills at work vs. school</h3>
                         <div class="news-source">MIT News, February 5, 2025</div>
                     </a>
                     <a href="https://www.sciencedaily.com/releases/2025/02/250205130941.htm" target="_blank" class="news-card">
-                        <img src="logos/sciencedaily.png" alt="ScienceDaily">
+                        <img src="logos/sciencedaily.png" alt="ScienceDaily" loading="lazy">
                         <h3 class="news-headline">Study in India shows kids use different math skills at work vs. school</h3>
                         <div class="news-source">ScienceDaily, February 5, 2025</div>
                     </a>
                     <a href="https://phys.org/news/2025-02-kids-math-skills-school-india.html" target="_blank" class="news-card">
-                        <img src="logos/phys.png" alt="Phys.org">
+                        <img src="logos/phys.png" alt="Phys.org" loading="lazy">
                         <h3 class="news-headline">Kids use different math skills at work vs. school, India study shows</h3>
                         <div class="news-source">Phys.org, February 5, 2025</div>
                     </a>
                     <a href="https://www.brookings.edu/articles/does-instructing-students-at-the-right-level-truly-drive-the-impacts-of-targeted-remediation-programs/" target="_blank" class="news-card">
-                        <img src="logos/brookings.jpeg" alt="Brookings Institution">
+                        <img src="logos/brookings.jpeg" alt="Brookings Institution" loading="lazy">
                         <h3 class="news-headline">Does instructing students 'at the right level' truly drive the impacts of targeted remediation programs?</h3>
                         <div class="news-source">Brookings Institution, August 1, 2023</div>
                     </a>
@@ -2047,19 +2047,19 @@ counter(popular)
                     <div class="listen-carousel">
                         <div class="listen-slide active">
                             <a href="https://www.nature.com/articles/d41586-025-00381-z" target="_blank" class="media-card listen-card">
-                                <img src="logos/nature.png" alt="Nature Podcast">
+                                <img src="logos/nature.png" alt="Nature Podcast" loading="lazy">
                                 <h3 class="media-title">Kids' real-world arithmetic skills don't transfer to the classroom</h3>
                                 <div class="media-source">Nature Podcast, 2025</div>
                             </a>
                             <a href="https://www.educationnext.org/ednext-podcast-giving-ed-tech-chance-shine/" target="_blank" class="media-card listen-card">
-                                <img src="logos/educationnext.png" alt="Education Next">
+                                <img src="logos/educationnext.png" alt="Education Next" loading="lazy">
                                 <h3 class="media-title">Giving EdTech a chance to shine</h3>
                                 <div class="media-source">Education Next, 2019</div>
                             </a>
                         </div>
                         <div class="listen-slide">
                             <a href="https://www.brookings.edu/podcast-episode/how-education-technology-can-improve-learning-for-all-students/" target="_blank" class="media-card listen-card">
-                                <img src="logos/brookings.jpeg" alt="Brookings Cafeteria">
+                                <img src="logos/brookings.jpeg" alt="Brookings Cafeteria" loading="lazy">
                                 <h3 class="media-title">How education technology can improve learning for all students</h3>
                                 <div class="media-source">Brookings Cafeteria, 2020</div>
                             </a>
@@ -2073,12 +2073,12 @@ counter(popular)
                 </div>
                 <div class="media-grid">
                     <a href="https://www.youtube.com/watch?v=ckl44ls7uVQ" target="_blank" class="media-card listen-card">
-                        <img src="logos/andino.png" alt="Andino Streaming">
+                        <img src="logos/andino.png" alt="Andino Streaming" loading="lazy">
                         <h3 class="media-title">Brain games proposed for 5-year-old classrooms <span class="lang-flag"></span></h3>
                         <div class="media-source">Andino Streaming</div>
                     </a>
                     <a href="https://www.youtube.com/watch?v=i3usrraHdRw" target="_blank" class="media-card listen-card">
-                        <img src="logos/educacionba.png" alt="EducacionBA">
+                        <img src="logos/educacionba.png" alt="EducacionBA" loading="lazy">
                         <h3 class="media-title">Attendance: Evidence, challenges, and strategies <span class="lang-flag"></span></h3>
                         <div class="media-source">EducacionBA</div>
                     </a>
