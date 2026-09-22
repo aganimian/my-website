@@ -1130,6 +1130,7 @@ counter(popular)
             opacity: 0;
             transition: transform 0.5s ease, opacity 0.5s ease;
             pointer-events: none;
+            visibility: hidden;
         }
 
         .watch-slide.active {
@@ -1137,6 +1138,7 @@ counter(popular)
             transform: translateX(0);
             opacity: 1;
             pointer-events: auto;
+            visibility: visible;
         }
 
         .watch-slide.slide-out {
@@ -1478,7 +1480,7 @@ counter(popular)
             transition: color 0.2s;
         }
 
-        .media-grid .media-title {
+        .watch-carousel .media-title {
             font-size: 1.1rem;
             font-weight: 700;
         }
@@ -1692,8 +1694,17 @@ counter(popular)
                 gap: 3rem;
             }
 
-            .media-grid {
+            .media-grid,
+            .watch-slide {
                 grid-template-columns: 1fr;
+            }
+
+            .watch-carousel-arrow.arrow-left {
+                left: -20px;
+            }
+
+            .watch-carousel-arrow.arrow-right {
+                right: -20px;
             }
 
             .popular-horizontal {
@@ -2076,32 +2087,30 @@ counter(popular)
                 <div class="section-header">
                     <span class="section-title">Watch</span>
                 </div>
-                <div class="media-grid">
-                    <a href="https://www.youtube.com/watch?v=3LRorx-dYdE" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/3LRorx-dYdE/hqdefault.jpg" alt="Augmenting State Capacity for Child Development: Experimental Evidence from India" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Augmenting State Capacity for Child Development: Experimental Evidence from India</h3>
-                        <div class="media-source">SCALE Initiative, 2022</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=wgP4VwETMsA" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/wgP4VwETMsA/hqdefault.jpg" alt="GSL Talks: with Dr. Alejandro Ganimian, NYU" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">GSL Talks: with Dr. Alejandro Ganimian, NYU</h3>
-                        <div class="media-source">Global School Leaders, 2020</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=rRE4pwtXnWQ" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/rRE4pwtXnWQ/hqdefault.jpg" alt="Improving education in developing countries | Alejandro Ganimian" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Improving education in developing countries | Alejandro Ganimian</h3>
-                        <div class="media-source">3ie news, 2017</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=idcVpwGSJhc" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/idcVpwGSJhc/hqdefault.jpg" alt="Calling their bluff" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Calling their bluff</h3>
-                        <div class="media-source">Vox Lacea, 2013</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=Zzhn7z-pomg" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/Zzhn7z-pomg/hqdefault.jpg" alt="HGSE Video Op-Eds: Alejandro Ganimian and the World Bank" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">HGSE Video Op-Eds: Alejandro Ganimian and the World Bank</h3>
-                        <div class="media-source">Harvard Graduate School of Education, 2012</div>
-                    </a>
+                <div class="watch-carousel-container">
+                    <button class="carousel-arrow carousel-arrow-light watch-carousel-arrow arrow-left carousel-arrow-prev" id="watch-prev" onclick="prevWatchSlide()" aria-label="Previous videos">←</button>
+                    <button class="carousel-arrow carousel-arrow-light watch-carousel-arrow arrow-right" onclick="nextWatchSlide()" aria-label="Next videos">→</button>
+                    <div class="watch-carousel">
+                        <div class="watch-slide active">
+                            <a href="https://www.youtube.com/watch?v=3LRorx-dYdE" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/3LRorx-dYdE/hqdefault.jpg" alt="Augmenting State Capacity for Child Development: Experimental Evidence from India" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">Augmenting State Capacity for Child Development: Experimental Evidence from India</h3>
+                                <div class="media-source">SCALE Initiative, 2022</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=wgP4VwETMsA" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/wgP4VwETMsA/hqdefault.jpg" alt="GSL Talks: with Dr. Alejandro Ganimian, NYU" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">GSL Talks</h3>
+                                <div class="media-source">Global School Leaders, 2020</div>
+                            </a>
+                        </div>
+                        <div class="watch-slide">
+                            <a href="https://www.youtube.com/watch?v=rRE4pwtXnWQ" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/rRE4pwtXnWQ/hqdefault.jpg" alt="Improving education in developing countries | Alejandro Ganimian" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">Improving education in developing countries</h3>
+                                <div class="media-source">3ie and J-PAL, 2017</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             </div>

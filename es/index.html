@@ -1130,6 +1130,7 @@
             opacity: 0;
             transition: transform 0.5s ease, opacity 0.5s ease;
             pointer-events: none;
+            visibility: hidden;
         }
 
         .watch-slide.active {
@@ -1137,6 +1138,7 @@
             transform: translateX(0);
             opacity: 1;
             pointer-events: auto;
+            visibility: visible;
         }
 
         .watch-slide.slide-out {
@@ -1478,7 +1480,7 @@
             transition: color 0.2s;
         }
 
-        .media-grid .media-title {
+        .watch-carousel .media-title {
             font-size: 1.1rem;
             font-weight: 700;
         }
@@ -1702,8 +1704,17 @@
                 gap: 3rem;
             }
 
-            .media-grid {
+            .media-grid,
+            .watch-slide {
                 grid-template-columns: 1fr;
+            }
+
+            .watch-carousel-arrow.arrow-left {
+                left: -20px;
+            }
+
+            .watch-carousel-arrow.arrow-right {
+                right: -20px;
             }
 
             .popular-horizontal {
@@ -2086,67 +2097,78 @@
                 <div class="section-header">
                     <span class="section-title">Ver</span>
                 </div>
-                <div class="media-grid">
-                    <a href="https://www.youtube.com/watch?v=6kT3nCg23Jw" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/6kT3nCg23Jw/hqdefault.jpg" alt="Oppenheimer Presenta: Director de las pruebas PISA explica por qué se obtuvieron los peores resultados en ¡20 años!" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Director de las pruebas PISA explica por qué se obtuvieron los peores resultados en ¡20 años!</h3>
-                        <div class="media-source">Oppenheimer Presenta, 22 de septiembre de 2026</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=ckl44ls7uVQ" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/ckl44ls7uVQ/hqdefault.jpg" alt="Andino Streaming" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Juegos cerebrales propuestos para aulas de 5 años</h3>
-                        <div class="media-source">Andino Streaming</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=i3usrraHdRw" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/i3usrraHdRw/hqdefault.jpg" alt="EducacionBA" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Asistencia: Evidencia, desafíos y estrategias</h3>
-                        <div class="media-source">EducacionBA</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=DxGlV0V38C0" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/DxGlV0V38C0/hqdefault.jpg" alt="Educar 2050 - Análisis de Alejandro Ganimian sobre los resultados de las Pruebas PISA 2025" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Educar 2050 - Análisis de Alejandro Ganimian sobre los resultados de las Pruebas PISA 2025</h3>
-                        <div class="media-source">Educar 2050, 2026</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=osm5Sd_5NUY" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/osm5Sd_5NUY/hqdefault.jpg" alt="Educar 2050 - Análisis de Alejandro Ganimian sobre los resultados de las Pruebas PISA 2025" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Educar 2050 - Análisis de Alejandro Ganimian sobre los resultados de las Pruebas PISA 2025</h3>
-                        <div class="media-source">Educar 2050, 2026</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=SqnavCYMtGY" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/SqnavCYMtGY/hqdefault.jpg" alt="¿Cómo apoyar a los sistemas educativos para aprovecharla información que recolectan?" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">¿Cómo apoyar a los sistemas educativos para aprovecharla información que recolectan?</h3>
-                        <div class="media-source">Universidad Torcuato Di Tella, 2022</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=nBGJdwOdcPQ" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/nBGJdwOdcPQ/hqdefault.jpg" alt="&quot;Una reflexión sobre el uso de datos educativos&quot; | Prof. Alejandro Ganimian" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">&quot;Una reflexión sobre el uso de datos educativos&quot; | Prof. Alejandro Ganimian</h3>
-                        <div class="media-source">Educar 2050, 2019</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=646-Dw9v2gI" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/646-Dw9v2gI/hqdefault.jpg" alt="Ed Tech LAC - Sesión 3, Alejandro Ganimian" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Ed Tech LAC - Sesión 3, Alejandro Ganimian</h3>
-                        <div class="media-source">Educar 2050, 2018</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=9IWnptX7Fmk" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/9IWnptX7Fmk/hqdefault.jpg" alt="Ed Tech LAC - Entrevista a Alejandro Ganimian" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Ed Tech LAC - Entrevista a Alejandro Ganimian</h3>
-                        <div class="media-source">Educar 2050, 2018</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=uRQSYvWgqpg" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/uRQSYvWgqpg/hqdefault.jpg" alt="Alejandro J. Ganimian: &quot;Aún no sabemos cómo es el profesor perfecto&quot;" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Alejandro J. Ganimian: &quot;Aún no sabemos cómo es el profesor perfecto&quot;</h3>
-                        <div class="media-source">FundacionAreces, 2017</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=4NbeCHO4a-8" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/4NbeCHO4a-8/hqdefault.jpg" alt="Alejandro J. Ganimian - ¿Podemos identificar maestros efectivos al momento de contratación?" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Alejandro J. Ganimian - ¿Podemos identificar maestros efectivos al momento de contratación?</h3>
-                        <div class="media-source">INEE MEFD, 2015</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=xz6XTVBE5jY" target="_blank" rel="noopener noreferrer" class="media-card">
-                        <img src="https://i.ytimg.com/vi/xz6XTVBE5jY/hqdefault.jpg" alt="Medición de la Efectividad Docente: La Evaluación como Herramienta para un Mejor Sistema Escolar" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
-                        <h3 class="media-title">Medición de la Efectividad Docente: La Evaluación como Herramienta para un Mejor Sistema Escolar</h3>
-                        <div class="media-source">Libertad y Desarrollo Chile, 2014</div>
-                    </a>
+                <div class="watch-carousel-container">
+                    <button class="carousel-arrow carousel-arrow-light watch-carousel-arrow arrow-left carousel-arrow-prev" id="watch-prev" onclick="prevWatchSlide()" aria-label="Videos anteriores">←</button>
+                    <button class="carousel-arrow carousel-arrow-light watch-carousel-arrow arrow-right" onclick="nextWatchSlide()" aria-label="Más videos">→</button>
+                    <div class="watch-carousel">
+                        <div class="watch-slide active">
+                            <a href="https://www.youtube.com/watch?v=6kT3nCg23Jw" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/6kT3nCg23Jw/hqdefault.jpg" alt="Oppenheimer Presenta: Director de las pruebas PISA explica por qué se obtuvieron los peores resultados en ¡20 años!" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">Director de las pruebas PISA explica por qué se obtuvieron los peores resultados en ¡20 años!</h3>
+                                <div class="media-source">Oppenheimer Presenta, 22 de septiembre de 2026</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=ckl44ls7uVQ" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/ckl44ls7uVQ/hqdefault.jpg" alt="Andino Streaming" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">Juegos cerebrales propuestos para aulas de 5 años</h3>
+                                <div class="media-source">Andino Streaming</div>
+                            </a>
+                        </div>
+                        <div class="watch-slide">
+                            <a href="https://www.youtube.com/watch?v=i3usrraHdRw" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/i3usrraHdRw/hqdefault.jpg" alt="EducacionBA" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">Asistencia: Evidencia, desafíos y estrategias</h3>
+                                <div class="media-source">EducacionBA</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=DxGlV0V38C0" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/DxGlV0V38C0/hqdefault.jpg" alt="Educar 2050 - Análisis de Alejandro Ganimian sobre los resultados de las Pruebas PISA 2025" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">Análisis de los resultados de las Pruebas PISA 2025</h3>
+                                <div class="media-source">Educar 2050, 2026</div>
+                            </a>
+                        </div>
+                        <div class="watch-slide">
+                            <a href="https://www.youtube.com/watch?v=osm5Sd_5NUY" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/osm5Sd_5NUY/hqdefault.jpg" alt="Educar 2050 - Análisis de Alejandro Ganimian sobre los resultados de las Pruebas PISA 2025" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">Análisis de los resultados de las Pruebas PISA 2025</h3>
+                                <div class="media-source">Educar 2050, 2026</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=SqnavCYMtGY" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/SqnavCYMtGY/hqdefault.jpg" alt="¿Cómo apoyar a los sistemas educativos para aprovecharla información que recolectan?" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">¿Cómo apoyar a los sistemas educativos para aprovechar la información que recolectan?</h3>
+                                <div class="media-source">Universidad Torcuato Di Tella, 2022</div>
+                            </a>
+                        </div>
+                        <div class="watch-slide">
+                            <a href="https://www.youtube.com/watch?v=nBGJdwOdcPQ" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/nBGJdwOdcPQ/hqdefault.jpg" alt="&quot;Una reflexión sobre el uso de datos educativos&quot; | Prof. Alejandro Ganimian" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">Una reflexión sobre el uso de datos educativos</h3>
+                                <div class="media-source">Educar 2050, 2019</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=646-Dw9v2gI" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/646-Dw9v2gI/hqdefault.jpg" alt="Ed Tech LAC - Sesión 3, Alejandro Ganimian" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">Ed Tech LAC: Sesión 3</h3>
+                                <div class="media-source">Educar 2050, 2018</div>
+                            </a>
+                        </div>
+                        <div class="watch-slide">
+                            <a href="https://www.youtube.com/watch?v=9IWnptX7Fmk" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/9IWnptX7Fmk/hqdefault.jpg" alt="Ed Tech LAC - Entrevista a Alejandro Ganimian" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">Ed Tech LAC: Entrevista</h3>
+                                <div class="media-source">Educar 2050, 2018</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=uRQSYvWgqpg" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/uRQSYvWgqpg/hqdefault.jpg" alt="Alejandro J. Ganimian: &quot;Aún no sabemos cómo es el profesor perfecto&quot;" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">Aún no sabemos cómo es el profesor perfecto</h3>
+                                <div class="media-source">Fundación Ramón Areces, 2017</div>
+                            </a>
+                        </div>
+                        <div class="watch-slide">
+                            <a href="https://www.youtube.com/watch?v=4NbeCHO4a-8" target="_blank" rel="noopener noreferrer" class="media-card">
+                                <img src="https://i.ytimg.com/vi/4NbeCHO4a-8/hqdefault.jpg" alt="Alejandro J. Ganimian - ¿Podemos identificar maestros efectivos al momento de contratación?" style="aspect-ratio: 4/3; object-fit: contain;" loading="lazy">
+                                <h3 class="media-title">¿Podemos identificar maestros efectivos al momento de contratación?</h3>
+                                <div class="media-source">INEE, 2015</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             </div>
