@@ -1154,15 +1154,18 @@
         }
 
         .news-carousel {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
             position: relative;
             overflow: hidden;
         }
 
         .news-slide {
             display: grid;
+            grid-area: 1 / 1;
             grid-template-columns: repeat(4, 1fr);
             gap: 2.5rem;
-            position: absolute;
+            position: relative;
             width: 100%;
             transform: translateX(100%);
             opacity: 0;
