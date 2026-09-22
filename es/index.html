@@ -1098,7 +1098,6 @@
         .watch-carousel-container {
             position: relative;
             width: 100%;
-            max-width: 720px;
             overflow: visible;
         }
 
@@ -1118,15 +1117,18 @@
         }
 
         .watch-carousel {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
             position: relative;
             overflow: hidden;
         }
 
         .watch-slide {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            position: absolute;
+            grid-area: 1 / 1;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            position: relative;
             width: 100%;
             transform: translateX(100%);
             opacity: 0;
@@ -1491,7 +1493,7 @@
             transition: color 0.2s;
         }
 
-        .watch-grid .media-title {
+        .watch-carousel .media-title {
             font-size: 1.1rem;
             font-weight: 700;
         }
@@ -1644,6 +1646,7 @@
             }
 
             .news-grid,
+            .watch-slide,
             .news-slide {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
@@ -2101,62 +2104,72 @@
                 <div class="section-header">
                     <span class="section-title">Ver</span>
                 </div>
-                <div class="media-grid watch-grid">
-                    <a href="https://www.youtube.com/watch?v=6kT3nCg23Jw" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
-                        <img src="../logos/cnn.svg" alt="CNN" loading="lazy">
-                        <h3 class="media-title">Director de las pruebas PISA explica por qué se obtuvieron los peores resultados en ¡20 años!</h3>
-                        <div class="media-source">Oppenheimer Presenta, 22 de septiembre de 2026</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=ckl44ls7uVQ" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
-                        <img src="../logos/andino.png" alt="Andino Streaming" loading="lazy">
-                        <h3 class="media-title">Juegos cerebrales propuestos para aulas de 5 años</h3>
-                        <div class="media-source">Andino Streaming</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=i3usrraHdRw" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
-                        <img src="../logos/educacionba.png" alt="EducacionBA" loading="lazy">
-                        <h3 class="media-title">Asistencia: Evidencia, desafíos y estrategias</h3>
-                        <div class="media-source">EducacionBA</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=DxGlV0V38C0" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
-                        <img src="../logos/educar-2050.jpg" alt="Educar 2050" loading="lazy">
-                        <h3 class="media-title">Análisis de los resultados de las Pruebas PISA 2025</h3>
-                        <div class="media-source">Educar 2050, 2026</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=osm5Sd_5NUY" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
-                        <img src="../logos/educar-2050.jpg" alt="Educar 2050" loading="lazy">
-                        <h3 class="media-title">Análisis de los resultados de las Pruebas PISA 2025</h3>
-                        <div class="media-source">Educar 2050, 2026</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=SqnavCYMtGY" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
-                        <img src="../logos/di-tella.jpg" alt="Universidad Torcuato Di Tella" loading="lazy">
-                        <h3 class="media-title">¿Cómo apoyar a los sistemas educativos para aprovechar la información que recolectan?</h3>
-                        <div class="media-source">Universidad Torcuato Di Tella, 2022</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=nBGJdwOdcPQ" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
-                        <img src="../logos/educar-2050.jpg" alt="Educar 2050" loading="lazy">
-                        <h3 class="media-title">Una reflexión sobre el uso de datos educativos</h3>
-                        <div class="media-source">Educar 2050, 2019</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=646-Dw9v2gI" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
-                        <img src="../logos/educar-2050.jpg" alt="Educar 2050" loading="lazy">
-                        <h3 class="media-title">Ed Tech LAC: Sesión 3</h3>
-                        <div class="media-source">Educar 2050, 2018</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=9IWnptX7Fmk" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
-                        <img src="../logos/educar-2050.jpg" alt="Educar 2050" loading="lazy">
-                        <h3 class="media-title">Ed Tech LAC: Entrevista</h3>
-                        <div class="media-source">Educar 2050, 2018</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=uRQSYvWgqpg" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
-                        <img src="../logos/fundacion-areces.jpg" alt="Fundación Ramón Areces" loading="lazy">
-                        <h3 class="media-title">Aún no sabemos cómo es el profesor perfecto</h3>
-                        <div class="media-source">Fundación Ramón Areces, 2017</div>
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=4NbeCHO4a-8" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
-                        <img src="../logos/inee.jpg" alt="INEE" loading="lazy">
-                        <h3 class="media-title">¿Podemos identificar maestros efectivos al momento de contratación?</h3>
-                        <div class="media-source">INEE, 2015</div>
-                    </a>
+                <div class="watch-carousel-container">
+                    <button class="carousel-arrow carousel-arrow-light watch-carousel-arrow arrow-left carousel-arrow-prev" id="watch-prev" onclick="prevWatchSlide()" aria-label="Videos anteriores">←</button>
+                    <button class="carousel-arrow carousel-arrow-light watch-carousel-arrow arrow-right" onclick="nextWatchSlide()" aria-label="Más videos">→</button>
+                    <div class="watch-carousel">
+                        <div class="watch-slide active">
+                            <a href="https://www.youtube.com/watch?v=6kT3nCg23Jw" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
+                                <img src="../logos/cnn.svg" alt="CNN" loading="lazy">
+                                <h3 class="media-title">Director de las pruebas PISA explica por qué se obtuvieron los peores resultados en ¡20 años!</h3>
+                                <div class="media-source">Oppenheimer Presenta, 22 de septiembre de 2026</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=ckl44ls7uVQ" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
+                                <img src="../logos/andino.png" alt="Andino Streaming" loading="lazy">
+                                <h3 class="media-title">Juegos cerebrales propuestos para aulas de 5 años</h3>
+                                <div class="media-source">Andino Streaming</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=i3usrraHdRw" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
+                                <img src="../logos/educacionba.png" alt="EducacionBA" loading="lazy">
+                                <h3 class="media-title">Asistencia: Evidencia, desafíos y estrategias</h3>
+                                <div class="media-source">EducacionBA</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=DxGlV0V38C0" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
+                                <img src="../logos/educar-2050.jpg" alt="Educar 2050" loading="lazy">
+                                <h3 class="media-title">Análisis de los resultados de las Pruebas PISA 2025</h3>
+                                <div class="media-source">Educar 2050, 2026</div>
+                            </a>
+                        </div>
+                        <div class="watch-slide">
+                            <a href="https://www.youtube.com/watch?v=osm5Sd_5NUY" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
+                                <img src="../logos/educar-2050.jpg" alt="Educar 2050" loading="lazy">
+                                <h3 class="media-title">Análisis de los resultados de las Pruebas PISA 2025</h3>
+                                <div class="media-source">Educar 2050, 2026</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=SqnavCYMtGY" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
+                                <img src="../logos/di-tella.jpg" alt="Universidad Torcuato Di Tella" loading="lazy">
+                                <h3 class="media-title">¿Cómo apoyar a los sistemas educativos para aprovechar la información que recolectan?</h3>
+                                <div class="media-source">Universidad Torcuato Di Tella, 2022</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=nBGJdwOdcPQ" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
+                                <img src="../logos/educar-2050.jpg" alt="Educar 2050" loading="lazy">
+                                <h3 class="media-title">Una reflexión sobre el uso de datos educativos</h3>
+                                <div class="media-source">Educar 2050, 2019</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=646-Dw9v2gI" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
+                                <img src="../logos/educar-2050.jpg" alt="Educar 2050" loading="lazy">
+                                <h3 class="media-title">Ed Tech LAC: Sesión 3</h3>
+                                <div class="media-source">Educar 2050, 2018</div>
+                            </a>
+                        </div>
+                        <div class="watch-slide">
+                            <a href="https://www.youtube.com/watch?v=9IWnptX7Fmk" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
+                                <img src="../logos/educar-2050.jpg" alt="Educar 2050" loading="lazy">
+                                <h3 class="media-title">Ed Tech LAC: Entrevista</h3>
+                                <div class="media-source">Educar 2050, 2018</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=uRQSYvWgqpg" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
+                                <img src="../logos/fundacion-areces.jpg" alt="Fundación Ramón Areces" loading="lazy">
+                                <h3 class="media-title">Aún no sabemos cómo es el profesor perfecto</h3>
+                                <div class="media-source">Fundación Ramón Areces, 2017</div>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=4NbeCHO4a-8" target="_blank" rel="noopener noreferrer" class="media-card listen-card">
+                                <img src="../logos/inee.jpg" alt="INEE" loading="lazy">
+                                <h3 class="media-title">¿Podemos identificar maestros efectivos al momento de contratación?</h3>
+                                <div class="media-source">INEE, 2015</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             </div>
